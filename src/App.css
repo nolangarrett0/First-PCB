@@ -1,0 +1,15 @@
+.app-shell {
+  width: min(100% - 2rem, 44rem);
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.app-shell h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.app-shell p {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
