@@ -4,7 +4,7 @@ Status: evidence-informed pilot, checked 2026-09-25. This document describes the
 
 ## What the research supports
 
-| Source | Finding relevant to CircuitLab | Limit |
+| Source | Finding relevant to First PCB | Limit |
 | --- | --- | --- |
 | [Duolingo's explanation of its app](https://blog.duolingo.com/duolingo-101-how-to-learn-a-language-on-duolingo/) | Duolingo grants XP for completing lessons and other activities, combines it with leaderboards, and lets learners opt out of competition. | This describes Duolingo's current product, not evidence that copying all of its mechanics would teach PCB design. |
 | [Sailer and Homner, gamification meta-analysis](https://link.springer.com/article/10.1007/s10648-019-09498-w) | Across included studies, gamification showed positive average effects on cognitive, motivational, and behavioral outcomes. Motivational and behavioral effects were less stable under high-rigor subgroup analysis. | Designs, learners, and subjects varied; the review does not isolate a universal XP formula. |

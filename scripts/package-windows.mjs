@@ -10,7 +10,7 @@ if (!['portable', 'nsis'].includes(target)) {
 
 // Windows may deny Electron Builder's temporary directory rename inside Documents.
 // Package in the system temp directory, then copy the finished app into release/.
-const stagingRoot = mkdtempSync(join(tmpdir(), 'circuitlab-builder-'))
+const stagingRoot = mkdtempSync(join(tmpdir(), 'first-pcb-builder-'))
 const outputDir = join(stagingRoot, 'output')
 const projectRoot = resolve(import.meta.dirname, '..')
 const releaseDir = join(projectRoot, 'release')

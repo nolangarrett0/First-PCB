@@ -1,12 +1,12 @@
-# CircuitLab: beginner-to-PCB curriculum plan
+# First PCB: beginner-to-PCB curriculum plan
 
-Status: course blueprint, not released lesson content. Researched 2026-09-25. The linked sources and what each supports are recorded in [research.md](research.md). Lesson IDs are stable planning IDs. No numerical component recommendation, footprint, or manufacturing limit is approved by this plan alone.
+Status: course blueprint with playable draft lessons. Researched 2026-09-25. The linked sources and what each supports are recorded in [research.md](research.md). Lesson IDs are stable planning IDs. No numerical component recommendation, footprint, or manufacturing limit is approved by this plan alone.
 
 ## Promise and boundary
 
-The learner starts with no electronics or CAD experience. By the end, they can explain, design, prototype, document, lay out, order, assemble, measure, and debug **one simple low-voltage PCB**, then adapt the design to a different LED without following the original steps verbatim. This is a complete first-PCB path, not a substitute for a broad electrical engineering degree. Topics such as mains power, lithium charging, RF, high speed layout, complex power converters, and microcontroller programming are outside the core course.
+The learner starts with no electronics or CAD experience. By the end, they can explain the steps used to design, prototype, document, lay out, order, assemble, measure, and debug **one simple low-voltage PCB**, then reason through a change to a different LED. Making or ordering a board is optional. Topics such as mains power, lithium charging, RF, high speed layout, complex power converters, and microcontroller programming are outside the core course.
 
-The anchor project is a hand-solderable, two-layer, through-hole board with a red LED, current-limiting resistor, on/off switch, and connection to an external two-AA alkaline holder. The final topology and bill of materials require a reviewed reference design. Two AA cells have 3 V *nominal* total voltage when using the cited 1.5 V nominal E91 cells; nominal is not a fixed measured voltage. The red LED candidate is Kingbright WP7113ID. Its datasheet specifies 1.9 V typical and 2.3 V maximum forward voltage **at 10 mA**, so those figures must not be presented as a universal voltage at other currents. Exact resistor, switch, holder, connector, footprints, and fabricator remain to be selected and checked. See [research.md](research.md#reference-design-decisions-and-unresolved-work).
+The anchor example is a hand-solderable, two-layer, through-hole board with a red LED, current-limiting resistor, on/off switch, and connection to an external two-AA alkaline holder. It illustrates decisions in the workflow; it is not an approved design to order. Two AA cells have 3 V *nominal* total voltage when using the cited 1.5 V nominal E91 cells; nominal is not a fixed measured voltage. The red LED candidate is Kingbright WP7113ID. Its datasheet specifies 1.9 V typical and 2.3 V maximum forward voltage **at 10 mA**, so those figures must not be presented as a universal voltage at other currents. Exact resistor, switch, holder, connector, footprints, and fabricator remain to be selected and checked if a tested build recipe is offered. See [research.md](research.md#reference-design-decisions-and-unresolved-work).
 
 ### Course shape
 
@@ -23,15 +23,15 @@ The anchor project is a hand-solderable, two-layer, through-hole board with a re
 | 8 | Debug and explain | 5 | Fault log and repaired board or diagnosis | Diagnose an unfamiliar seeded fault from evidence |
 | 9 | Make one independent change | 4 | Revised design and design note | Recalculate, update, recheck, and explain tradeoffs |
 
-**Total: 56 lessons.** Most concept/practice lessons should be short enough for one sitting (target 5–10 minutes; a product design target, not a research-derived optimum). CAD and bench tasks are longer and should have resumable checkpoints. Ordering, shipping, and assembly are separate milestones; the course must never present a digital quiz as proof that a physical board works.
+**Total: 56 lessons.** Most concept/practice lessons should be short enough for one sitting (target 5–10 minutes; a product design target, not a research-derived optimum). The table describes the full workflow; its tangible outputs and gates apply to learners who choose hands-on work. Every unit must also have an in-app route using the example. The course must never present a digital quiz as proof that a physical board works.
 
 ### Assessment path
 
-Add **one unit assessment after each of the 10 units**, then a **final integrated assessment** after Unit 9. These are 11 assessment checkpoints in addition to the 56 teaching lessons. Each unit assessment uses at least one changed example, asks for an unaided decision before feedback, and records the evidence listed in that unit's check below. Show specific corrections and a retry with a different case. A failed attempt identifies what to review; it does not erase completed lessons or XP. Safety and release gates require their own correct checks before the learner handles power or orders hardware.
+Add **one unit assessment after each of the 10 units**, then a **final course review** after Unit 9. These are 11 checkpoints in addition to the 56 teaching lessons. Each unit assessment uses at least one changed example and asks for an unaided decision before feedback. Show specific corrections and a retry with a different case. A failed attempt identifies what to review; it does not erase completed lessons or XP. Safety and release checks apply before a learner chooses to handle power or order hardware.
 
-Unit assessments should mix a brief in-app task with the relevant artifact or bench record. For example, Unit 1 uses a new circuit diagram and calculations, while Unit 5 requires the actual board file, a configured DRC report, and a human footprint and polarity review. The app must label physical results as self-reported unless a reviewer verifies them. A passing quiz alone cannot mark a board manufactured, assembled, or working.
+Unit assessments should use a brief in-app task; an artifact or bench record is optional. For example, Unit 1 uses a new circuit diagram and calculations, while Unit 5 can ask how to review a footprint and DRC result. The app must label any physical results as self-reported. A passing quiz alone cannot mark a board manufactured, assembled, or working.
 
-The **final assessment** is a small design review of the complete first PCB and an independent change to a compatible LED. The learner submits or records: a source-backed component choice and calculations; schematic and PCB files; ERC, DRC, footprint, Gerber, and drill checks; an assembly and measurement log for the original board or a documented fault diagnosis; revised design files for the new LED; and a short explanation of assumptions, safety checks, and remaining uncertainty. Pass the final only when each required evidence category is present and the learner can explain the design without following the original worked example. If the physical board is delayed or faulty, mark the final *in progress* with the documented diagnosis; do not imply a working physical board. This is a course-level first-board assessment, not a claim of professional engineering competence.
+The **final review** asks the learner to explain component choices, schematic and board checks, fabrication outputs, assembly and measurement checks, and an independent LED change. The learner marks topics they can explain and topics to revisit, then records any optional design or physical work they attempted. Completing the review records learning activity; it does not certify a manufactured or working board or professional engineering competence.
 
 ## Prerequisite graph
 
@@ -45,11 +45,11 @@ safe low-voltage work → closed loop → voltage/current/resistance → Ohm's l
                    → independent LED substitution and full recheck
 ```
 
-The path is mostly linear because later work changes real hardware. A learner can revisit any completed lesson or reference. A gate blocks physical or financial steps only when the prerequisite is safety or design verification; a missed recall question sends the learner to a short correction and retry, not back to the start of the unit.
+The conceptual path follows the order of the physical workflow. A learner can revisit any completed lesson or reference. A gate applies only if the learner chooses a physical or financial step; a missed recall question sends the learner to a short correction and retry, not back to the start of the unit.
 
 ## Lesson map
 
-In the tables, **evidence** is what a learner must actually do. `App` means an in-app prediction, calculation, annotation, or fault exercise that can receive immediate deterministic feedback. `Artifact` means a saved design file or record. `Bench` means a physical observation or measurement, recorded by the learner and labelled self-reported unless independently reviewed. Source codes resolve in [research.md](research.md#source-ledger).
+In the tables, **evidence** describes the full hands-on version of an activity. The app should provide a parallel example-based exercise when a learner has no design file or hardware. `App` means an in-app prediction, calculation, annotation, or fault exercise that can receive immediate deterministic feedback. `Artifact` means an optional saved design file or record. `Bench` means an optional physical observation or measurement, recorded by the learner and labelled self-reported. Source codes resolve in [research.md](research.md#source-ledger).
 
 ### Unit 0 — Prepare the mission
 
@@ -87,7 +87,7 @@ In the tables, **evidence** is what a learner must actually do. `App` means an i
 | 2.6 | Specify switch, holder, and connection. | Compare contact operation and mechanical fit; identify polarity and where strain relief or a connector is needed. | Source-backed component requirements, not yet a part number | K3; switch/holder datasheets pending |
 | 2.7 | Review plausible failure cases. | Given reversed LED, missing resistor, open switch, and shorted rails, predict what happens and where to stop. | Correct diagnosis and safe action in a new case | C1, B2, F1 |
 
-**Unit check:** a one-page design decision record contains the selected exact parts, verified manufacturer links, operating assumptions, calculations, package dimensions, and an explicit unresolved-items list. The instructional reference design must be reviewed by someone competent before values are locked in product lessons.
+**Unit check:** use datasheet information to explain a sample part choice, calculations, and what remains unresolved. Exact parts and values need further verification only if the course later offers a build recipe.
 
 ### Unit 3 — Prototype and measure before committing to copper
 
@@ -100,7 +100,7 @@ In the tables, **evidence** is what a learner must actually do. `App` means an i
 | 3.5 | Compare measured and predicted results. | Enter values with units and uncertainty; feedback asks whether a difference is explained by battery voltage, LED variation, resistor tolerance, or wiring. | Observation–prediction–explanation record | C1, C2, F1 |
 | 3.6 | Find one seeded breadboard fault. | Diagnose an open rail, reversed LED, or wrong resistor by proposing a measurement first; feedback follows the selected test. | Fault, discriminating test, correction, retest | M1, C1 |
 
-**Unit check:** the prototype lights as intended and the learner records supply, resistor, and LED voltages, then checks whether they are mutually consistent. The app can check arithmetic and plausible ranges; it cannot verify an unobserved physical result.
+**Unit check:** use a sample measurement record to check whether supply, resistor, and LED voltages are mutually consistent. Learners who build a prototype can record their own readings. The app can check arithmetic and plausible ranges; it cannot verify an unobserved physical result.
 
 ### Unit 4 — Make a schematic in KiCad
 
@@ -128,7 +128,7 @@ In the tables, **evidence** is what a learner must actually do. `App` means an i
 | 5.7 | Run DRC and schematic parity. | Diagnose clearance, unconnected pad, and outline errors; inspect rule settings before claiming a clean result. | DRC report with parity enabled and no unexplained violations | K4 |
 | 5.8 | Perform a human board review. | Follow each schematic net through the copper; inspect orientation, footprint fit, connector polarity, board edge, holes, and assembly access. | Review checklist plus revision note | K4, C1, P1 |
 
-**Unit check:** a clean, configured DRC and a human review are both required. DRC tests the rules that were actually configured and net connections; it cannot validate the selected part, footprint dimensions, or electrical intent by itself [K4].
+**Unit check:** explain why a clean, configured DRC and a human inspection answer different questions. Learners who create a board can run both checks on their own files. DRC tests the configured rules and net connections; it cannot validate a selected part, footprint dimensions, or electrical intent by itself [K4].
 
 ### Unit 6 — Prepare fabrication and ordering
 
@@ -139,7 +139,7 @@ In the tables, **evidence** is what a learner must actually do. `App` means an i
 | 6.3 | Prepare an order and build kit. | Check fabricator preview, board options, quantity, cost/shipping shown at order time, BOM part numbers, tool and spare-part list. | Order-ready package and BOM | P1; vendor terms must be current |
 | 6.4 | Complete the pre-order release gate. | Reconcile schematic revision, PCB revision, DRC report, Gerbers, drills, and BOM; another review pass signs off before money is spent. | Release checklist and immutable package hash/version | K4, K5, P1 |
 
-**Unit check:** the learner can hand a complete, inspected package to a fabricator. Placing an actual order is a learner action, not an automatic course requirement; the path can pause while boards ship. Prices, vendor capabilities, and ordering screens must be rechecked when this lesson is published and when the learner orders.
+**Unit check:** inspect an example package and explain which files and checks a fabricator would need. A learner who chooses to order a board must verify their own package, current prices, vendor capabilities, and ordering screens. Ordering is never required to finish the course.
 
 ### Unit 7 — Assemble and power the board
 
@@ -175,7 +175,7 @@ In the tables, **evidence** is what a learner must actually do. `App` means an i
 | 9.3 | Update schematic, board, and outputs coherently. | Change the design, rerun ERC/DRC/parity, and compare Gerbers to the previous revision. | Revised artifacts and checks | K2–K5 |
 | 9.4 | Defend the design as a small engineering review. | Explain assumptions, evidence, failure risks, measurements to make, and what remains unverified until built. | Short design review and record of demonstrated skills | All relevant source records |
 
-**Course completion:** the original board has been built and tested (or a documented fault has been isolated with an actionable next step), and the learner can independently revise the design for a new part. A physical build can be recorded as self-reported until a mentor or reviewer checks evidence. Do not claim professional PCB design competence from this course.
+**Course completion:** the learner has worked through the lessons, unit checks, and final review, and can identify what changes when a new LED is used. A physical build is optional and, if reported, remains self-reported. Do not claim a working board or professional PCB design competence from course completion alone.
 
 ## Retrieval and transfer threads
 

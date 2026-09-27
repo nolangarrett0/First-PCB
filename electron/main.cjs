@@ -1,9 +1,13 @@
 const { app, BrowserWindow, net, protocol, session, shell } = require('electron')
+const { existsSync } = require('node:fs')
 const path = require('node:path')
 const { pathToFileURL } = require('node:url')
 
 const appOrigin = 'app://circuitlab'
 const distDirectory = path.resolve(__dirname, '..', 'dist')
+// Keep existing desktop progress when upgrading from the previous app name.
+const previousUserData = path.join(app.getPath('appData'), 'CircuitLab')
+if (existsSync(previousUserData)) app.setPath('userData', previousUserData)
 const externalHosts = new Set([
   'docs.kicad.org',
   'openstax.org',
@@ -12,6 +16,7 @@ const externalHosts = new Set([
   'energizer.com',
   'learn.adafruit.com',
   'jlcpcb.com',
+  'www.fluke.com',
 ])
 
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { standard: true, secure: true, supportFetchAPI: true } }])
@@ -48,7 +53,7 @@ async function serveBundle(request) {
 
 function createWindow() {
   const window = new BrowserWindow({
-    title: 'CircuitLab',
+    title: 'First PCB',
     show: process.env.CIRCUITLAB_TEST !== '1',
     width: 1250,
     height: 850,

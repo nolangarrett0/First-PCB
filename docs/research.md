@@ -1,6 +1,6 @@
 # Research and source policy
 
-The goal is a learner who can design, fabricate, assemble, and debug a simple PCB. Curriculum claims must be checked before lessons are published.
+The goal is a learner who understands how to design, fabricate, assemble, and debug a simple PCB. Making a physical board is optional. Curriculum claims must be checked before lessons are published.
 
 ## Source hierarchy
 
@@ -47,6 +47,7 @@ Checked 2026-09-25. The companion [curriculum plan](curriculum-plan.md) maps the
 | K5 | [KiCad 10 GerbView manual](https://docs.kicad.org/10.0/en/gerbview/gerbview.html) | Independent inspection of Gerber and Excellon drill files | Viewing files is an additional review, not a manufacturing guarantee. |
 | P1 | [JLCPCB KiCad Gerber/drill preparation](https://jlcpcb.com/help/article/how-to-generate-gerber-and-drill-files-in-kicad-8), [capabilities](https://jlcpcb.com/capabilities/Capab), and [Gerber preparation](https://jlcpcb.com/help/article/gerber-files-preparation) | Example fabricator documentation: set rules before routing, export and inspect outline/layers/drills, confirm capabilities | Vendor pages and requirements can change. KiCad 8-specific instructions must not be copied into a KiCad 10 lesson without checking. The learner may choose another fabricator. No numeric minimum is locked here. |
 | M1 | [Adafruit multimeter guide](https://learn.adafruit.com/multimeters?view=all) | DC voltage measurement, current measurement in series with the correct jack, unpowered continuity/resistance checks, meter fault patterns | Meter models differ. Each physical lesson must show the learner how to consult their own meter manual; the core design can infer current from resistor voltage instead of requiring current mode. |
+| M2 | [Fluke continuity testing guide](https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-test-for-continuity) | De-energizing a circuit before continuity testing, interpreting a beep as a path below a meter-dependent threshold | A beep alone does not identify the path or prove that two pads are directly bridged; nearby components can affect an in-circuit reading. |
 | A1 | [Adafruit soldering tools and safety](https://learn.adafruit.com/adafruit-guide-excellent-soldering) | Stable iron stand, tools, ventilation, appropriate electronics solder and preparation | Do not turn a short checklist into a guarantee of safety. Local instruction and the solder/iron manufacturers’ directions still apply. |
 | A2 | [Adafruit: making a good solder joint](https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint) | Heat pad and lead, flow solder into joint, cool without movement, trim through-hole leads | Part datasheets may limit soldering time and temperature; check selected parts. |
 | A3 | [Adafruit: common soldering problems](https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems) | Visual recognition and correction of disturbed, cold, and other poor joints | A photo cannot prove an invisible connection is sound; use continuity and functional tests too. |
@@ -59,12 +60,12 @@ Checked 2026-09-25. The companion [curriculum plan](curriculum-plan.md) maps the
 1. **The first project can have a real endpoint without becoming an entire EE survey.** OpenStax supports the core current/voltage/resistance relationships [F1–F3]. MIT’s introductory course shows analysis, design, and measurement as connected activities [F4]. We use just enough of those fundamentals to reason about the selected board.
 2. **The part data cannot be compressed to “an LED drops 2 V.”** The candidate LED’s stated forward voltage is tied to 10 mA and 25 °C [C1]. The app must display test conditions and uncertainty. The battery’s 1.5 V figure is nominal [C2]. This is why the final resistor is a design review gate, not an answer copied from the HTML comparison preview.
 3. **A rule-check pass is necessary but incomplete.** KiCad distinguishes schematic ERC, board DRC, and visual review [K2–K4]. The curriculum therefore has separate logical, physical, and fabrication-output inspections.
-4. **The learner needs physical feedback.** Bench measurement exposes incorrect assumptions and assembly errors that a calculator or simulation can miss [M1]. Physical results are learner-reported until reviewed; calculations can be checked by the app.
+4. **Physical feedback adds evidence when a learner builds.** Bench measurement can expose incorrect assumptions and assembly errors that a calculator or simulation can miss [M1]. Physical results are learner-reported; calculations can be checked by the app. A learner can finish the conceptual course without a build.
 5. **Learning needs later retrieval and new contexts.** The research supports revisiting ideas after a delay [E1, E2], and feedback that points to the next correction [E3]. It does not support treating streaks, completion clicks, or a rigid interval as mastery.
 
 ### Reference-design decisions and unresolved work
 
-| Decision / question | Current position | Required evidence before release |
+| Decision / question | Current position | Needed before offering a specific build recipe |
 | --- | --- | --- |
 | Supply | Two **alkaline** AA cells in an external holder; no soldering directly to cells | Exact holder/connector datasheets, polarity scheme, measured fresh-cell range, and reference build test [C2, B2] |
 | LED | Candidate: Kingbright WP7113ID red through-hole LED | Exact package/footprint match, purchase availability, bench check of visible brightness at proposed current, and worst-case current analysis [C1] |
@@ -81,4 +82,4 @@ Checked 2026-09-25. The companion [curriculum plan](curriculum-plan.md) maps the
 
 For every factual claim: save the claim, direct source URL, document title/revision, exact page/section or data-sheet condition, check date, and reviewer. For every calculation: save inputs, units, assumptions, expected range, and an independent second calculation. Label design choices separately. If source and lesson disagree after a tool or part revision, withdraw the lesson from release until corrected. Preserve the old source revision with the old design record so a learner can understand a previous board.
 
-No physical instructions should go live solely because they passed an app test. The reference circuit should be built, measured, assembled on the designed PCB, and intentionally fault-tested by the course team before learners are asked to order it.
+Concept lessons can be published after their claims, examples, and beginner comprehension are checked. If the course later gives learners an exact parts list and files to order and assemble, that specific recipe should first be built, measured, assembled on the designed PCB, and fault-tested by the course team. That validation is not a prerequisite for teaching how the process works.

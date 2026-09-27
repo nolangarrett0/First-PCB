@@ -1,18 +1,18 @@
 # Beginner walkthrough and course readiness audit
 
-Checked 2026-09-25. This audit began when [lesson 0.1](../src/App.tsx) was the only playable activity. All 56 lesson entries in the [curriculum plan](curriculum-plan.md) now have playable guided activities in the app, but the observations and release conditions below still apply. An automated playthrough cannot become a genuinely new learner, fabricate a board, or verify what another person retains after a delay.
+Checked 2026-09-25. This audit began when [lesson 0.1](../src/App.tsx) was the only playable activity. All 56 lesson entries in the [curriculum plan](curriculum-plan.md) now have playable guided activities in the app. See the newer [lesson quality review](lesson-quality-review.md) for the 2026-09-27 question, feedback, and source pass. An automated playthrough cannot become a genuinely new learner or verify what another person retains after a delay.
 
 ## What was actually exercised
 
 In an isolated headless browser at desktop and mobile widths, I opened lesson 0.1, read the five workflow diagrams, started the ordering task, submitted a wrong order, used its specific correction, finished the order, answered the bare-board question wrongly, corrected it, completed the lesson, replayed it without errors, exited during a new attempt, and reloaded the app. The app rendered, the controls worked, unfinished-exit warnings appeared, completed progress survived reload, and XP was awarded only once. Lint and build were also run separately.
 
-The first lesson teaches the **names and sequence** of five stages. The diagrams and feedback are useful orientation, but the first ordering task repeats the same five stages just shown. The final multiple-choice question asks what a bare board needs after the introduction and ordering cards have already given that answer. Therefore first-try success is evidence of immediate guided practice, not independent transfer. The app records it as practice; the Unit 0 assessment uses changed questions. The later lessons teach their topics as short source-linked explanations and checks; the CAD and bench records remain self-reported, and the exact reference hardware is not yet validated.
+The first lesson teaches the **names and sequence** of five stages. The diagrams and feedback are useful orientation, but the first ordering task repeats the same five stages just shown. The final multiple-choice question asks what a bare board needs after the introduction and ordering cards have already given that answer. Therefore first-try success is evidence of immediate guided practice, not independent transfer. The app records it as practice; the Unit 0 assessment uses changed questions. The later lessons teach their topics as short source-linked explanations and checks; optional CAD and bench records remain self-reported. The example board is not an order-ready design.
 
 ## Planned lesson walkthrough
 
-All rows marked **playable draft** have an explanation, teaching visual, question, source link, and learner note. That does not mean the lesson has passed a beginner pilot or that its physical procedure is verified. Each release condition is the next concrete check before treating that lesson as a finished course module. The source ledger and unresolved exact-part decisions are in [research.md](research.md).
+All rows marked **playable draft** have an explanation, teaching visual, question, and source link; learner notes are now optional. The table below is an earlier backlog of potential improvements, including optional hands-on extensions. See the [lesson quality review](lesson-quality-review.md) for what has since been revised. Exact-part and physical validation is needed only before offering an order-ready build recipe; the course can teach the process without one. The source ledger and unresolved exact-part decisions are in [research.md](research.md).
 
-| ID | Status | Beginner walkthrough question or release condition |
+| ID | Status at first audit | Possible next improvement or optional build check |
 | --- | --- | --- |
 | 0.1 | Playable | Add a later changed-case assessment; do not infer mastery from repeating the illustrated order. |
 | 0.2 | Playable draft | Make the safe two-AA boundary unambiguous without suggesting every low-voltage setup is safe. |
@@ -26,7 +26,7 @@ All rows marked **playable draft** have an explanation, teaching visual, questio
 | 1.6 | Playable draft | Distinguish an open from a short visually; make direct battery shorts an explicit stop condition. |
 | 2.1 | Playable draft | Show both schematic symbol and physical LED orientation; check the exact candidate package. |
 | 2.2 | Playable draft | Teach how to find page, test current, typical/maximum, and package data in the original datasheets. |
-| 2.3 | Playable draft | State that brightness/current target is a design choice; validate against measured reference hardware. |
+| 2.3 | Playable draft | State that brightness/current target is a design choice; explain the assumptions and limits of the example. |
 | 2.4 | Playable draft | Finish the reference design and show the battery/LED range, not one nominal-voltage answer. |
 | 2.5 | Playable draft | Select an exact resistor and rating before asking for a pass/fail power-margin decision. |
 | 2.6 | Playable draft | Select exact switch, holder, and connection parts; verify pinout, fit, and polarity physically. |
@@ -73,7 +73,7 @@ All rows marked **playable draft** have an explanation, teaching visual, questio
 
 ## Assessment readiness
 
-The app now includes ten three-question unit checks and one final self-reported design review. These check principles and record learner notes; they do not inspect KiCad files, measurements, or hardware. Before treating the physical course as validated, build the exact reference circuit, measure it, fabricate and assemble its board, and capture real faults. This is necessary to make numeric answers, CAD screenshots, physical checks, and answer ranges trustworthy. A self-reported build is labeled as such. The final review records evidence and uncertainty; it does not certify a working board.
+The app now includes ten three-question unit checks and one final course review. These check principles and record learner notes; they do not inspect KiCad files, measurements, or hardware. The concept lessons need source checks and beginner testing before claims about learning effectiveness. A separate exact build recipe would need a fabricated, assembled, and measured reference before learners are given files and parts to order. A self-reported build is labeled as such; the final review does not certify a working board.
 
 ## Implementation check
 

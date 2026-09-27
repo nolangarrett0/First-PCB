@@ -1,5 +1,5 @@
 {
-  "name": "circuitlab",
+  "name": "first-pcb",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -30,14 +30,14 @@
     "vite": "^8.3.0"
   },
   "build": {
-    "appId": "com.circuitlab.learning",
-    "productName": "CircuitLab",
+    "appId": "com.firstpcb.learning",
+    "productName": "First PCB",
     "directories": { "output": "release" },
     "files": ["dist/**/*", "electron/**/*", "package.json"],
     "asar": true,
     "compression": "store",
     "win": { "target": ["portable"], "icon": "build/icon.ico" },
-    "portable": { "artifactName": "CircuitLab-${version}-portable.${ext}" },
+    "portable": { "artifactName": "First-PCB-${version}-portable.${ext}" },
     "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
   }
 }

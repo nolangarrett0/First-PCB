@@ -1,10 +1,10 @@
 # Learning design
 
-The [teach skill](https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md) informs the teaching approach. CircuitLab uses in-app lessons and interactive circuit tasks rather than separate HTML lesson files.
+The [teach skill](https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md) informs the teaching approach. First PCB uses in-app lessons and interactive circuit tasks rather than separate HTML lesson files.
 
 ## Learner mission
 
-Design a simple circuit, turn it into a PCB, obtain the board, assemble it, and verify its behavior with measurements.
+Understand the path from a simple circuit to a designed, fabricated, assembled, and tested PCB. Learners may follow the worked example throughout or choose to make and test a physical board.
 
 ## Lesson pattern
 
@@ -14,13 +14,17 @@ Design a simple circuit, turn it into a PCB, obtain the board, assemble it, and 
 4. Give specific feedback and let the learner revise.
 5. Revisit the skill later in a different context.
 
+The current in-app lesson screen follows a concrete sequence: state the PCB task, define the words needed for it, explain the idea, walk through one case, then ask the learner to solve a related but different case with feedback. Each of the 55 post-intro lessons has its own vocabulary and worked example; the opening workflow lesson uses the same structure. The unit assessments revisit ideas in changed cases. A saved note is still self-reported practice, not verified mastery.
+
+This order reflects findings that prior knowledge affects new learning ([National Academies, *How People Learn II*](https://www.nationalacademies.org/read/24783/chapter/7)), worked examples support novices before independent problem solving ([van Gog, Kester, and Paas, 2011](https://eric.ed.gov/?id=EJ927458)), active work is more effective than passive lecture across STEM courses ([Freeman et al., 2014](https://doi.org/10.1073/pnas.1319030111)), and practice testing plus spaced review support retention ([Dunlosky et al., 2013](https://www.psychologicalscience.org/publications/journals/pspi/learning-techniques.html)). These studies guide the design; they do not establish that this app’s specific lessons have been validated with beginners.
+
 Record mastery only when the learner demonstrates it. Exposure to a lesson is progress, but does not establish competence. Keep concise references and a glossary available for review.
 
-The course blueprint covers prerequisite order, the first-board scope, simulation limits, fabrication checks, assembly, and assessment. Exact component and fabricator choices remain gated by the reference-design work listed in [research.md](research.md#reference-design-decisions-and-unresolved-work).
+The course blueprint covers prerequisite order, the first-board scope, simulation limits, fabrication checks, assembly, and assessment. Exact component and fabricator choices need the reference-design work in [research.md](research.md#reference-design-decisions-and-unresolved-work) only if we offer a specific board to order and build.
 
 ## Course application to the first PCB
 
-The researched [56-lesson curriculum plan](curriculum-plan.md) starts at zero experience and follows one through-hole, two-AA LED board through a physical build, debug, and independent variation. The [source ledger](research.md#source-ledger) gives the evidence and limits for the plan. The numbers of lessons and target lesson lengths are product decisions to validate with beginners.
+The researched [56-lesson curriculum plan](curriculum-plan.md) starts at zero experience and follows one through-hole, two-AA LED board as an example through design, fabrication, assembly, debugging, and an independent variation. Physical work is optional. The [source ledger](research.md#source-ledger) gives the evidence and limits for the plan. The numbers of lessons and target lesson lengths are product decisions to validate with beginners.
 
 ### Standard lesson contract
 
@@ -55,7 +59,7 @@ For a skill to reach *demonstrated*, require a correct, unaided attempt on a cha
 
 **Completion gates:** the learner can continue after receiving corrective feedback for ordinary recall errors; later retrieval decides retention. Before an expensive or physical step, the learner must pass the relevant safety and artifact checks. For example, an order-ready board requires an inspected schematic, a configured DRC with schematic parity, footprint checks against exact parts, and independently inspected Gerbers/drills. The app should present those checks as evidence to collect; it must not claim to have verified a file or physical board it has not examined.
 
-**Unit and final assessments:** the [course plan](curriculum-plan.md#assessment-path) places a changed-case assessment after every unit and an integrated design review after Unit 9. Record passing evidence by skill and artifact, including whether a bench result is self-reported or independently reviewed. A learner can retry after targeted feedback without losing lesson completion or XP. The final assessment combines calculations, design files, manufacturing checks, physical measurements or an honest fault diagnosis, and an independent part change; no single multiple-choice score can replace those artifacts.
+**Unit and final assessments:** the [course plan](curriculum-plan.md#assessment-path) places a changed-case assessment after every unit and an integrated course review after Unit 9. Record conceptual answers separately from optional design files or bench results. A learner can retry after targeted feedback without losing lesson completion or XP. The final review records what the learner can explain and which hands-on activities they attempted; completing it does not certify a physical board.
 
 ### Feedback by task type
 
@@ -68,7 +72,7 @@ For a skill to reach *demonstrated*, require a correct, unaided attempt on a cha
 | Measurement | Compare entered reading with plausible range and prior predictions | Which diagnoses the reading supports or rules out | Whether the probes, meter mode, and report are accurate |
 | Solder joint / fault photo | Guided visual checklist; no definitive automatic verdict | Visible concerns and next safe test | Hidden joints, intermittent faults, or a reviewer’s inspection |
 
-The first release need not contain a full SPICE simulator or a KiCad clone. A small deterministic circuit model can cover the initial resistor/LED lessons if it labels assumptions and avoids pretending to predict exact LED brightness. KiCad’s integrated simulator exists, but model selection and simulation validity are a separate content and engineering task [KiCad schematic manual](https://docs.kicad.org/10.0/en/eeschema/eeschema.html). The learner must eventually use real KiCad and a meter, because those are course outcomes.
+The first release need not contain a full SPICE simulator or a KiCad clone. A small deterministic circuit model can cover the initial resistor/LED lessons if it labels assumptions and avoids pretending to predict exact LED brightness. KiCad’s integrated simulator exists, but model selection and simulation validity are a separate content and engineering task [KiCad schematic manual](https://docs.kicad.org/10.0/en/eeschema/eeschema.html). Learners who choose hands-on design and measurement need real KiCad and a meter; conceptual course completion does not require either.
 
 ### Review rhythm
 
@@ -93,15 +97,14 @@ The course should make mistakes recoverable. A wrong answer triggers a consequen
 
 Keep one reviewable record per lesson: stable ID and revision; learner outcome; prerequisite skill IDs; project state before/after; worked example; unaided practice variant; expected answers with units and accepted ranges; misconception-specific feedback; hint ladder; return lesson; source claims with page/section and check date; numerical assumptions; safety stop conditions; evidence type; and reviewer sign-off. Store factual claims and design choices in separate fields. This makes a source update or part substitution traceable across every affected lesson.
 
-The learner path needs honest alternate states. A learner without a meter can study through part selection but cannot claim the bench measurement gate. Someone waiting for a fabricated board can keep doing recall and fault simulations without being marked as having assembled it. If ordering or soldering is inaccessible, offer a simulation-only pause and a clear account of which course outcomes remain unverified.
+The learner path needs honest alternate states. A learner without a meter can finish the conceptual course while marking bench work pending. Someone waiting for a fabricated board can keep doing recall and fault simulations without being marked as having assembled it. If ordering or soldering is inaccessible, show which hands-on outcomes remain unverified without blocking course completion.
 
 ### Content production order
 
-1. **Approve the reference hardware.** Select exact parts and fabricator rules, calculate operating ranges, build a breadboard version, create a KiCad reference board, fabricate it, assemble it, and log measured results and faults.
-2. **Author the minimum vertical course slice.** Write Units 0–3 with source-tagged claims and deterministic feedback. Test whether zero-experience learners can reach a safe, measured breadboard circuit.
-3. **Author CAD and fabrication lessons.** Use the approved project files and current KiCad documentation for Units 4–6. Review every screenshot, shortcut, and export setting in the target version.
-4. **Author physical build and troubleshooting.** Use photos and measurements from the reference build for Units 7–8; test stop conditions and fault paths with beginners.
-5. **Author transfer and retention.** Use a second real LED/part set for Unit 9. Evaluate whether learners can complete the change without copying the worked example.
-6. **Pilot and revise.** Observe several true beginners completing each gate; record confusing terms, unsafe interpretations, time spent, hint use, and failures. Revise the lesson sequence and checks before claiming the course is ready.
+1. **Check the teaching claims.** Verify electrical explanations and calculations against the linked sources. Label the LED board as an example and avoid giving an untested parts list or files as a build recipe.
+2. **Teach the course sequence.** Use short explanations, worked examples, changed-case questions, and feedback across the ten units. Explain fabrication, assembly, and measurement even when the learner has no hardware.
+3. **Check tool lessons.** Review KiCad screenshots, shortcuts, and export steps in the target version. Make each hands-on task optional and provide a conceptual example when no file or meter is available.
+4. **Pilot and revise.** Observe true beginners completing lessons; record confusing terms, unsafe interpretations, time spent, hint use, and failures. Revisit the course after a delay to see what they retain.
+5. **Validate a separate build recipe if offered.** Before giving learners exact parts and files to order, select those parts, build and measure the circuit, fabricate and assemble the board, and document the results and faults.
 
 No UI implementation or visual redesign is part of this planning document. The selected trail map can later display these units and states, but the course logic should be independent of how the path is drawn.
