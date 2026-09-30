@@ -10,7 +10,11 @@ const names: Record<string, string> = {
 const tokens = /\b(?:BT1(?:[+−-]| [+−-])?|(?:S1|R1|D1)(?:\.[123]| pin [123])?)|\b(?:LED_A|VCC|GND|SW)(?: connection| net)?\b|\b(?:ERC|DRC|BOM|COM|DC|SDS|VF|IF|TA|VR|OL)\b/g
 export function learningText(text: string): string {
   // Real file names must remain copyable and match the teaching inventory.
-  return text.split(/(\b[\w.-]+\.(?:gbr|drl|kicad_pcb|kicad_sch|csv|pdf)\b)/g).map((chunk, i) => i % 2 ? chunk : chunk.replace(tokens, token => {
+  return text.split(/(\b[\w.-]+\.(?:gbr|drl|kicad_pcb|kicad_sch|csv|pdf)\b)/g).map((chunk, i) => i % 2 ? chunk : chunk.replace(tokens, (token, offset: number) => {
+    // A label already paired with its explanation must remain readable, even
+    // when rendered again in feedback or a learning record.
+    const before = chunk.slice(0, offset)
+    if (before.endsWith('(') && chunk[offset + token.length] === ')' && /(?:battery(?: holder| positive| negative)?(?: contact)?|switch|resistor|LED(?: anode| cathode)?|supply positive|battery return|battery-negative return|connection after the switch|connection to the LED anode|electrical rules check|design rules check|parts list|common probe socket|direct current|safety data sheet|forward voltage|forward current|ambient temperature|resistor voltage|over-range or open indication)(?: pin [123]| positive contact| negative contact)? \($/i.test(before)) return token
     const component = /^(BT1|S1|R1|D1)(.*)$/.exec(token)
     if (!component) {
       const label = token.replace(/ (?:connection|net)$/, '')

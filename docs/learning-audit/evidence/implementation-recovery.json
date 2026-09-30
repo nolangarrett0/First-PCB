@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-09-30T04:46:57.457Z",
+  "startedAt": "2026-09-30T16:42:08.869Z",
   "scenarios": [
     "mid-check question, case, partially typed value/unit and prior events survive reload",
     "enlarged diagram remains contained on a 390px screen",
@@ -10,5 +10,5 @@
     "session-only work keeps an unload guard after returning to the path"
   ],
   "success": true,
-  "finishedAt": "2026-09-30T04:47:02.101Z"
+  "finishedAt": "2026-09-30T16:42:22.105Z"
 }

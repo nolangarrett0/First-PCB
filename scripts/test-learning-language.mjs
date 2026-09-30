@@ -17,7 +17,7 @@ const result={lessons:[],scenarios:[]}
 try {
   await page.goto(process.env.LEARNING_TEST_URL??'http://127.0.0.1:5173')
   await page.evaluate(({r,k})=>localStorage.setItem(k,JSON.stringify(r)),{r:baseline,k:RECORD_KEY});await page.reload()
-  const paths=courseUnits.flatMap((u,i)=>[...u.lessonIds,`unit-${i}`]).concat('final')
+  const paths=courseUnits.flatMap(u=>[...u.lessonIds,u.checkId]).concat('final')
   for(const id of courseUnits.flatMap(u=>u.lessonIds)) {
     await page.locator('.trail-node').nth(paths.indexOf(id)).click()
     await page.getByRole('button',{name:'Begin practice',exact:true}).waitFor()
@@ -48,7 +48,7 @@ try {
     assert.ok(await page.locator('.reference-panel .reading-terms dt').count(),`Glossary missing ${term}`)
   }
   assert.deepEqual(errors,[])
-  result.scenarios=['56 lesson readings explain their labels','0.4 uses plain inspection instructions and table labels','Practice checkboxes name the parts and show an inline key','390px layout fits','Glossary includes circuit, meter, datasheet and layer shorthand']
+  result.scenarios=['65 lesson readings explain their labels','0.4 uses plain inspection instructions and table labels','Practice checkboxes name the parts and show an inline key','390px layout fits','Glossary includes circuit, meter, datasheet and layer shorthand']
   result.success=true
 } finally {
   result.finishedAt=new Date().toISOString()

@@ -1,6 +1,16 @@
 {
-  "startedAt": "2026-09-30T04:44:43.139Z",
+  "startedAt": "2026-09-30T16:36:21.880Z",
   "activities": [
+    "E.1",
+    "E.2",
+    "E.3",
+    "E.4",
+    "E.5",
+    "E.6",
+    "E.7",
+    "E.8",
+    "E.9",
+    "unit-basics",
     "0.1",
     "0.2",
     "0.3",
@@ -76,11 +86,11 @@
     "all notes readable without retaking; actual wrong and corrected decisions retained",
     "backup round trip and duplicate imports preserve XP and history",
     "retrieval review works and never duplicates participation awards",
-    "searchable reference, 23 sourced entries, keyboard trap and Escape",
+    "searchable reference, 33 sourced entries, keyboard trap and Escape",
     "diagram, comparison, photograph, diagnosis and final screens fit 320/390/1280px",
     "storage failure stays visible and current answers are exportable"
   ],
   "success": true,
   "errors": [],
-  "finishedAt": "2026-09-30T04:46:18.614Z"
+  "finishedAt": "2026-09-30T16:39:59.885Z"
 }

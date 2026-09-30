@@ -22,7 +22,7 @@ export const emptyRecord = (): LearningRecord => ({ schema: 3, courseVersion: CO
 const plainObject = (x: unknown): x is Record<string, unknown> => Boolean(x && typeof x === 'object' && !Array.isArray(x))
 const validAnswer = (x: unknown): x is Answer => typeof x === 'string' || Array.isArray(x) && x.every(v => typeof v === 'string') || plainObject(x) && typeof x.value === 'string' && typeof x.unit === 'string'
 const lessonIds=new Set(courseUnits.flatMap(u=>u.lessonIds))
-const knownId=(id:string)=>lessonIds.has(id)||id==='final'||/^unit-[0-9]$/.test(id)||id.startsWith('review:')&&Object.hasOwn(skillNames,id.slice(7))
+const knownId=(id:string)=>lessonIds.has(id)||id==='final'||courseUnits.some(unit=>unit.checkId===id)||id.startsWith('review:')&&Object.hasOwn(skillNames,id.slice(7))
 const stringFields=(x:unknown)=>plainObject(x)&&Object.values(x).every(v=>typeof v==='string')
 const currentProblems=new Map<string,Set<string>>()
 function currentProblem(s:Submission){const key=`${s.taskId}:${s.purpose==='final'}`;if(!currentProblems.has(key)){if(!lessonIds.has(s.taskId)||s.purpose==='final'&&!finalTaskIds.includes(s.taskId))return false;currentProblems.set(key,new Set(Array.from({length:VARIANTS},(_,i)=>makeTask(s.taskId,i,s.purpose==='final').variantId)))}return currentProblems.get(key)!.has(s.variantId)}

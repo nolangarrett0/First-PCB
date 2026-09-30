@@ -1,3 +1,4 @@
+import { basicsArticles } from './electronicsBasics.ts'
 export type LessonArticle = {
   terms: [term: string, meaning: string][]
   workedExample: string
@@ -6,6 +7,7 @@ export type LessonArticle = {
 // The existing lesson summary supplies the main idea. Each entry introduces the
 // vocabulary needed for practice and works through a different case first.
 export const lessonArticles: Record<string, LessonArticle> = {
+  ...basicsArticles,
   '0.2': {
     terms: [
       ['Power source', 'The part that supplies electrical energy. This course uses two AA cells in a removable external holder.'],
@@ -309,7 +311,7 @@ export const lessonArticles: Record<string, LessonArticle> = {
       ['Soldering iron', 'A heated tool used to make solder joints between component leads and PCB pads.'],
       ['Iron stand', 'A stable place for the hot iron whenever it is not touching the work.'],
     ],
-    workedExample: 'Before heating the iron, clear loose wires and flammable clutter, set up the stand, eye protection, and appropriate ventilation, then practice a joint on scrap material. Follow the instructions for your iron and solder.',
+    workedExample: 'Before heating the iron, clear loose wires and flammable clutter, set up the stand, eye protection, and appropriate local fume extraction, then practice a joint on scrap material. Follow the instructions for your iron and solder.',
   },
   '7.3': {
     terms: [

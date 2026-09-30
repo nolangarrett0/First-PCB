@@ -33,6 +33,7 @@ export const project = {
   ],
 } as const
 export const skillNames: Record<string,string> = {
+  components:'Recognize components and their jobs', transistors:'Recognize transistor terminals and control',
   workflow:'Follow the PCB workflow', safety:'Prepare a safe test', loop:'Trace connections', units:'Use units', calculation:'Calculate resistor current and power',
   datasheet:'Extract conditions from a datasheet', mapping:'Map pins and pads', breadboard:'Read breadboard connections', measurement:'Choose meter setup and points',
   schematic:'Inspect a schematic', footprint:'Check physical fit', rules:'Interpret configured rules', layout:'Inspect PCB geometry', outputs:'Review a fabrication package',

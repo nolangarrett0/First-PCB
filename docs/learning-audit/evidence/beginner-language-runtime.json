@@ -1,5 +1,14 @@
 {
   "lessons": [
+    "E.1",
+    "E.2",
+    "E.3",
+    "E.4",
+    "E.5",
+    "E.6",
+    "E.7",
+    "E.8",
+    "E.9",
     "0.1",
     "0.2",
     "0.3",
@@ -58,12 +67,12 @@
     "9.4"
   ],
   "scenarios": [
-    "56 lesson readings explain their labels",
+    "65 lesson readings explain their labels",
     "0.4 uses plain inspection instructions and table labels",
     "Practice checkboxes name the parts and show an inline key",
     "390px layout fits",
     "Glossary includes circuit, meter, datasheet and layer shorthand"
   ],
   "success": true,
-  "finishedAt": "2026-09-30T04:44:51.927Z"
+  "finishedAt": "2026-09-30T16:47:19.271Z"
 }

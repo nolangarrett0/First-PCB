@@ -12,6 +12,7 @@ The anchor example is a hand-solderable, two-layer, through-hole board with a re
 
 | Unit | Mission | Lessons | Tangible output | Gate to next unit |
 | --- | --- | ---: | --- | --- |
+| E | Learn electronics from zero | 9 | Component roles and annotated simple paths | Apply basic concepts in changed cases |
 | 0 | Prepare the project and work safely | 4 | Project brief and safe-work checklist | Identify allowed supply and stop conditions |
 | 1 | Understand a circuit | 6 | Annotated battery–resistor–LED loop | Predict current and voltage in a new simple circuit |
 | 2 | Choose the parts | 7 | Source-backed component and calculation sheet | Explain a resistor choice and its uncertainty |
@@ -23,11 +24,11 @@ The anchor example is a hand-solderable, two-layer, through-hole board with a re
 | 8 | Debug and explain | 5 | Fault log and repaired board or diagnosis | Diagnose an unfamiliar seeded fault from evidence |
 | 9 | Make one independent change | 4 | Revised design and design note | Recalculate, update, recheck, and explain tradeoffs |
 
-**Total: 56 lessons.** Most concept/practice lessons should be short enough for one sitting (target 5–10 minutes; a product design target, not a research-derived optimum). The table describes the full workflow; its tangible outputs and gates apply to learners who choose hands-on work. Every unit must also have an in-app route using the example. The course must never present a digital quiz as proof that a physical board works.
+**Total: 65 lessons.** Most concept/practice lessons should be short enough for one sitting (target 5–10 minutes; a product design target, not a research-derived optimum). The table describes the full workflow; its tangible outputs and gates apply to learners who choose hands-on work. Every unit must also have an in-app route using the example. The course must never present a digital quiz as proof that a physical board works.
 
 ### Assessment path
 
-Add **one unit assessment after each of the 10 units**, then a **final course review** after Unit 9. These are 11 checkpoints in addition to the 56 teaching lessons. Each unit assessment uses at least one changed example and asks for an unaided decision before feedback. Show specific corrections and a retry with a different case. A failed attempt identifies what to review; it does not erase completed lessons or XP. Safety and release checks apply before a learner chooses to handle power or order hardware.
+Add **one unit assessment after each of the 11 units**, then a **final course review** after Unit 9. These are 12 checkpoints in addition to the 65 teaching lessons. Each unit assessment uses at least one changed example and asks for an unaided decision before feedback. Show specific corrections and a retry with a different case. A failed attempt identifies what to review; it does not erase completed lessons or XP. Safety and release checks apply before a learner chooses to handle power or order hardware.
 
 Unit assessments should use a brief in-app task; an artifact or bench record is optional. For example, Unit 1 uses a new circuit diagram and calculations, while Unit 5 can ask how to review a footprint and DRC result. The app must label any physical results as self-reported. A passing quiz alone cannot mark a board manufactured, assembled, or working.
 
@@ -50,6 +51,24 @@ The conceptual path follows the order of the physical workflow. A learner can re
 ## Lesson map
 
 In the tables, **evidence** describes the full hands-on version of an activity. The app should provide a parallel example-based exercise when a learner has no design file or hardware. `App` means an in-app prediction, calculation, annotation, or fault exercise that can receive immediate deterministic feedback. `Artifact` means an optional saved design file or record. `Bench` means an optional physical observation or measurement, recorded by the learner and labelled self-reported. Source codes resolve in [research.md](research.md#source-ledger).
+
+### Opening chapter — Electronics from zero
+
+No prior electrical engineering or CAD study is assumed. Learn the parts and language before the project asks you to inspect pin mappings or make design calculations. All lessons run in the app and use diagrams, immediate corrections, and changed practice cases. Transistors, capacitors, and chips build recognition for later boards; this LED project still uses a manual switch.
+
+| ID | Learner outcome | Practice and feedback | Evidence | Sources |
+| --- | --- | --- | --- | --- |
+| E.1 | Recognize a source, path, load, and open or short. | Classify a described connection and identify a component’s job. | Changed path and role decisions | E1, B2 |
+| E.2 | Distinguish voltage across points from current through a path. | Identify quantities by units and convert mA to A. | Quantity and unit decisions | E2, F1, M1 |
+| E.3 | Explain a resistor and calculate simple current. | Use resistor voltage divided by resistance; predict doubling resistance. | Current and change prediction | E3, F1 |
+| E.4 | Recognize a diode, LED, anode, and cathode. | Identify reversed orientation or missing current limiting. | Polarity and cathode-symbol decisions | E4, C1 |
+| E.5 | Explain capacitor storage, capacitance, polarity, and voltage rating. | Compare hypothetical polarity and voltage specifications. | Specification decision and charge-retention recall | E5, F4 |
+| E.6 | Recognize transistor control and terminal names. | Distinguish NPN base from MOSFET gate and select an exact pinout source. | Device-family and pinout decisions | E6, T1 |
+| E.7 | Explain ICs and read a supplied pin/function table. | Find the input pin and check the hypothetical supply range. | Pin and voltage-range decisions | E7 |
+| E.8 | Read the project’s symbols, labels, and terminal shorthand. | Interpret a dotted pin label and battery-return name. | Reference and connection decisions | E8, K3, K6 |
+| E.9 | Distinguish series and parallel paths. | Apply equal series current and identify an open or resistor bypass. | Changed current and connection decisions | F2, F3, B2 |
+
+**Chapter check:** a changed resistor calculation, transistor-family recognition, and series-path decision. Existing project checks retain their saved IDs; this new check is `unit-basics`.
 
 ### Unit 0 — Prepare the mission
 

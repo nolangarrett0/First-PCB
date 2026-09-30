@@ -5,12 +5,12 @@ export type Part = {
   id: string; prompt: string; kind: 'choice' | 'number' | 'nodes' | 'order'; options?: Choice[]; expected: string | string[] | number;
   units?: string[]; baseUnit?: string; tolerance?: number; hint: string; explanation: string; skillIds: string[];
 }
-export type ArtifactKind = 'circuit'|'workflow'|'breadboard'|'datasheet'|'switch'|'footprint'|'junction'|'board'|'package'|'rules'|'measurements'|'station'|'joints'|'files'
+export type ArtifactKind = 'basics'|'circuit'|'workflow'|'breadboard'|'datasheet'|'switch'|'footprint'|'junction'|'board'|'package'|'rules'|'measurements'|'station'|'joints'|'files'
 export type Artifact = { kind: ArtifactKind; fault?: string; variant: number; voltage?: number; resistance?: number; ledVoltage?: number; current?: number; pitch?: number; rows?: string[][]; observation?: string; retestObservation?:string; target?: string; caption?: string }
 export type TaskCase = { id: string; variantId: string; title: string; context: string; artifact: Artifact; parts: Part[]; sources: SourceId[]; revealAfter?: number; retestAfter?:number }
 export type LessonPlan = { id: string; outcome: string; steps: string[]; example: string; optionalSteps?: string[]; records?: string[]; prerequisites?: string[] }
 export type Grade = { correct: boolean; feedback: string; mistake?: string }
-const scale: Record<string,number> = { A:1,mA:0.001,V:1,mV:0.001,'Ω':1,'kΩ':1000,W:1,mW:0.001,mm:1,'°C':1,connections:1 }
+const scale: Record<string,number> = { A:1,mA:0.001,V:1,mV:0.001,'Ω':1,'kΩ':1000,W:1,mW:0.001,mm:1,'°C':1,connections:1,pins:1 }
 export function gradePart(part: Part, answer?: Answer): Grade {
   if (part.kind==='number') {
     if (!answer || typeof answer==='string' || Array.isArray(answer) || !answer.value.trim() || !Number.isFinite(Number(answer.value)) || !part.units?.includes(answer.unit)) return {correct:false,feedback:'Enter a finite value and choose its unit.',mistake:'missing-value-unit'}

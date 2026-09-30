@@ -7,15 +7,16 @@ import { assessmentPracticeEdits, lessonPracticeEdits } from '../src/practiceEdi
 import {makeTask,activityTasks,VARIANTS} from '../src/learningTasks.ts'
 import {lessonPlans} from '../src/lessonPlans.ts'
 import {sourceLedger} from '../src/sourceLedger.ts'
+import {basicsChoiceFeedback} from '../src/electronicsBasics.ts'
 
 const ids = courseUnits.flatMap(unit => unit.lessonIds)
-const planned = [...readFileSync(new URL('../docs/curriculum-plan.md', import.meta.url), 'utf8').matchAll(/^\| (\d+\.\d+) \|/gm)].map(match => match[1])
-assert.equal(courseUnits.length, 10, 'Expected ten units')
-assert.equal(ids.length, 56, 'Expected 56 course lessons')
-assert.equal(new Set(ids).size, 56, 'Lesson IDs must be unique')
+const planned = [...readFileSync(new URL('../docs/curriculum-plan.md', import.meta.url), 'utf8').matchAll(/^\| ((?:E|\d+)\.\d+) \|/gm)].map(match => match[1])
+assert.equal(courseUnits.length, 11, 'Expected basics plus ten project units')
+assert.equal(ids.length, 65, 'Expected 65 course lessons')
+assert.equal(new Set(ids).size, 65, 'Lesson IDs must be unique')
 assert.deepEqual(ids, planned, 'App lesson order must match the curriculum plan')
-assert.deepEqual(ids.slice(1), lessons.map(item => item.id), 'Every post-intro lesson needs playable content')
-assert.deepEqual(Object.keys(lessonArticles).sort(), ids.slice(1).sort(), 'Every post-intro lesson needs a teaching article')
+assert.deepEqual(ids.filter(id=>id!=='0.1'), lessons.map(item => item.id), 'Every post-intro lesson needs playable content')
+assert.deepEqual(Object.keys(lessonArticles).sort(), ids.filter(id=>id!=='0.1').sort(), 'Every post-intro lesson needs a teaching article')
 
 for (const item of lessons) {
   assert.ok(item.title && item.learn.length > 60 && item.prompt && item.evidence, `${item.id}: missing teaching or practice text`)
@@ -31,7 +32,7 @@ for (const item of lessons) {
     assert.ok(Math.abs(Number.parseFloat(item.options[item.correct]) - item.numeric.answer) <= item.numeric.tolerance, `${item.id}: numeric answer disagrees with the displayed choice`)
   }
   else {
-    const feedback = lessonChoiceFeedback[item.id]
+    const feedback = lessonChoiceFeedback[item.id] ?? basicsChoiceFeedback[item.id]
     assert.ok(feedback, `${item.id}: missing choice-specific feedback`)
     assert.equal(feedback[item.correct], null, `${item.id}: correct choice should not have error feedback`)
     for (const [index, explanation] of feedback.entries()) if (index !== item.correct) assert.ok(explanation?.length > 15, `${item.id}: choice ${index} needs useful correction`)
@@ -53,6 +54,6 @@ for (const [index, checks] of unitAssessments.entries()) {
 for (const key of Object.keys(assessmentPracticeEdits)) assert.ok(assessmentChoiceFeedback[key], `Unknown assessment edit ${key}`)
 assert.equal(finalReviewItems.length, 7, 'Course review topic list changed unexpectedly')
 for(const id of ids){assert.ok(lessonPlans[id]?.outcome&&lessonPlans[id].steps.length>=3);const cases=Array.from({length:VARIANTS},(_,v)=>makeTask(id,v));assert.ok(new Set(cases.map(t=>t.variantId)).size>=2,`${id}: needs changed practice`);for(const t of cases){assert.ok(t.parts.length>=2);for(const source of t.sources)assert.ok(sources[source]&&sourceLedger[source])}}
-for(let i=0;i<10;i++)assert.equal(activityTasks(`unit-${i}`).length,3)
+for(const unit of courseUnits)assert.equal(activityTasks(unit.checkId).length,3)
 assert.equal(activityTasks('final').length,6)
-console.log('56 lesson contracts with changed practice, ten integrated checks, six final tasks, and source metadata match the course. Legacy data remains valid.')
+console.log('65 lesson contracts with changed practice, eleven integrated checks, six final tasks, and source metadata match the course. Legacy data remains valid.')

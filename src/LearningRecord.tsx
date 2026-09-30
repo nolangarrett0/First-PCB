@@ -1,12 +1,12 @@
 import { learningText } from './learningLanguage'
 import { useEffect, useRef } from 'react'
-import { courseUnits, firstLessonTitle, lessonById, finalReviewItems } from './courseContent'
+import { courseUnits, checkTitle, firstLessonTitle, lessonById, finalReviewItems } from './courseContent'
 import { makeTask } from './learningTasks'
 import { COURSE_VERSION, skillEvidence, type LearningRecord as RecordData, type Submission } from './learningStore'
 import { skillNames } from './teachingProject'
 import { gradePart, type Part } from './taskTypes'
 const when=(date:string|number)=>new Date(date).toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'})
-const name=(id:string)=>id==='0.1'?firstLessonTitle:id==='final'?'Independent design review':id.startsWith('unit-')?`Unit ${Number(id.slice(5))+1} check`:id.startsWith('review:')?`Review: ${skillNames[id.slice(7)]}`:lessonById[id]?.title??id
+const name=(id:string)=>id==='0.1'?firstLessonTitle:id==='final'?'Independent design review':id.startsWith('unit-')?checkTitle(id):id.startsWith('review:')?`Review: ${skillNames[id.slice(7)]}`:lessonById[id]?.title??id
 function AnswerEvent({event}:{event:Submission}) {
   const task=event.variantIndex!==undefined?makeTask(event.taskId,event.variantIndex,event.purpose==='final'):Array.from({length:5},(_,i)=>makeTask(event.taskId,i,event.purpose==='final')).find(t=>t.variantId===event.variantId)
   const describe=(part:Part)=>{const answer=event.answers[part.id];if(Array.isArray(answer))return answer.map(id=>part.options?.find(o=>o.id===id)?.label??id).join(' → ');if(answer&&typeof answer!=='string')return`${answer.value} ${answer.unit}`;if(part.id==='photo'&&event.variantIndex===undefined)return `Recorded photograph identity: ${answer}`;return part.options?.find(o=>o.id===answer)?.label??answer??'Not submitted'}

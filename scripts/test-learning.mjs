@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict'
 import {test} from 'node:test'
-import {courseUnits,sources} from '../src/courseContent.ts'
-import {makeTask,unitTaskIds,finalTaskIds,VARIANTS} from '../src/learningTasks.ts'
+import {courseUnits,coursePathIds,checkTitle,sources} from '../src/courseContent.ts'
+import {makeTask,activityTasks,unitTaskIds,finalTaskIds,VARIANTS} from '../src/learningTasks.ts'
 import {lessonPlans} from '../src/lessonPlans.ts'
 import {project,skillNames} from '../src/teachingProject.ts'
 import {sourceLedger} from '../src/sourceLedger.ts'
+import {learningText} from '../src/learningLanguage.ts'
 import {gradePart} from '../src/taskTypes.ts'
 import {emptyRecord,readRecord,persistRecord,validateRecord,mergeRecords,addSubmission,skillEvidence,xpFor,COURSE_VERSION,RECORD_KEY} from '../src/learningStore.ts'
 import {freshVariant,createDraft} from '../src/activityState.ts'
@@ -12,7 +13,7 @@ const ids=courseUnits.flatMap(u=>u.lessonIds)
 const at='2026-09-01T12:00:00.000Z'
 function event(patch={}){return{id:'event-1',attemptId:'attempt-1',phase:'complete',activityId:'1.5',taskId:'1.5',taskVersion:COURSE_VERSION,variantId:makeTask('1.5').variantId,artifactId:'led-a',skillIds:['calculation'],at,answers:{},correct:true,mistakes:[],assisted:false,repeated:false,firstSubmission:true,purpose:'lesson',...patch}}
 test('Every course job has instruction, decisions, feedback, distinct cases and supported sources',()=>{
-  assert.equal(ids.length,56);assert.equal(unitTaskIds.length,10);assert.equal(finalTaskIds.length,6)
+  assert.equal(ids.length,65);assert.equal(unitTaskIds.length,10);assert.equal(finalTaskIds.length,6)
   for(const id of ids){
     const plan=lessonPlans[id];assert.ok(plan?.outcome&&plan.steps.length>=3&&plan.example,`${id} plan`)
     const cases=Array.from({length:VARIANTS},(_,v)=>makeTask(id,v));assert.ok(new Set(cases.map(c=>c.variantId)).size>=2,`${id} changed case`)
@@ -107,4 +108,38 @@ test('Backup round trips and repeated imports preserve history and never duplica
   let r=emptyRecord();r.completions['1.5']={at,note:'repeatable backup',physical:'pending',fields:{}};r.awards=['1.5'];r=addSubmission(r,event());const imported=validateRecord(JSON.parse(JSON.stringify(r)));const merged=mergeRecords(mergeRecords(r,imported),imported);assert.equal(xpFor(merged),10);assert.equal(merged.submissions.length,1);assert.equal(merged.completions['1.5'].note,'repeatable backup')
   for(const bad of [null,{}, {...r,awards:['0.8']},{...r,awards:['unit-0']},{...r,submissions:[event({taskId:'3.8'})]},{...r,submissions:[event({skillIds:['made-up']})]}])assert.throws(()=>validateRecord(bad))
   assert.equal(readRecord({getItem:k=>k===RECORD_KEY?'bad JSON':null}).status.durable,false)
+})
+
+test('The opening chapter preserves existing check meanings and round-trips its own saved work',()=>{
+  assert.equal(courseUnits[0].checkId,'unit-basics')
+  assert.equal(coursePathIds[0],'E.1')
+  assert.deepEqual(courseUnits.slice(1).map(u=>u.checkId),Array.from({length:10},(_,i)=>`unit-${i}`))
+  assert.equal(checkTitle('unit-0'),'Prepare the mission check')
+  assert.deepEqual(activityTasks('unit-0'),['0.2','0.3','0.4'])
+  assert.deepEqual(activityTasks('unit-basics'),['E.3','E.6','E.9'])
+  const r=emptyRecord();r.completions['unit-0']={at,note:'Existing safety note',physical:'pending',fields:{}}
+  r.drafts['unit-basics']=createDraft(r,'unit-basics')
+  r.exposures[makeTask('E.3').variantId]={taskId:'E.3',at,taskVersion:COURSE_VERSION}
+  r.submissions=[event({activityId:'E.6',taskId:'E.6',variantId:makeTask('E.6').variantId,skillIds:['transistors']})]
+  const imported=validateRecord(JSON.parse(JSON.stringify(r)))
+  assert.equal(imported.completions['unit-0'].note,'Existing safety note')
+  assert.equal(imported.drafts['unit-basics'].caseId,r.drafts['unit-basics'].caseId)
+  assert.equal(skillEvidence(imported,'transistors').independentCount,1)
+})
+
+test('Beginners get explicit label names and calculation workings without duplicate expansions',()=>{
+  for(const text of ['switch (S1)','resistor pin 2 (R1.2)','LED anode (D1.2)','battery positive (BT1+)'])assert.equal(learningText(text),text)
+  assert.equal(learningText(learningText('R1.2 → D1.2')),learningText('R1.2 → D1.2'))
+  for(const id of ['1.3','1.4','1.5','2.4','2.5','3.4','3.5','8.3','9.2'])for(let v=0;v<VARIANTS;v++) {
+    const task=makeTask(id,v)
+    for(const part of task.parts.filter(p=>p.kind==='number')){
+      assert.ok(!part.explanation.includes('NaN'),`${id}/${v}/${part.id}`)
+      assert.ok(!part.explanation.startsWith('The modeled result'),`${id}/${v}/${part.id} needs workings`)
+    }
+  }
+  for(let v=0;v<VARIANTS;v++){
+    const npn=makeTask('E.6',v),mosfet=v%2===1
+    assert.equal(npn.parts[0].options.find(o=>o.id===npn.parts[0].expected).label,mosfet?'Gate':'Base')
+    assert.equal(gradePart(npn.parts[0],'2').correct,false)
+  }
 })

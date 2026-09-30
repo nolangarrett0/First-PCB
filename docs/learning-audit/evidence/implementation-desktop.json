@@ -1,7 +1,7 @@
 {
-  "startedAt": "2026-09-30T04:44:43.640Z",
+  "startedAt": "2026-09-30T16:38:43.428Z",
   "scenarios": [
-    "23 source links handed to allowed external hosts; no embedded browser navigation",
+    "33 source links handed to allowed external hosts; no embedded browser navigation",
     "licensed photographs load under production app protocol and CSP",
     "beginner wording, table labels and inline label key render in production Electron",
     "native close Keep learning retains the actual renderer and wrong submission",
@@ -9,8 +9,8 @@
     "actual desktop reload resumes the saved wrong case and feedback",
     "native close Leave app permits unload and exits Electron"
   ],
-  "profile": "C:\\Users\\JIMARN~1\\AppData\\Local\\Temp\\first-pcb-runtime-8IXfuQ\\profile",
-  "temporaryFiles": "C:\\Users\\JIMARN~1\\AppData\\Local\\Temp\\first-pcb-runtime-8IXfuQ",
+  "profile": "C:\\Users\\JIMARN~1\\AppData\\Local\\Temp\\first-pcb-runtime-aFbYFz\\profile",
+  "temporaryFiles": "C:\\Users\\JIMARN~1\\AppData\\Local\\Temp\\first-pcb-runtime-aFbYFz",
   "success": true,
-  "finishedAt": "2026-09-30T04:46:03.764Z"
+  "finishedAt": "2026-09-30T16:40:24.412Z"
 }

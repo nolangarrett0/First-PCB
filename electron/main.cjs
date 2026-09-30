@@ -21,6 +21,9 @@ const externalHosts = new Set([
   'ehs.stanford.edu',
   'creativecommons.org',
   'gitlab.com',
+  'learn.sparkfun.com',
+  'blog.sparkfuneducation.com',
+  'www.onsemi.com',
 ])
 
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { standard: true, secure: true, supportFetchAPI: true } }])
