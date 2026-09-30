@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-09-30T04:46:57.457Z",
+  "scenarios": [
+    "mid-check question, case, partially typed value/unit and prior events survive reload",
+    "enlarged diagram remains contained on a 390px screen",
+    "all seven untouched final statuses save and display as pending",
+    "photograph exposure ignores cosmetic order while the record preserves its actual Photo B label",
+    "unreadable original text is downloadable and archived before new-format saving",
+    "an old fresh success produces a visible due review and an actionable changed case",
+    "session-only work keeps an unload guard after returning to the path"
+  ],
+  "success": true,
+  "finishedAt": "2026-09-30T04:47:02.101Z"
+}

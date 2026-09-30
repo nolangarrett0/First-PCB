@@ -27,6 +27,8 @@ export const lessonArticles: Record<string, LessonArticle> = {
     terms: [
       ['Polarity', 'Which connection is positive and which is negative. Reversing a polarized part can stop the circuit working.'],
       ['First power', 'The first time you insert cells into the assembled circuit. It comes after unpowered checks.'],
+      ['Reference drawing', 'The drawing of the intended connections. Revision A is the version name used for this teaching project.'],
+      ['Net', 'A group of electrically connected points. Names such as VCC and GND label connections in the drawing; they are not extra components.'],
     ],
     workedExample: 'With the cells out, compare the LED direction and holder marks with the drawing. Check for an unintended connection across the supply. Only when those checks are resolved should you insert cells and watch for heat, odor, or unexpected behavior.',
   },

@@ -1,0 +1,1175 @@
+{
+  "description": "Static diagnostic chosen after reading the bank. Score check-action words +2 and shortcut words -3; average tied maxima equally. This is not a blind learner trial, browser score, or validated item-difficulty measure.",
+  "positive": "check inspect correct resolve remove verify review recalculate regenerate reconcile trace measure",
+  "negative": "only trust assume ignore immediately without regardless guarantees",
+  "stats": {
+    "lesson": {
+      "questions": 48,
+      "uniqueHighestCorrect": 24,
+      "uniqueHighestTotal": 25,
+      "expectedCorrect": 33.166666666666664
+    },
+    "unit": {
+      "questions": 30,
+      "uniqueHighestCorrect": 15,
+      "uniqueHighestTotal": 15,
+      "expectedCorrect": 20.33333333333333
+    }
+  },
+  "rows": [
+    {
+      "group": "lesson",
+      "id": "0.2",
+      "prompt": "The two AA cells are still in the holder while you change a wire. What should you do before moving it?",
+      "scores": [
+        0,
+        4,
+        2
+      ],
+      "top": [
+        1
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "0.3",
+      "prompt": "You want to know whether a jumper wire connects to an LED lead on a breadboard. The cells are removed. Which tool and setting would help?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "0.4",
+      "prompt": "Your unpowered check finds continuity directly between the holder’s positive and negative terminals with the switch closed. What is the next step?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "1.1",
+      "prompt": "The switch is closed, but one LED lead has lifted out of its breadboard row. The holder still measures voltage. What happens to loop current?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "1.2",
+      "prompt": "You need the voltage across the LED, not the supply or the resistor. Where should the two voltage probes go?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "1.4",
+      "prompt": "A resistor changes from 300 Ω to 150 Ω while the voltage across it stays fixed. What happens to its current?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "1.6",
+      "prompt": "A jumper connects around the series resistor, leaving the LED in the loop. Why should you stop before powering it?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "2.1",
+      "prompt": "The LED’s flat edge seems to disagree with the board’s polarity mark. What should you do before soldering?",
+      "scores": [
+        -3,
+        4,
+        0
+      ],
+      "top": [
+        1
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "2.2",
+      "prompt": "You measured the LED at a different current and temperature than the datasheet test. Can you treat 1.9 V as its guaranteed drop?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "2.3",
+      "prompt": "A candidate target is below the LED’s rated limit but the prototype is hard to see. What should guide a revision?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "2.6",
+      "prompt": "A slide switch has three pins, but your symbol uses two. What must you establish before assigning its footprint?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "2.7",
+      "prompt": "The holder voltage is normal and the switch is closed, but the LED stays dark. Which check helps distinguish a reversed LED from an open connection?",
+      "scores": [
+        4,
+        -3,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "3.1",
+      "prompt": "Your LED works on one half of the breadboard but not when moved to the far end of the same marked rail. What should you test with cells removed?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "3.2",
+      "prompt": "Your LED and resistor appear connected, but one jumper may be in the next breadboard row. What should you do before inserting cells?",
+      "scores": [
+        2,
+        -1,
+        -6
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "3.3",
+      "prompt": "You put the black probe on the holder’s + contact and the red probe on its − contact in DC voltage mode. What sign should a normally installed pack show?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "3.5",
+      "prompt": "Your model used a 3.0 V supply, but the holder measures 2.5 V while the LED is on. What should you do before changing the resistor?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "3.6",
+      "prompt": "The battery reads normally, but the LED is dark. You suspect either a split rail or a reversed LED. Which check tests the rail hypothesis directly?",
+      "scores": [
+        2,
+        2,
+        -6
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "4.1",
+      "prompt": "You found two KiCad project folders with different schematic versions. Before editing the board, what should you establish?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "4.2",
+      "prompt": "A library switch symbol has pins 1 and 2, while the selected part closes pins 1 and 3 in the intended position. What should you resolve?",
+      "scores": [
+        0,
+        -3,
+        0
+      ],
+      "top": [
+        0,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "4.3",
+      "prompt": "Two wires cross where you intended a connection, but net highlighting selects only one wire. What should you do?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "4.4",
+      "prompt": "A footprint hole pitch matches your switch, but pads 1 and 3 are reversed relative to the datasheet. What should happen?",
+      "scores": [
+        2,
+        0,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "4.5",
+      "prompt": "ERC passes, but your LED symbol points opposite to the intended current path. What should happen before layout?",
+      "scores": [
+        2,
+        0,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "4.6",
+      "prompt": "The schematic passes ERC, but tracing from battery positive reaches the LED cathode first. What should you review?",
+      "scores": [
+        0,
+        -3,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "5.1",
+      "prompt": "A line between LED and resistor pads appears only on the silkscreen layer. Will it carry current?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "5.2",
+      "prompt": "The 3D view shows the switch fitting, but its lead diameter exceeds the footprint drill size. What should you do?",
+      "scores": [
+        2,
+        -3,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "5.3",
+      "prompt": "A trace fits only if you use the fabricator’s absolute minimum width. What is the sound design decision?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "5.4",
+      "prompt": "The switch fits electrically but sits under the battery holder. What should you change?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "5.5",
+      "prompt": "Copper appears to touch a pad, yet KiCad still shows one unrouted connection. What should you inspect?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "5.6",
+      "prompt": "The board outline looks closed at normal zoom, but an edge check reports a tiny gap. What should you do?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "5.7",
+      "prompt": "DRC passes, but you later discover the project clearance rule is smaller than your chosen fabricator allows. What follows?",
+      "scores": [
+        0,
+        0,
+        2
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0
+    },
+    {
+      "group": "lesson",
+      "id": "5.8",
+      "prompt": "The board passes DRC, but its LED cathode mark points to the anode pad. What should the release review do?",
+      "scores": [
+        4,
+        -3,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "6.1",
+      "prompt": "The Gerbers were regenerated after moving the switch, but the drill file is from yesterday. What should you do?",
+      "scores": [
+        -3,
+        4,
+        0
+      ],
+      "top": [
+        1
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "6.2",
+      "prompt": "GerbView shows the copper and outline, but the LED polarity mark is missing. What should you check?",
+      "scores": [
+        0,
+        -3,
+        0
+      ],
+      "top": [
+        0,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "6.3",
+      "prompt": "GerbView shows a rectangular outline, but the fabricator’s preview shows a smaller, cropped board. What should you check before paying?",
+      "scores": [
+        0,
+        -6,
+        0
+      ],
+      "top": [
+        0,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "lesson",
+      "id": "6.4",
+      "prompt": "The board and Gerbers match, but the bill of materials lists an older LED footprint. Is this revision ready to order?",
+      "scores": [
+        0,
+        2,
+        0
+      ],
+      "top": [
+        1
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "7.1",
+      "prompt": "The switch lead will not enter a hole on the received board. Which comparison will tell you where the mismatch arose?",
+      "scores": [
+        0,
+        -6,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "7.2",
+      "prompt": "The iron is hot, but its stand is missing and the workspace has loose wires across it. What is the right next step?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "7.3",
+      "prompt": "The LED’s short lead points toward a pad marked +, but the exact part drawing identifies that lead as the cathode. What should you do?",
+      "scores": [
+        2,
+        -6,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "7.4",
+      "prompt": "Two adjacent pads on different nets appear joined by solder. What evidence should you collect before first power?",
+      "scores": [
+        6,
+        -4,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "7.5",
+      "prompt": "With cells removed, two pads intended to be separate give a continuity beep. What should you check before calling it a solder bridge?",
+      "scores": [
+        4,
+        0,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "7.6",
+      "prompt": "The LED lights, but the resistor is warmer than expected. What should you do?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "8.1",
+      "prompt": "The LED is dark. One hypothesis is a drained battery; another is an open switch. Which observation should you collect first?",
+      "scores": [
+        4,
+        -1,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "8.2",
+      "prompt": "A trace may be broken between the switch and resistor. With cells removed, which result would support that hypothesis?",
+      "scores": [
+        2,
+        2,
+        2
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "8.4",
+      "prompt": "You repaired a suspected open joint. Which result would support that diagnosis?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "lesson",
+      "id": "8.5",
+      "prompt": "A dark LED could be caused by a broken trace between the resistor and LED or by a reversed LED. With cells removed, which test isolates the trace hypothesis?",
+      "scores": [
+        4,
+        -1,
+        2
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "9.1",
+      "prompt": "A replacement LED has the same diameter but a different forward-voltage range. What must you revisit?",
+      "scores": [
+        0,
+        -3,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "9.3",
+      "prompt": "The revised LED needs a new footprint. The schematic and board are updated, but the Gerbers are from the old revision. What remains?",
+      "scores": [
+        4,
+        0,
+        2
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "lesson",
+      "id": "9.4",
+      "prompt": "A revised LED design has a source-backed resistor calculation, but its updated board files have not been checked or exported. Which claim fits the evidence?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-0:0",
+      "prompt": "A newly wired LED board has its switch OFF, but no short check has been done. What is the next safe step?",
+      "scores": [
+        4,
+        0,
+        2
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-0:1",
+      "prompt": "You need to check whether two solder pads are accidentally connected. Which setup is appropriate?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-0:2",
+      "prompt": "On first power the LED lights, but you notice an unusual smell. What is the next step?",
+      "scores": [
+        0,
+        2,
+        4
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-1:0",
+      "prompt": "The LED is off with the only series switch open, yet the holder still reads 3 V. Which explanation fits?",
+      "scores": [
+        -3,
+        0,
+        0
+      ],
+      "top": [
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0
+    },
+    {
+      "group": "unit",
+      "id": "unit-1:1",
+      "prompt": "A resistor has 1 V across it and carries 0.01 A. What is its resistance?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-1:2",
+      "prompt": "A jumper accidentally connects the battery holder terminals without the resistor or LED in the path. What should you predict?",
+      "scores": [
+        2,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-2:0",
+      "prompt": "A substitute LED lists a typical voltage at 10 mA, while your target is 4 mA. How should you use that number?",
+      "scores": [
+        2,
+        0,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-2:1",
+      "prompt": "A two-AA pack reads 2.7 V while the LED is on. How should this affect your calculation?",
+      "scores": [
+        0,
+        0,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "unit",
+      "id": "unit-2:2",
+      "prompt": "An example circuit has 8 mA through a 150 Ω resistor. About how much power does that resistor dissipate?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-3:0",
+      "prompt": "The prototype lights, but inferred current is half your estimate. What should you compare first?",
+      "scores": [
+        0,
+        -3,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-3:1",
+      "prompt": "You need the LED branch current without moving the meter lead into a current jack. What can you measure?",
+      "scores": [
+        0,
+        -3,
+        0
+      ],
+      "top": [
+        0,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "unit",
+      "id": "unit-3:2",
+      "prompt": "The LED goes dark when moved past the midpoint of a breadboard rail. Which test checks your split-rail hypothesis?",
+      "scores": [
+        2,
+        0,
+        4
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-4:0",
+      "prompt": "ERC passes, but the selected switch closes a different pair of pins than the schematic expects. What should happen?",
+      "scores": [
+        2,
+        0,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-4:1",
+      "prompt": "The LED symbol’s cathode is pin 2, but the chosen footprint connects pad 2 to the anode lead. What should happen?",
+      "scores": [
+        0,
+        -3,
+        4
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-4:2",
+      "prompt": "ERC passes, but the LED cathode is wired to the positive supply in your intended loop. What should you do?",
+      "scores": [
+        4,
+        2,
+        -3
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-5:0",
+      "prompt": "DRC passes, but a through-hole part blocks access to the switch. What should the board review do?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-5:1",
+      "prompt": "A part drawing calls for a larger mounting hole than the footprint provides, though the 3D preview looks fine. What should you do?",
+      "scores": [
+        2,
+        -3,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-5:2",
+      "prompt": "One ratsnest line remains between resistor and LED pads, even though copper appears close. What should you check?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-6:0",
+      "prompt": "Your vendor upload contains current Gerbers and an older drill file. What should you do before paying?",
+      "scores": [
+        4,
+        0,
+        0
+      ],
+      "top": [
+        0
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-6:1",
+      "prompt": "The PCB editor shows an LED polarity mark, but that mark is absent from the exported silkscreen. What should you check before sharing the files?",
+      "scores": [
+        0,
+        4,
+        0
+      ],
+      "top": [
+        1
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-6:2",
+      "prompt": "GerbView has copper and drills but no board outline. What should you inspect before release?",
+      "scores": [
+        -3,
+        0,
+        4
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-7:0",
+      "prompt": "The assembled LED lights, but you have not measured resistor voltage. What can you conclude?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-7:1",
+      "prompt": "The soldered board looks good, but no supply-short check has been recorded. What should happen before inserting cells?",
+      "scores": [
+        0,
+        0,
+        2
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-7:2",
+      "prompt": "After assembly, two pads intended to be separate beep in continuity mode with cells removed. What is the best next step?",
+      "scores": [
+        0,
+        -3,
+        4
+      ],
+      "top": [
+        2
+      ],
+      "expectedCorrectWithRandomTie": 1
+    },
+    {
+      "group": "unit",
+      "id": "unit-8:0",
+      "prompt": "A dark LED may result from an open switch or a reversed LED. Which next test best narrows those causes?",
+      "scores": [
+        2,
+        2,
+        -3
+      ],
+      "top": [
+        0,
+        1
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    },
+    {
+      "group": "unit",
+      "id": "unit-8:1",
+      "prompt": "After repairing a suspected open trace, which result supports your explanation?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-8:2",
+      "prompt": "The LED is dim. A 200 Ω series resistor has 0.4 V across it. What current does that imply?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-9:0",
+      "prompt": "The revised LED board passes CAD checks but has not been assembled. Which claim belongs in the review?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-9:1",
+      "prompt": "For a hypothetical revised LED, assume 3.2 V supply, 2.0 V across the LED, and a 6 mA target. What resistance does this model suggest?",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "top": [
+        0,
+        1,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.3333333333333333
+    },
+    {
+      "group": "unit",
+      "id": "unit-9:2",
+      "prompt": "The replacement LED has wider lead spacing. Your board still uses the old footprint. What is required?",
+      "scores": [
+        0,
+        -3,
+        0
+      ],
+      "top": [
+        0,
+        2
+      ],
+      "expectedCorrectWithRandomTie": 0.5
+    }
+  ]
+}

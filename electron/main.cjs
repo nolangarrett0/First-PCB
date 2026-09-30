@@ -1,4 +1,4 @@
-const { app, BrowserWindow, net, protocol, session, shell } = require('electron')
+const { app, BrowserWindow, dialog, net, protocol, session, shell } = require('electron')
 const { existsSync } = require('node:fs')
 const path = require('node:path')
 const { pathToFileURL } = require('node:url')
@@ -17,6 +17,10 @@ const externalHosts = new Set([
   'learn.adafruit.com',
   'jlcpcb.com',
   'www.fluke.com',
+  'www.hse.gov.uk',
+  'ehs.stanford.edu',
+  'creativecommons.org',
+  'gitlab.com',
 ])
 
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { standard: true, secure: true, supportFetchAPI: true } }])
@@ -64,6 +68,11 @@ function createWindow() {
     webPreferences: { nodeIntegration: false, contextIsolation: true, sandbox: true, webSecurity: true },
   })
   window.webContents.setWindowOpenHandler(({ url }) => { openExternal(url); return { action: 'deny' } })
+  window.webContents.on('will-prevent-unload', event => {
+    const answer=dialog.showMessageBoxSync(window,{type:'question',buttons:['Keep learning','Leave app'],defaultId:0,cancelId:0,title:'Leave this activity?',message:'Your activity is in progress.',detail:'Saved work can be resumed. If the app says “session only”, stay and download a backup before closing.'})
+    // Electron prevents unload by default. preventDefault explicitly permits it.
+    if(answer===1)event.preventDefault()
+  })
   window.webContents.on('will-navigate', (event, url) => { if (url !== `${appOrigin}/index.html`) { event.preventDefault(); openExternal(url) } })
   void window.loadURL(`${appOrigin}/index.html`)
   return window

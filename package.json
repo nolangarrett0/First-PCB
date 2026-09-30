@@ -1,7 +1,7 @@
 {
   "name": "first-pcb",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
@@ -12,7 +12,12 @@
     "preview": "vite preview",
     "desktop": "npm run build && electron .",
     "package:win": "npm run build && node scripts/package-windows.mjs portable",
-    "installer:win": "npm run build && node scripts/package-windows.mjs nsis"
+    "installer:win": "npm run build && node scripts/package-windows.mjs nsis",
+    "test:learning": "node --experimental-strip-types --test scripts/test-learning.mjs",
+    "test:ui": "node --experimental-strip-types scripts/test-learning-ui.mjs",
+    "test:desktop": "node --experimental-strip-types scripts/test-learning-desktop.mjs",
+    "test:language": "node --experimental-strip-types scripts/test-learning-language.mjs",
+    "test:recovery": "node --experimental-strip-types scripts/test-learning-recovery.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
@@ -26,18 +31,35 @@
     "electron": "^44.4.5",
     "electron-builder": "^26.15.3",
     "oxlint": "^1.81.0",
+    "playwright": "^1.63.0",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
   },
   "build": {
     "appId": "com.firstpcb.learning",
     "productName": "First PCB",
-    "directories": { "output": "release" },
-    "files": ["dist/**/*", "electron/**/*", "package.json"],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
     "asar": true,
     "compression": "store",
-    "win": { "target": ["portable"], "icon": "build/icon.ico" },
-    "portable": { "artifactName": "First-PCB-${version}-portable.${ext}" },
-    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "First-PCB-${version}-portable.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }

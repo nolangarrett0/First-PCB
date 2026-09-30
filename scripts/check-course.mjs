@@ -4,6 +4,9 @@ import { courseUnits, finalReviewItems, lessons, sources, unitAssessments } from
 import { lessonArticles } from '../src/lessonArticles.ts'
 import { assessmentChoiceFeedback, lessonChoiceFeedback } from '../src/practiceFeedback.ts'
 import { assessmentPracticeEdits, lessonPracticeEdits } from '../src/practiceEdits.ts'
+import {makeTask,activityTasks,VARIANTS} from '../src/learningTasks.ts'
+import {lessonPlans} from '../src/lessonPlans.ts'
+import {sourceLedger} from '../src/sourceLedger.ts'
 
 const ids = courseUnits.flatMap(unit => unit.lessonIds)
 const planned = [...readFileSync(new URL('../docs/curriculum-plan.md', import.meta.url), 'utf8').matchAll(/^\| (\d+\.\d+) \|/gm)].map(match => match[1])
@@ -49,4 +52,7 @@ for (const [index, checks] of unitAssessments.entries()) {
 }
 for (const key of Object.keys(assessmentPracticeEdits)) assert.ok(assessmentChoiceFeedback[key], `Unknown assessment edit ${key}`)
 assert.equal(finalReviewItems.length, 7, 'Course review topic list changed unexpectedly')
-console.log('56 lessons, ten three-question assessments, sources, and final review match the curriculum plan.')
+for(const id of ids){assert.ok(lessonPlans[id]?.outcome&&lessonPlans[id].steps.length>=3);const cases=Array.from({length:VARIANTS},(_,v)=>makeTask(id,v));assert.ok(new Set(cases.map(t=>t.variantId)).size>=2,`${id}: needs changed practice`);for(const t of cases){assert.ok(t.parts.length>=2);for(const source of t.sources)assert.ok(sources[source]&&sourceLedger[source])}}
+for(let i=0;i<10;i++)assert.equal(activityTasks(`unit-${i}`).length,3)
+assert.equal(activityTasks('final').length,6)
+console.log('56 lesson contracts with changed practice, ten integrated checks, six final tasks, and source metadata match the course. Legacy data remains valid.')

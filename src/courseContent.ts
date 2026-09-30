@@ -1,25 +1,31 @@
 import type { StageVisualId } from './StageVisual'
 import { assessmentPracticeEdits, lessonPracticeEdits } from './practiceEdits.ts'
 
-export type SourceId = 'F1' | 'F2' | 'F3' | 'C1' | 'C2' | 'B1' | 'B2' | 'K2' | 'K3' | 'K4' | 'K5' | 'M1' | 'M2' | 'A1' | 'A2' | 'A3' | 'P1'
+export type SourceId = 'F1' | 'F2' | 'F3' | 'C1' | 'C2' | 'C3' | 'C4' | 'B1' | 'B2' | 'B3' | 'K2' | 'K3' | 'K4' | 'K5' | 'K6' | 'M1' | 'M2' | 'A1' | 'A2' | 'A3' | 'P1' | 'S1' | 'S2'
 export const sources: Record<SourceId, { title: string; url: string }> = {
   F1: { title: 'OpenStax: Ohm’s law and simple circuits', url: 'https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits' },
   F2: { title: 'OpenStax: Series and parallel resistors', url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel' },
   F3: { title: 'OpenStax: Electric power', url: 'https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy' },
   C1: { title: 'Kingbright WP7113ID datasheet', url: 'https://www.kingbrightusa.com/images/catalog/SPEC/WP7113ID.pdf' },
   C2: { title: 'Energizer E91 AA datasheet', url: 'https://data.energizer.com/pdfs/e91.pdf' },
+  C3: { title: 'Kingbright WP7113SGC replacement LED datasheet', url: 'https://www.kingbrightusa.com/images/catalog/SPEC/WP7113SGC.pdf' },
+  C4: { title: 'Kingbright WP7113YD final-review LED datasheet', url: 'https://www.kingbrightusa.com/images/catalog/SPEC/WP7113YD.pdf' },
   B1: { title: 'Adafruit: Breadboards for beginners', url: 'https://learn.adafruit.com/breadboards-for-beginners/breadboards' },
   B2: { title: 'Energizer battery care', url: 'https://energizer.com/about-batteries/battery-care/' },
+  B3: { title: 'Adafruit: Split breadboard rails', url: 'https://learn.adafruit.com/breadboards-for-beginners/other-breadboard-sizes' },
   K2: { title: 'KiCad: Getting started', url: 'https://docs.kicad.org/10.0/en/getting_started_in_kicad/getting_started_in_kicad.html' },
   K3: { title: 'KiCad: Schematic editor', url: 'https://docs.kicad.org/10.0/en/eeschema/eeschema.html' },
   K4: { title: 'KiCad: PCB editor', url: 'https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html' },
   K5: { title: 'KiCad: GerbView', url: 'https://docs.kicad.org/10.0/en/gerbview/gerbview.html' },
+  K6: { title: 'KiCad official Device:LED symbol', url: 'https://gitlab.com/kicad/libraries/kicad-symbols/-/blob/master/Device.kicad_symdir/LED.kicad_sym' },
   M1: { title: 'Adafruit: Multimeters', url: 'https://learn.adafruit.com/multimeters?view=all' },
   M2: { title: 'Fluke: Continuity testing', url: 'https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-test-for-continuity' },
   A1: { title: 'Adafruit: Soldering tools and safety', url: 'https://learn.adafruit.com/adafruit-guide-excellent-soldering' },
   A2: { title: 'Adafruit: Making a good solder joint', url: 'https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint' },
   A3: { title: 'Adafruit: Common soldering problems', url: 'https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems' },
   P1: { title: 'JLCPCB: Fabrication capabilities', url: 'https://jlcpcb.com/capabilities/Capab' },
+  S1: { title: 'HSE: Solder fume control', url: 'https://www.hse.gov.uk/asthma/solderers.htm' },
+  S2: { title: 'Stanford EHS: Soldering safety', url: 'https://ehs.stanford.edu/wp-content/uploads/Soldering-Safety-Fact-Sheet.pdf' },
 }
 
 export type LessonContent = {

@@ -1,0 +1,39 @@
+import assert from 'node:assert/strict'
+import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises'
+import {tmpdir} from 'node:os'
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+import {_electron} from 'playwright'
+import {courseUnits,sources} from '../src/courseContent.ts'
+import {RECORD_KEY,xpFor} from '../src/learningStore.ts'
+const root=path.resolve(fileURLToPath(new URL('..',import.meta.url)))
+const dir=await mkdtemp(path.join(tmpdir(),'first-pcb-runtime-')),profile=path.join(dir,'profile'),log=path.join(dir,'native-dialogs.json'),download=path.join(dir,'backup.json')
+await mkdir(profile);const wrapper=path.join(dir,'wrapper.cjs')
+await writeFile(wrapper,`const e=require('electron'),p=require('node:path'),fs=require('node:fs');e.app.setPath('userData',${JSON.stringify(profile)});const get=e.app.getPath.bind(e.app);e.app.getPath=key=>key==='appData'?p.join(${JSON.stringify(dir)},'appdata'):get(key);global.external=[];e.shell.openExternal=async url=>{global.external.push(url)};global.answers=[0,1];global.dialogs=[];e.dialog.showMessageBoxSync=(_window,options)=>{const answer=global.answers.shift()??0;global.dialogs.push({options,answer});fs.writeFileSync(${JSON.stringify(log)},JSON.stringify(global.dialogs));return answer};e.app.whenReady().then(()=>e.session.defaultSession.on('will-download',(_event,item)=>item.setSavePath(${JSON.stringify(download)})));require(${JSON.stringify(path.join(root,'electron/main.cjs'))});`)
+const env={...process.env,CIRCUITLAB_TEST:'1'};delete env.ELECTRON_RUN_AS_NODE
+let desktop;const result={startedAt:new Date().toISOString(),scenarios:[],profile,temporaryFiles:dir}
+try{
+  desktop=await _electron.launch({args:[wrapper],executablePath:path.join(root,'node_modules/electron/dist/electron.exe'),env,timeout:20000});const win=await desktop.firstWindow();win.setDefaultTimeout(10000);win.on('dialog',d=>{void d.dismiss().catch(()=>{})})
+  await win.locator('h1').waitFor();assert.equal(new URL(win.url()).protocol,'app:')
+  const info=await desktop.evaluate(({app,BrowserWindow})=>({profile:app.getPath('userData'),hidden:!BrowserWindow.getAllWindows()[0].isVisible()}));assert.equal(info.profile,profile);assert.equal(info.hidden,true)
+  const intro={completed:true,sessions:4,xpAwards:['lesson:0.1:first-completion']},course={lessons:{},assessments:{}},at='2026-09-01T12:00:00.000Z'
+  for(const id of courseUnits.flatMap(u=>u.lessonIds).slice(1))course.lessons[id]={completedAt:at,note:`Legacy note ${id}`,attempts:[false,true],evidence:'guided'}
+  for(let i=0;i<10;i++)course.assessments[`unit-${i}`]={completedAt:at,note:'Legacy check',attempts:[true]};course.assessments.final={completedAt:at,note:'Legacy final',attempts:[true]}
+  await win.evaluate(({intro,course})=>{localStorage.setItem('circuitlab.lesson-0.1.v1',JSON.stringify(intro));localStorage.setItem('circuitlab.course.v2',JSON.stringify(course))},{intro,course});await win.reload();await win.getByText('67 earlier activity records were preserved.',{exact:false}).waitFor()
+  await win.getByRole('button',{name:'Project and reference',exact:true}).click();await win.getByRole('button',{name:'Sources',exact:true}).click();await win.locator('.source-ledger summary').click()
+  for(const source of Object.values(sources))await win.getByRole('link',{name:source.title,exact:true}).click()
+  const external=await desktop.evaluate(()=>global.external);assert.equal(external.length,Object.keys(sources).length);assert.ok(external.some(u=>u.includes('hse.gov.uk')));assert.ok(external.some(u=>u.includes('gitlab.com')));await win.getByRole('button',{name:'Close reference',exact:true}).click();result.scenarios.push('23 source links handed to allowed external hosts; no embedded browser navigation')
+  await win.locator('.trail-node').nth(courseUnits.flatMap((u,i)=>[...u.lessonIds,`unit-${i}`]).indexOf('7.4')).click()
+  await win.getByRole('button',{name:'Begin practice',exact:true}).click();assert.equal(await win.locator('.joint-gallery img').count(),3);assert.equal(await win.locator('.joint-gallery img').evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0)),true);await win.getByRole('button',{name:'Return to lesson path',exact:true}).click();await win.getByRole('button',{name:'Leave activity',exact:true}).click();result.scenarios.push('licensed photographs load under production app protocol and CSP')
+  await win.locator('.trail-node').nth(3).click();assert.ok((await win.locator('.lesson-reading').innerText()).includes('Keep both cells out.'));assert.ok((await win.locator('.teaching-table').innerText()).includes('(SW)'));await win.getByRole('button',{name:'Begin practice',exact:true}).click();await win.getByLabel('battery holder positive contact (BT1 +)',{exact:true}).waitFor();await win.locator('.label-key').getByText('BT1',{exact:true}).waitFor();await win.getByRole('button',{name:'Return to lesson path',exact:true}).click();await win.getByRole('button',{name:'Leave activity',exact:true}).click();result.scenarios.push('beginner wording, table labels and inline label key render in production Electron');
+  await win.locator('.trail-node').nth(0).click();await win.getByRole('button',{name:'Begin practice',exact:true}).click();await win.locator('.task-part').nth(1).locator('input').first().check();await win.getByRole('button',{name:'Check decisions',exact:true}).click()
+  const r=await win.evaluate(key=>JSON.parse(localStorage.getItem(key)),RECORD_KEY);assert.equal(xpFor(r),730);assert.equal(r.submissions.at(-1).correct,false);assert.equal(r.completions['1.5'].note,'Legacy note 1.5');assert.equal(r.completions['1.5'].legacy,true)
+  await desktop.evaluate(async({BrowserWindow})=>{BrowserWindow.getAllWindows()[0].close();await new Promise(resolve=>setTimeout(resolve,300))});assert.equal(await desktop.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().length),1);const kept=JSON.parse(await readFile(log,'utf8'));assert.equal(kept[0].answer,0);assert.deepEqual(kept[0].options.buttons,['Keep learning','Leave app']);result.scenarios.push('native close Keep learning retains the actual renderer and wrong submission')
+  await win.getByRole('button',{name:'Return to lesson path',exact:true}).click();await win.getByRole('button',{name:'Leave activity',exact:true}).click();await win.getByRole('button',{name:'Download backup',exact:true}).click()
+  for(let i=0;i<20;i++){try{JSON.parse(await readFile(download,'utf8'));break}catch{await new Promise(resolve=>setTimeout(resolve,100))}}
+  const backed=JSON.parse(await readFile(download,'utf8'));assert.equal(backed.submissions.length,1);assert.equal(xpFor(backed),730);result.scenarios.push('production JSON download preserves legacy notes, 730 XP and current attempt')
+  await win.reload();await win.getByRole('button',{name:/From idea to tested PCB\. Resume activity/}).click();assert.equal(await win.locator('.part-feedback.incorrect').count(),1);assert.equal((await win.evaluate(key=>JSON.parse(localStorage.getItem(key)),RECORD_KEY)).drafts['0.1'].caseId,r.drafts['0.1'].caseId);result.scenarios.push('actual desktop reload resumes the saved wrong case and feedback')
+  const closed=desktop.waitForEvent('close');await desktop.evaluate(({BrowserWindow})=>{BrowserWindow.getAllWindows()[0].close()});await closed;desktop=undefined
+  const left=JSON.parse(await readFile(log,'utf8'));assert.equal(left.at(-1).answer,1);result.scenarios.push('native close Leave app permits unload and exits Electron');result.success=true
+}catch(error){result.success=false;result.error=error.stack;process.exitCode=1}
+finally{if(desktop)await desktop.close().catch(()=>{});result.finishedAt=new Date().toISOString();await writeFile(new URL('../docs/learning-audit/evidence/implementation-desktop.json',import.meta.url),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2))}

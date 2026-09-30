@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-30",
+  "baselineCommit": "031511488e3a188c78b9baa2fd250d98beb9cc56",
+  "taskRevision": "2026-09-learning-2",
+  "checks": {
+    "build": "passed",
+    "lint": "passed",
+    "courseContracts": "passed",
+    "learningTests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "browser": true,
+    "desktop": true,
+    "recovery": true,
+    "gitDiffWhitespace": "passed",
+    "beginnerLanguage": true,
+    "windowsPortablePackaging": "passed"
+  },
+  "activityRoutes": 67,
+  "sourceEntries": 23,
+  "handoff": {
+    "developmentAndPreviewServersStopped": true,
+    "portsFree": [
+      5173,
+      5174,
+      1420
+    ]
+  },
+  "unperformed": [
+    "beginner pilot and delayed learning evaluation",
+    "observed beginner KiCad walkthrough",
+    "exact-part CAD/fabrication/reference-board validation"
+  ],
+  "releaseBuild": {
+    "version": "0.2.0",
+    "asset": "First-PCB-0.2.0-portable.exe",
+    "bytes": 395016758,
+    "sha256": "2ebb824d7f1ed8ad13ef6475a24047e45d6efc8b15dcc46225767cf6cf5a5f50",
+    "signed": false
+  }
+}

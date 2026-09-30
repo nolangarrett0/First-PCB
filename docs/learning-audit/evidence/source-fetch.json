@@ -1,0 +1,213 @@
+{
+  "sources": [
+    {
+      "id": "F1",
+      "title": "OpenStax: Ohm’s law and simple circuits",
+      "url": "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "contentType": "text/html",
+      "bytes": 377185,
+      "sha256": "2af99218f1cbc2a87e48d3d2c5d45280c751cbd2ec41fed40fa8dc8607d09618",
+      "retrievedAt": "2026-09-29T22:52:06.699Z"
+    },
+    {
+      "id": "F2",
+      "title": "OpenStax: Series and parallel resistors",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "contentType": "text/html",
+      "bytes": 435335,
+      "sha256": "aca1f12da228ffffc65439062177e0ada94c5656ac80abb2635e8bf3c38d6ff0",
+      "retrievedAt": "2026-09-29T22:52:06.729Z"
+    },
+    {
+      "id": "F3",
+      "title": "OpenStax: Electric power",
+      "url": "https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy",
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy",
+      "contentType": "text/html",
+      "bytes": 393139,
+      "sha256": "c90819030d962392bc998fa6106b5322677565f3c03a53b458788bad4425e17f",
+      "retrievedAt": "2026-09-29T22:52:06.730Z"
+    },
+    {
+      "id": "C1",
+      "title": "Kingbright WP7113ID datasheet",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/WP7113ID.pdf",
+      "status": 200,
+      "finalUrl": "https://www.kingbrightusa.com/images/catalog/SPEC/WP7113ID.pdf",
+      "contentType": "application/pdf",
+      "bytes": 362307,
+      "sha256": "b5bb33f69c13fd92ab6d47a8fd71168b6e7ee685139c8f381957aeea9286c9da",
+      "retrievedAt": "2026-09-29T22:52:07.378Z"
+    },
+    {
+      "id": "C2",
+      "title": "Energizer E91 AA datasheet",
+      "url": "https://data.energizer.com/pdfs/e91.pdf",
+      "status": 200,
+      "finalUrl": "https://data.energizer.com/pdfs/e91.pdf",
+      "contentType": "application/pdf",
+      "bytes": 176109,
+      "sha256": "22a204e47c54a8b4c4c5b1e9b34be83486ce4b53f73e9c9453ee425cbffc6c8a",
+      "retrievedAt": "2026-09-29T22:52:07.309Z"
+    },
+    {
+      "id": "B1",
+      "title": "Adafruit: Breadboards for beginners",
+      "url": "https://learn.adafruit.com/breadboards-for-beginners/breadboards",
+      "status": 200,
+      "finalUrl": "https://learn.adafruit.com/breadboards-for-beginners/breadboards",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 85086,
+      "sha256": "9de88994e4a2d69f6a883cc0ead2937f249719e55fd47968507b53d580ba693f",
+      "retrievedAt": "2026-09-29T22:52:06.841Z"
+    },
+    {
+      "id": "B2",
+      "title": "Energizer battery care",
+      "url": "https://energizer.com/about-batteries/battery-care/",
+      "status": 200,
+      "finalUrl": "https://energizer.com/about-batteries/battery-care/",
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 354663,
+      "sha256": "80215fae9ac38c414e8c1c2579fea289f1858b40a00a8ca96efac8ee47ed200d",
+      "retrievedAt": "2026-09-29T22:52:08.035Z"
+    },
+    {
+      "id": "K2",
+      "title": "KiCad: Getting started",
+      "url": "https://docs.kicad.org/10.0/en/getting_started_in_kicad/getting_started_in_kicad.html",
+      "status": 200,
+      "finalUrl": "https://docs.kicad.org/10.0/en/getting_started_in_kicad/getting_started_in_kicad.html",
+      "contentType": "text/html",
+      "bytes": 158011,
+      "sha256": "61385fba7715623b4aa4356e0a16b56be51e6c96d1ffe6c657a26d7350185157",
+      "retrievedAt": "2026-09-29T22:52:06.796Z"
+    },
+    {
+      "id": "K3",
+      "title": "KiCad: Schematic editor",
+      "url": "https://docs.kicad.org/10.0/en/eeschema/eeschema.html",
+      "status": 200,
+      "finalUrl": "https://docs.kicad.org/10.0/en/eeschema/eeschema.html",
+      "contentType": "text/html",
+      "bytes": 1048260,
+      "sha256": "fd719e506cecaeefda3931d457b9ee4b90be10e38ccfe8e1627c762769584e81",
+      "retrievedAt": "2026-09-29T22:52:06.988Z"
+    },
+    {
+      "id": "K4",
+      "title": "KiCad: PCB editor",
+      "url": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+      "status": 200,
+      "finalUrl": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+      "contentType": "text/html",
+      "bytes": 1255787,
+      "sha256": "cc7124ff4fdb9cfcc64d38e7fe753e2bc68330131113c7f7901b1660c3f55ea1",
+      "retrievedAt": "2026-09-29T22:52:07.383Z"
+    },
+    {
+      "id": "K5",
+      "title": "KiCad: GerbView",
+      "url": "https://docs.kicad.org/10.0/en/gerbview/gerbview.html",
+      "status": 200,
+      "finalUrl": "https://docs.kicad.org/10.0/en/gerbview/gerbview.html",
+      "contentType": "text/html",
+      "bytes": 74779,
+      "sha256": "7b556e983620dc9ad67eeecdcd40a4ccf1b74e1626a475fd6c3e7c49e1ada722",
+      "retrievedAt": "2026-09-29T22:52:06.766Z"
+    },
+    {
+      "id": "M1",
+      "title": "Adafruit: Multimeters",
+      "url": "https://learn.adafruit.com/multimeters?view=all",
+      "status": 200,
+      "finalUrl": "https://learn.adafruit.com/multimeters?view=all",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 332480,
+      "sha256": "73f22a21495a2ed7cb321cbcda5e7273eacde8ef9ae345084879323d943a12ca",
+      "retrievedAt": "2026-09-29T22:52:07.370Z"
+    },
+    {
+      "id": "M2",
+      "title": "Fluke: Continuity testing",
+      "url": "https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-test-for-continuity",
+      "status": 200,
+      "finalUrl": "https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-test-for-continuity",
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 271548,
+      "sha256": "3804f173f859809f7e7ce094a063bcdcd904890a2803251a75ebe143f624e16f",
+      "retrievedAt": "2026-09-29T22:52:07.331Z"
+    },
+    {
+      "id": "A1",
+      "title": "Adafruit: Soldering tools and safety",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering",
+      "status": 200,
+      "finalUrl": "https://learn.adafruit.com/adafruit-guide-excellent-soldering",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 125291,
+      "sha256": "e1614d5461573315a7dcabd0a50189f53b39070a188c368df917b42eff6ffd7c",
+      "retrievedAt": "2026-09-29T22:52:07.309Z"
+    },
+    {
+      "id": "A2",
+      "title": "Adafruit: Making a good solder joint",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint",
+      "status": 200,
+      "finalUrl": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 90245,
+      "sha256": "1c285025dc4df2f2287e128d23a379056c60feaf4c46dac935820b294baf2001",
+      "retrievedAt": "2026-09-29T22:52:07.310Z"
+    },
+    {
+      "id": "A3",
+      "title": "Adafruit: Common soldering problems",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems",
+      "status": 200,
+      "finalUrl": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 118415,
+      "sha256": "a98b765e32d4faace3cbfb9715cf22905187a5760d577440ff42f52dbdeccc36",
+      "retrievedAt": "2026-09-29T22:52:07.312Z"
+    },
+    {
+      "id": "P1",
+      "title": "JLCPCB: Fabrication capabilities",
+      "url": "https://jlcpcb.com/capabilities/Capab",
+      "status": 200,
+      "finalUrl": "https://jlcpcb.com/capabilities/Capab",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 136078,
+      "sha256": "424ebf71d210cfa1487c9d82acc98eeb100e89b8b2dfae66b0765a2d905ee167",
+      "retrievedAt": "2026-09-29T22:52:07.331Z"
+    },
+    {
+      "id": "E1",
+      "title": "Dunlosky et al., effective learning techniques",
+      "url": "https://www.psychologicalscience.org/journals/pspi/1529100612453266/",
+      "status": 200,
+      "finalUrl": "https://www.psychologicalscience.org/journals/pspi/1529100612453266/",
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 86695,
+      "sha256": "9b67184d66a0effd546071888400e44a2619487a25e8656421ff990545efc34e",
+      "retrievedAt": "2026-09-29T22:52:07.311Z"
+    },
+    {
+      "id": "E2",
+      "title": "How People Learn II, implications for learning",
+      "url": "https://www.nationalacademies.org/read/24783/chapter/9",
+      "status": 200,
+      "finalUrl": "https://www.nationalacademies.org/read/24783/chapter/9",
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 778866,
+      "sha256": "33989175288e03ca807e19f4661b5d25651a3d4e80ba364ba57fd5e841f03b07",
+      "retrievedAt": "2026-09-29T22:52:07.431Z"
+    }
+  ]
+}

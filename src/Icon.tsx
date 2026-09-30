@@ -1,0 +1,4 @@
+export function Icon({name,size=20}:{name:'close'|'arrow'|'up'|'down'|'check'|'book'|'board'|'download'|'refresh'|'target';size?:number}){
+  const paths={close:<path d="m5 5 14 14M19 5 5 19"/>,arrow:<path d="M4 12h16m-7-7 7 7-7 7"/>,up:<path d="m6 15 6-6 6 6"/>,down:<path d="m6 9 6 6 6-6"/>,check:<path d="m4 12 5 5L20 6"/>,book:<><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z"/><path d="M12 6v14"/></>,board:<><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v6h7v6h6M3 16h7v5"/></>,download:<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>,refresh:<><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 7a7 7 0 0 1 13 3M18 17A7 7 0 0 1 5 14"/></>,target:<><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></>}
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>
+}

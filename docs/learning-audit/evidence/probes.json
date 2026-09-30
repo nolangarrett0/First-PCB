@@ -1,0 +1,101 @@
+{
+  "checkedAt": "2026-09-29T23:01:59.854Z",
+  "choiceStates": [
+    {
+      "text": "Remove the cells, change the wire, then inspect for shorts",
+      "selectedClass": true,
+      "ariaPressed": null,
+      "ariaChecked": null,
+      "role": null
+    },
+    {
+      "text": "Use continuity mode to check the live board",
+      "selectedClass": false,
+      "ariaPressed": null,
+      "ariaChecked": null,
+      "role": null
+    },
+    {
+      "text": "Open the switch and leave the cells in place",
+      "selectedClass": false,
+      "ariaPressed": null,
+      "ariaChecked": null,
+      "role": null
+    }
+  ],
+  "focusAfterContinue": {
+    "tag": "BODY",
+    "text": "\n    0.2 / 56LEARNING RECORDRecord what you learnedOptional reflection: State th",
+    "headingTabindex": null
+  },
+  "storageFailure": {
+    "successMessageStillShown": true,
+    "noteAvailableInMemory": true,
+    "persistedAfterReopen": "",
+    "silentFailure": true
+  },
+  "sourceFollowups": [
+    {
+      "url": "https://learn.adafruit.com/breadboards-for-beginners/other-breadboard-sizes",
+      "status": 200,
+      "excerpts": [
+        {
+          "word": "split",
+          "found": true,
+          "text": "our desk. Many of these large breadboards sometimes have 'power rails' that are split in the middle! That means that if you want to plug in a voltage at the top of the board, it wont appear at the bottom. Since this often trips people up, we strongly suggest drawing lines onto the breadboard the moment you get it! Just follow this image to see where the splits occur. Each drawn red line is a split. You can tell if your large breadboard has split rails by using a multimeter (b"
+        },
+        {
+          "word": "break",
+          "found": true,
+          "text": "Learn Learn Categories 3D Printing AdaBox Adafruit Products Arduino Compatibles Breakout Boards Circuit Playground CircuitPython CLUE Community Support Components Crickit Customer &amp; Partner Projects Development Boards Educators EL Wire/Tape/Panel Feather Gaming Hacks Internet of Things - IOT LCDs &amp; Displays LEDs Machine Learning MakeCode Maker Business micro:bit Microcontrollers Programming Raspberry Pi Robotics &amp; CNC Sensors STEMMA Tools Trellis Wearables Explore"
+        },
+        {
+          "word": "eyes",
+          "found": true,
+          "text": " not support the video tag. This links to the guide Reindeer Mask with Animated Eyes. Reindeer Mask with Animated Eyes By Dano Wall beginner 17 What is Web MIDI &amp; BLE MIDI? By Collin Cunningham intermediate 27 Circuit Playground Express Sugar Glider By Dave Astels intermediate 25 LED Noodle Lantern By Ruiz Brothers beginner 104 Adafruit Feather RP2040 with DVI Output Port By Kattni Rembor Product Guide 11 Adafruit Metro M7 with microSD By Kattni Rembor Product Guide 10 Yo"
+        },
+        {
+          "word": "glasses",
+          "found": false,
+          "text": ""
+        },
+        {
+          "word": "ventilat",
+          "found": false,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/preparation",
+      "status": 200,
+      "excerpts": [
+        {
+          "word": "split",
+          "found": false,
+          "text": ""
+        },
+        {
+          "word": "break",
+          "found": true,
+          "text": "Learn Learn Categories 3D Printing AdaBox Adafruit Products Arduino Compatibles Breakout Boards Circuit Playground CircuitPython CLUE Community Support Components Crickit Customer &amp; Partner Projects Development Boards Educators EL Wire/Tape/Panel Feather Gaming Hacks Internet of Things - IOT LCDs &amp; Displays LEDs Machine Learning MakeCode Maker Business micro:bit Microcontrollers Programming Raspberry Pi Robotics &amp; CNC Sensors STEMMA Tools Trellis Wearables Explore"
+        },
+        {
+          "word": "eyes",
+          "found": false,
+          "text": ""
+        },
+        {
+          "word": "glasses",
+          "found": false,
+          "text": ""
+        },
+        {
+          "word": "ventilat",
+          "found": false,
+          "text": ""
+        }
+      ]
+    }
+  ]
+}

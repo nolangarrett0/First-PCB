@@ -1,0 +1,36 @@
+[
+  {
+    "id": 2048,
+    "assetUrl": "https://learn.adafruit.com/assets/2048",
+    "url": "https://cdn-learn.adafruit.com/assets/assets/000/002/048/medium640/tools_Solder_Bridge.jpg?1396778519",
+    "owner": "Bill Earl",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modified": false
+  },
+  {
+    "id": 1974,
+    "assetUrl": "https://learn.adafruit.com/assets/1974",
+    "url": "https://cdn-learn.adafruit.com/assets/assets/000/001/974/medium640/tools_Pad_Wetting.jpg?1396777948",
+    "owner": "Bill Earl",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modified": false
+  },
+  {
+    "id": 2017,
+    "file": "reference.jpg",
+    "assetUrl": "https://learn.adafruit.com/assets/2017",
+    "url": "https://cdn-learn.adafruit.com/assets/assets/000/002/017/medium640/tools_2012_09_05_IMG_0643-1024.jpg?1396778273",
+    "owner": "Bill Earl",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modified": false
+  },
+  {
+    "id": 1968,
+    "file": "heating.jpg",
+    "assetUrl": "https://learn.adafruit.com/assets/1968",
+    "url": "https://cdn-learn.adafruit.com/assets/assets/000/001/968/medium640/tools_Heating.jpg?1396777898",
+    "owner": "Bill Earl",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modified": false
+  }
+]

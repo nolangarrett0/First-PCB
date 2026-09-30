@@ -1,0 +1,2375 @@
+{
+  "courseUnits": [
+    {
+      "title": "Prepare the mission",
+      "lessonIds": [
+        "0.1",
+        "0.2",
+        "0.3",
+        "0.4"
+      ]
+    },
+    {
+      "title": "Understand a circuit",
+      "lessonIds": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ]
+    },
+    {
+      "title": "Choose the parts",
+      "lessonIds": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7"
+      ]
+    },
+    {
+      "title": "Prototype and measure",
+      "lessonIds": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "3.6"
+      ]
+    },
+    {
+      "title": "Draw the schematic",
+      "lessonIds": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6"
+      ]
+    },
+    {
+      "title": "Lay out the PCB",
+      "lessonIds": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8"
+      ]
+    },
+    {
+      "title": "Prepare fabrication",
+      "lessonIds": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.4"
+      ]
+    },
+    {
+      "title": "Assemble and test",
+      "lessonIds": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5",
+        "7.6"
+      ]
+    },
+    {
+      "title": "Debug with evidence",
+      "lessonIds": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.5"
+      ]
+    },
+    {
+      "title": "Make one independent change",
+      "lessonIds": [
+        "9.1",
+        "9.2",
+        "9.3",
+        "9.4"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "0.2",
+      "title": "Work safely",
+      "learn": "This course uses a small external holder with two alkaline AA cells. Keep cells out during wiring and continuity checks. A shorted battery can heat wiring or cells.",
+      "prompt": "The two AA cells are still in the holder while you change a wire. What should you do before moving it?",
+      "options": [
+        "Open the switch and leave the cells in place",
+        "Remove the cells, change the wire, then inspect for shorts",
+        "Use continuity mode to check the live board"
+      ],
+      "correct": 1,
+      "why": "Opening the switch does not guarantee every point is unpowered. Remove the cells before rewiring or checking continuity.",
+      "evidence": "State the supply you will use and one reason to stop before power.",
+      "sources": [
+        "B2",
+        "C2"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Power source",
+            "The part that supplies electrical energy. This course uses two AA cells in a removable external holder."
+          ],
+          [
+            "Short circuit",
+            "An unintended low-resistance path that can let too much current flow."
+          ],
+          [
+            "Continuity",
+            "A check for an electrical connection. Use the meter’s continuity setting only with power removed."
+          ]
+        ],
+        "workedExample": "Suppose the assembled board needs an unpowered short check. Take both cells out of the holder before placing the meter probes on the supply contacts. An OFF switch alone does not remove power from every part of the board."
+      }
+    },
+    {
+      "id": "0.3",
+      "title": "Know your tools",
+      "learn": "A meter checks voltage and unpowered continuity. A breadboard tests temporary connections. KiCad creates the schematic and board files; a soldering iron assembles the physical board.",
+      "prompt": "You want to know whether a jumper wire connects to an LED lead on a breadboard. The cells are removed. Which tool and setting would help?",
+      "options": [
+        "Use DC voltage mode between those two points with the cells removed",
+        "A meter in continuity mode between the jumper and LED lead",
+        "Use continuity mode between the holder terminals instead of the suspected path"
+      ],
+      "correct": 1,
+      "why": "Continuity mode can check a suspected connection when the circuit is unpowered. Confirm the meter mode and probe locations.",
+      "evidence": "List the tools and parts you have, and note anything missing.",
+      "sources": [
+        "M1",
+        "B1",
+        "K2",
+        "A1"
+      ],
+      "visual": "tested",
+      "article": {
+        "terms": [
+          [
+            "Jumper wire",
+            "A short removable wire used to connect points on a breadboard."
+          ],
+          [
+            "Breadboard",
+            "A reusable board with groups of holes joined inside, so you can test a circuit without soldering."
+          ],
+          [
+            "Meter probes",
+            "The two pointed leads of a multimeter; place them on the two points you want to compare."
+          ],
+          [
+            "Continuity mode",
+            "A meter setting that checks whether two points have a low-resistance connection. Use it with the cells removed."
+          ]
+        ],
+        "workedExample": "Suppose a jumper should join two breadboard rows. Remove the cells, set the meter to continuity, and touch one probe to each end of that intended path. A beep or low reading suggests a connection; no beep means you should inspect the wire and rows. DC voltage mode answers a different question: the voltage between two points while powered."
+      }
+    },
+    {
+      "id": "0.4",
+      "title": "Plan first power",
+      "learn": "Power is the final step after inspecting the build. With cells absent, check for shorts and polarity; then apply power and stop if anything heats, smells unusual, or behaves unexpectedly.",
+      "prompt": "Your unpowered check finds continuity directly between the holder’s positive and negative terminals with the switch closed. What is the next step?",
+      "options": [
+        "Insert the cells briefly to see whether the LED lights",
+        "Investigate the possible short before inserting cells",
+        "Assume the meter beep means the circuit is ready"
+      ],
+      "correct": 1,
+      "why": "A low-resistance path across the supply may be a short. Investigate the path with cells absent before first power.",
+      "evidence": "Write your first-power sequence and stop conditions.",
+      "sources": [
+        "B2",
+        "M1"
+      ],
+      "visual": "tested",
+      "article": {
+        "terms": [
+          [
+            "Polarity",
+            "Which connection is positive and which is negative. Reversing a polarized part can stop the circuit working."
+          ],
+          [
+            "First power",
+            "The first time you insert cells into the assembled circuit. It comes after unpowered checks."
+          ]
+        ],
+        "workedExample": "With the cells out, compare the LED direction and holder marks with the drawing. Check for an unintended connection across the supply. Only when those checks are resolved should you insert cells and watch for heat, odor, or unexpected behavior."
+      }
+    },
+    {
+      "id": "1.1",
+      "title": "Trace a closed loop",
+      "learn": "A simple circuit needs a closed conducting path from one battery terminal, through the load, and back to the other. An open switch interrupts that path.",
+      "prompt": "The switch is closed, but one LED lead has lifted out of its breadboard row. The holder still measures voltage. What happens to loop current?",
+      "options": [
+        "The lifted lead opens the path, so loop current stops while the holder can retain voltage",
+        "The holder voltage must vanish whenever a lead lifts",
+        "Current continues through the LED because the switch is closed"
+      ],
+      "correct": 0,
+      "why": "A loose lead is another kind of open circuit. The switch may be closed and the battery may still have voltage, but the broken series path stops loop current.",
+      "evidence": "Trace a battery–switch–resistor–LED loop and mark where an open switch breaks it.",
+      "sources": [
+        "F1"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Circuit loop",
+            "A complete conducting path from one battery terminal, through parts, and back to the other terminal."
+          ],
+          [
+            "Open switch",
+            "A switch position that breaks the conducting path."
+          ]
+        ],
+        "workedExample": "Trace a path from battery positive through the switch, resistor, and LED to battery negative. If the switch opens, your finger can no longer trace a continuous route through the parts. The battery can still have voltage even though current through that loop stops."
+      }
+    },
+    {
+      "id": "1.2",
+      "title": "Voltage and current",
+      "learn": "Current describes charge flow through a branch. Voltage is a difference in electric potential between two points. A voltmeter therefore compares two probe locations.",
+      "prompt": "You need the voltage across the LED, not the supply or the resistor. Where should the two voltage probes go?",
+      "options": [
+        "One on each LED terminal",
+        "One on each battery terminal, because the LED is in the same loop",
+        "One on each resistor terminal, because the same current flows through both parts"
+      ],
+      "correct": 0,
+      "why": "Voltage compares two chosen points. Probing both ends of the LED measures its voltage; the same series current does not make the resistor and LED voltages equal.",
+      "evidence": "Describe two probe points for measuring voltage across a resistor.",
+      "sources": [
+        "F1",
+        "M1"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Current",
+            "The rate of electric charge flow through a branch, measured in amperes."
+          ],
+          [
+            "Voltage",
+            "The difference in electric potential between two points, measured in volts."
+          ],
+          [
+            "Across a part",
+            "One probe on each side of that part, so the meter compares its two ends."
+          ]
+        ],
+        "workedExample": "To learn the voltage across a resistor, place the two voltage probes on its two terminals. If you place them across the battery instead, you measure the supply voltage. Those are different measurements even in the same circuit."
+      }
+    },
+    {
+      "id": "1.3",
+      "title": "Units that matter",
+      "learn": "1 ampere equals 1000 milliamperes; 1 kilo-ohm equals 1000 ohms. Write the unit on every value so the scale of a calculation remains visible.",
+      "prompt": "How many amperes is 10 mA?",
+      "options": [
+        "0.010 A",
+        "10,000 A",
+        "0.1 A"
+      ],
+      "correct": 0,
+      "why": "Divide milliamperes by 1000: 10 mA is 0.010 A.",
+      "evidence": "Convert 2.2 kΩ to ohms and 0.015 A to milliamperes, with units.",
+      "sources": [
+        "F1"
+      ],
+      "visual": "schematic",
+      "numeric": {
+        "answer": 0.01,
+        "unit": "A",
+        "tolerance": 0.00001
+      },
+      "article": {
+        "terms": [
+          [
+            "Milli",
+            "One thousandth: 1 mA is 0.001 A."
+          ],
+          [
+            "Kilo",
+            "One thousand: 1 kΩ is 1000 Ω."
+          ]
+        ],
+        "workedExample": "Convert 5 mA to amperes before using Ohm’s law: 5 ÷ 1000 = 0.005 A. Convert 2.2 kΩ to ohms by multiplying by 1000: 2200 Ω. Keep units beside every number so a thousandfold mistake is visible."
+      }
+    },
+    {
+      "id": "1.4",
+      "title": "Change a resistor",
+      "learn": "For an ideal fixed voltage across an ohmic resistor, I = V/R. Increasing R reduces I. The LED itself is not an ohmic resistor, so this is a model of the resistor portion.",
+      "prompt": "A resistor changes from 300 Ω to 150 Ω while the voltage across it stays fixed. What happens to its current?",
+      "options": [
+        "It halves because the resistance value is smaller",
+        "It doubles because the resistance is halved",
+        "It stays fixed because the voltage is unchanged"
+      ],
+      "correct": 1,
+      "why": "I = V/R. At a fixed resistor voltage, halving R doubles I; this says nothing about how the LED voltage might change in a real circuit.",
+      "evidence": "Predict the direction of current change before trying a different resistor in a model.",
+      "sources": [
+        "F1"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Resistance",
+            "A measure of how strongly a resistor opposes current, in ohms (Ω)."
+          ],
+          [
+            "Ohmic resistor",
+            "A resistor modeled by V = IR over the conditions used here. An LED does not behave like this resistor."
+          ]
+        ],
+        "workedExample": "If 2 V stays across a 100 Ω resistor, I = 2 ÷ 100 = 0.02 A. With 200 Ω at the same 2 V, I = 0.01 A. The larger resistance gives less current under the fixed-voltage assumption."
+      }
+    },
+    {
+      "id": "1.5",
+      "title": "Use Ohm’s law",
+      "learn": "Use I = V/R for an ohmic resistor and keep units visible. Rearrange to V = IR or R = V/I only after identifying what is known.",
+      "prompt": "A 100 Ω resistor has 2 V across it. What is its current?",
+      "options": [
+        "0.02 A",
+        "50 A",
+        "200 A"
+      ],
+      "correct": 0,
+      "why": "2 V / 100 Ω = 0.02 A, or 20 mA. This example concerns the resistor, not an LED.",
+      "evidence": "Calculate the current through a 200 Ω resistor with 1 V across it.",
+      "sources": [
+        "F1"
+      ],
+      "visual": "schematic",
+      "numeric": {
+        "answer": 0.02,
+        "unit": "A",
+        "tolerance": 0.00001
+      },
+      "article": {
+        "terms": [
+          [
+            "Ohm’s law",
+            "For a resistor, voltage V equals current I times resistance R: V = IR."
+          ],
+          [
+            "Rearrange",
+            "Solve the same relationship for the unknown: I = V/R or R = V/I."
+          ]
+        ],
+        "workedExample": "Suppose a 220 Ω resistor has 1.1 V across it. Divide 1.1 V by 220 Ω to get 0.005 A, or 5 mA. This calculates resistor current from the voltage actually across the resistor, not from battery voltage alone."
+      }
+    },
+    {
+      "id": "1.6",
+      "title": "Series, open, and short",
+      "learn": "A series path carries the same current through each component. An open breaks it. A low-resistance bypass across a load can create a dangerous short path.",
+      "prompt": "A jumper connects around the series resistor, leaving the LED in the loop. Why should you stop before powering it?",
+      "options": [
+        "The jumper may remove current limiting from the LED",
+        "The resistor still limits current because it remains soldered in place",
+        "The open switch will protect the LED even after it is closed"
+      ],
+      "correct": 0,
+      "why": "A bypass around the resistor can leave the LED without its intended current limit. Remove cells and correct the wiring.",
+      "evidence": "Sketch a series loop, an open, and a bypass; explain what changes.",
+      "sources": [
+        "F2",
+        "B2"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Series path",
+            "Parts connected one after another so the same branch current goes through them."
+          ],
+          [
+            "Open",
+            "A break that prevents current in the path."
+          ],
+          [
+            "Bypass",
+            "An added route around a part. Around the resistor, it can remove the intended LED current limit."
+          ]
+        ],
+        "workedExample": "Imagine battery → switch → resistor → LED → battery. An open switch stops the loop. A wire across the resistor is different: the loop may remain closed while current avoids the resistor, which is unsafe for the LED."
+      }
+    },
+    {
+      "id": "2.1",
+      "title": "LED direction",
+      "learn": "An LED conducts primarily in one direction and needs a current-limiting element in this course circuit. Check both the schematic symbol and the exact part’s physical polarity marks.",
+      "prompt": "The LED’s flat edge seems to disagree with the board’s polarity mark. What should you do before soldering?",
+      "options": [
+        "Trust the board mark because it was generated from the schematic",
+        "Check the exact LED drawing and pad mapping, then resolve the mismatch",
+        "Try both orientations with the cells installed"
+      ],
+      "correct": 1,
+      "why": "A footprint or marking can be wrong. Compare the actual part drawing with the pad numbers and schematic before assembly.",
+      "evidence": "Mark anode and cathode on a sketch of the planned LED and its schematic symbol.",
+      "sources": [
+        "C1"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "LED",
+            "A light-emitting diode; it has a direction and needs controlled current."
+          ],
+          [
+            "Anode and cathode",
+            "The LED’s two electrical terminals. Identify them from the exact part drawing and map them to the schematic and board."
+          ]
+        ],
+        "workedExample": "Before placing an LED, find its anode and cathode in the manufacturer drawing. Trace the intended current path on the schematic, then compare the board pad numbers and markings. If any of these disagree, pause and resolve the mismatch."
+      }
+    },
+    {
+      "id": "2.2",
+      "title": "Read the datasheets",
+      "learn": "A datasheet number is meaningful only with its conditions. The candidate Kingbright LED lists 1.9 V typical and 2.3 V maximum forward voltage at 10 mA and 25 °C; the AA cell’s 1.5 V is nominal.",
+      "prompt": "You measured the LED at a different current and temperature than the datasheet test. Can you treat 1.9 V as its guaranteed drop?",
+      "options": [
+        "Yes, because typical means guaranteed",
+        "No; record the actual conditions and use an appropriate voltage range",
+        "Yes, if the batteries are rated 1.5 V each"
+      ],
+      "correct": 1,
+      "why": "The listed typical voltage is tied to test conditions; it is not a guaranteed value for every operating point.",
+      "evidence": "Record the datasheet page and test conditions for one LED parameter and one battery parameter.",
+      "sources": [
+        "C1",
+        "C2"
+      ],
+      "visual": "files",
+      "article": {
+        "terms": [
+          [
+            "Datasheet",
+            "The manufacturer’s document giving a part’s limits, measurements, and test conditions."
+          ],
+          [
+            "Typical",
+            "A representative value under stated conditions, not a guaranteed result for every part."
+          ],
+          [
+            "Nominal",
+            "A useful rated value, such as 1.5 V for an AA cell, not an exact voltage under every load."
+          ]
+        ],
+        "workedExample": "If a datasheet lists LED voltage at 10 mA and 25 °C, write those conditions next to the number. If your circuit runs at another current, treat that listed point as context and check the appropriate range before choosing a resistor."
+      }
+    },
+    {
+      "id": "2.3",
+      "title": "Set a current target",
+      "learn": "LED brightness and current involve a design tradeoff. Choose a modest target only after checking the chosen LED’s limits and testing visibility in the reference build.",
+      "prompt": "A candidate target is below the LED’s rated limit but the prototype is hard to see. What should guide a revision?",
+      "options": [
+        "Increase current to the LED’s absolute maximum because it is a recommended target",
+        "Compare visibility tests with the exact LED limits and resistor power",
+        "Keep the target unchanged because brightness is unrelated to current"
+      ],
+      "correct": 1,
+      "why": "A current target balances the intended visibility with component limits and should be checked on the real prototype.",
+      "evidence": "State a tentative target and what evidence you still need before approving it.",
+      "sources": [
+        "C1"
+      ],
+      "visual": "schematic",
+      "article": {
+        "terms": [
+          [
+            "Current target",
+            "The operating current you aim for when choosing the series resistor. It is a design choice."
+          ],
+          [
+            "Rating",
+            "A limit or specified operating condition from the exact component datasheet."
+          ]
+        ],
+        "workedExample": "Start with a modest current that the selected LED permits, calculate a resistor, and test whether the prototype is visible enough. If it is too dim, revisit the target while checking the LED and resistor limits again."
+      }
+    },
+    {
+      "id": "2.4",
+      "title": "Choose the resistor",
+      "learn": "Estimate resistor voltage from battery voltage minus LED forward voltage, then use R = V/I. Check a range of battery and LED conditions before selecting a real resistor.",
+      "prompt": "Hypothetical model: a 3 V supply, 2 V across the LED, and a 5 mA target. What resistance in ohms does the model suggest?",
+      "options": [
+        "200 Ω",
+        "5 Ω",
+        "600 Ω"
+      ],
+      "correct": 0,
+      "why": "(3 V − 2 V) / 0.005 A = 200 Ω. The 2 V LED assumption is only for this exercise; a real choice needs range checks.",
+      "evidence": "Work the hypothetical calculation with units, then list what actual part data remains to be verified.",
+      "sources": [
+        "F1",
+        "C1",
+        "C2"
+      ],
+      "visual": "schematic",
+      "numeric": {
+        "answer": 200,
+        "unit": "Ω",
+        "tolerance": 0.5
+      },
+      "article": {
+        "terms": [
+          [
+            "Series resistor",
+            "A resistor in the LED’s current path that helps limit current."
+          ],
+          [
+            "Voltage across the resistor",
+            "Supply voltage minus the LED voltage in this simple series model."
+          ]
+        ],
+        "workedExample": "With a hypothetical 3 V supply, 2 V LED drop, and 10 mA target, the resistor has 1 V across it. Convert 10 mA to 0.010 A, then R = 1 ÷ 0.010 = 100 Ω. A real part choice also needs supply and LED ranges."
+      }
+    },
+    {
+      "id": "2.5",
+      "title": "Check power and tolerance",
+      "learn": "For a resistor, P = IV or I²R. Compare the computed worst-case dissipation with the exact resistor’s rating and tolerance in its datasheet.",
+      "prompt": "In a hypothetical case, a 200 Ω resistor carries 5 mA. What power does it dissipate in watts?",
+      "options": [
+        "0.005 W",
+        "1 W",
+        "200 W"
+      ],
+      "correct": 0,
+      "why": "P = I²R = (0.005 A)² × 200 Ω = 0.005 W. The exact resistor rating and worst-case conditions still need checking.",
+      "evidence": "Show the power calculation and cite the selected part’s rating, or mark the part unresolved.",
+      "sources": [
+        "F3"
+      ],
+      "visual": "schematic",
+      "numeric": {
+        "answer": 0.005,
+        "unit": "W",
+        "tolerance": 0.00001
+      },
+      "article": {
+        "terms": [
+          [
+            "Power dissipation",
+            "Electrical energy converted to heat per second in a part, measured in watts."
+          ],
+          [
+            "Tolerance",
+            "The allowed variation around a part’s labeled value."
+          ]
+        ],
+        "workedExample": "A 100 Ω resistor carrying 10 mA dissipates I²R = 0.010² × 100 = 0.010 W. Compare the worst plausible result with the exact resistor’s rating, allowing for the real supply and part values."
+      }
+    },
+    {
+      "id": "2.6",
+      "title": "Switch and battery holder",
+      "learn": "The switch, holder, and connection must fit physically and connect the intended pins. A schematic symbol alone does not establish a footprint or polarity.",
+      "prompt": "A slide switch has three pins, but your symbol uses two. What must you establish before assigning its footprint?",
+      "options": [
+        "Which physical pins connect in each switch position and how they map to the symbol",
+        "Which two pads sit closest together in the footprint drawing",
+        "Whether a three-pin symbol is available, without checking which contacts close"
+      ],
+      "correct": 0,
+      "why": "The exact switch pinout and operation determine the symbol-to-pad mapping; pad count alone is insufficient.",
+      "evidence": "List the exact switch and holder part numbers or mark them unresolved.",
+      "sources": [
+        "K3",
+        "B2"
+      ],
+      "visual": "layout",
+      "article": {
+        "terms": [
+          [
+            "Symbol",
+            "The schematic drawing of a part’s electrical connections."
+          ],
+          [
+            "Footprint",
+            "The board pattern of pads and holes where that physical part will attach."
+          ],
+          [
+            "Pinout",
+            "The identity and function of each numbered connection on the real part."
+          ]
+        ],
+        "workedExample": "A three-pin slide switch may connect its middle pin to one outer pin in one position and to the other outer pin in the next. Read the exact switch drawing, choose the pair your circuit uses, and verify that the symbol pins map to those footprint pads."
+      }
+    },
+    {
+      "id": "2.7",
+      "title": "Review failure cases",
+      "learn": "A reversed LED, open switch, missing resistor, or short can produce different symptoms. Predict and choose a safe inspection or measurement before changing parts.",
+      "prompt": "The holder voltage is normal and the switch is closed, but the LED stays dark. Which check helps distinguish a reversed LED from an open connection?",
+      "options": [
+        "Inspect LED polarity, then check the suspected connection unpowered",
+        "Immediately replace the battery",
+        "Short across the resistor to increase LED current"
+      ],
+      "correct": 0,
+      "why": "A normal supply narrows the search. Check the LED orientation and connections safely before replacing parts.",
+      "evidence": "Name two possible causes of a dark LED and a test that distinguishes them.",
+      "sources": [
+        "C1",
+        "B2",
+        "M1"
+      ],
+      "visual": "tested",
+      "article": {
+        "terms": [
+          [
+            "Symptom",
+            "What you observe, such as “LED is dark.” It is not yet a diagnosis."
+          ],
+          [
+            "Hypothesis",
+            "A possible cause that predicts an observation you can test."
+          ]
+        ],
+        "workedExample": "If the LED is dark, a weak battery and an open wire are different hypotheses. Measure the supply first. If it is normal, remove the cells and test the suspected connection rather than replacing parts at random."
+      }
+    },
+    {
+      "id": "3.1",
+      "title": "Breadboard connections",
+      "learn": "Breadboard rows and power rails connect internally, but rail breaks and layouts vary. Verify the specific board before inserting parts.",
+      "prompt": "Your LED works on one half of the breadboard but not when moved to the far end of the same marked rail. What should you test with cells removed?",
+      "options": [
+        "Continuity across the rail’s midpoint",
+        "Voltage across the LED while moving jumpers",
+        "Only whether the rail markings have the same color"
+      ],
+      "correct": 0,
+      "why": "Some breadboard rails are split. An unpowered continuity test across the suspected break checks the actual connection.",
+      "evidence": "Sketch the connected groups on your own breadboard, or use a verified reference diagram.",
+      "sources": [
+        "B1",
+        "M1"
+      ],
+      "visual": "layout",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Breadboard row",
+            "A group of holes joined by metal under the plastic; holes in other rows may be separate."
+          ],
+          [
+            "Power rail",
+            "A long group of holes often used for supply connections. Some rails have a break in the middle."
+          ]
+        ],
+        "workedExample": "Before trusting a rail from one end to the other, remove the cells and place meter probes on opposite sides of its midpoint. A continuity result tells you whether this particular rail is joined there."
+      }
+    },
+    {
+      "id": "3.2",
+      "title": "Build the prototype",
+      "learn": "Build the approved low-voltage series circuit with cells absent. Compare each connection to the schematic before the first powered trial.",
+      "prompt": "Your LED and resistor appear connected, but one jumper may be in the next breadboard row. What should you do before inserting cells?",
+      "options": [
+        "Check the row connections against the schematic with cells absent",
+        "Check only the LED-to-resistor jumper because the other parts already look placed",
+        "Trust matching row labels without checking which holes share an internal strip"
+      ],
+      "correct": 0,
+      "why": "Breadboard rows can be easy to misread. Confirm the actual connections against the schematic before applying power.",
+      "evidence": "Record your cell-free build inspection; label any unbuilt step as pending.",
+      "sources": [
+        "B2",
+        "M1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Prototype",
+            "A temporary build used to test the circuit before committing to a PCB."
+          ],
+          [
+            "Jumper",
+            "A removable wire between breadboard holes. Its location decides which rows are connected."
+          ]
+        ],
+        "workedExample": "With cells absent, trace the schematic one connection at a time on the breadboard: holder to switch, switch to resistor, resistor to LED, and LED back to the holder. Check the exact row of every jumper before first power."
+      }
+    },
+    {
+      "id": "3.3",
+      "title": "Measure voltage",
+      "learn": "A DC voltmeter reads a potential difference between two probes. Check the meter’s jack and mode, predict the sign, then measure across the intended two points.",
+      "prompt": "You put the black probe on the holder’s + contact and the red probe on its − contact in DC voltage mode. What sign should a normally installed pack show?",
+      "options": [
+        "A negative sign, because red is at lower potential than black",
+        "A positive sign, because the cells themselves are installed normally",
+        "No sign, because reversing probes cancels the voltage"
+      ],
+      "correct": 0,
+      "why": "A DC voltmeter reports the red-probe potential relative to black. With red on − and black on +, the displayed value is negative even if the cells are installed correctly.",
+      "evidence": "Record meter model, jack/mode, probe points, and observed or expected reading.",
+      "sources": [
+        "M1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "DC voltage mode",
+            "The meter setting for a steady voltage such as a battery supply."
+          ],
+          [
+            "Probe polarity",
+            "The meter reports red-probe potential relative to black-probe potential; reversing them changes the sign."
+          ]
+        ],
+        "workedExample": "Set the meter to DC volts with leads in the correct jacks. Put red on holder positive and black on holder negative. If the sign is negative, check whether the probes or cells are reversed before interpreting the number."
+      }
+    },
+    {
+      "id": "3.4",
+      "title": "Infer current",
+      "learn": "Instead of moving a lead to a current jack, measure voltage across the known series resistor and calculate I = V/R. Never put a meter in current mode directly across a battery.",
+      "prompt": "You measure 0.9 V across a known 300 Ω series resistor. What branch current does this imply?",
+      "options": [
+        "3 mA",
+        "0.3 mA",
+        "30 mA"
+      ],
+      "correct": 0,
+      "why": "I = V/R = 0.9 V / 300 Ω = 0.003 A = 3 mA. This uses the voltage across the resistor, not the whole supply.",
+      "evidence": "Record resistor value, resistor voltage, and inferred current with units.",
+      "sources": [
+        "F1",
+        "M1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "numeric": {
+        "answer": 3,
+        "unit": "mA",
+        "tolerance": 0.01
+      },
+      "article": {
+        "terms": [
+          [
+            "Infer current",
+            "Calculate current from another measurement instead of putting the meter directly into the current path."
+          ],
+          [
+            "Resistor voltage",
+            "The voltage measured with one probe at each end of the known resistor."
+          ]
+        ],
+        "workedExample": "If a known 100 Ω resistor has 0.5 V across it, I = V/R = 0.5 ÷ 100 = 0.005 A, or 5 mA. This avoids connecting a current-mode meter directly across a battery."
+      }
+    },
+    {
+      "id": "3.5",
+      "title": "Compare results",
+      "learn": "Compare actual supply and component voltages with predictions. Differences may come from supply state, component spread, measurement, or wiring; do not force an exact nominal result.",
+      "prompt": "Your model used a 3.0 V supply, but the holder measures 2.5 V while the LED is on. What should you do before changing the resistor?",
+      "options": [
+        "Recalculate using the measured supply and a plausible LED-voltage range",
+        "Keep 3.0 V in the calculation because that is the pack’s nominal rating",
+        "Raise the assumed LED voltage until the original current prediction fits"
+      ],
+      "correct": 0,
+      "why": "Use the measured loaded supply and a defensible LED range. Changing a part to rescue a prediction before revisiting its assumptions can hide the real cause.",
+      "evidence": "Write a predicted/observed table and one evidence-based explanation, or mark measurement pending.",
+      "sources": [
+        "C1",
+        "C2",
+        "F1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Prediction",
+            "A value estimated from the circuit model and its assumptions."
+          ],
+          [
+            "Observation",
+            "A value actually measured on the build."
+          ]
+        ],
+        "workedExample": "If your model used 3.0 V but the loaded holder measures 2.7 V, write both values down. Recalculate the predicted resistor voltage using 2.7 V and a plausible LED voltage range before deciding that anything is faulty."
+      }
+    },
+    {
+      "id": "3.6",
+      "title": "Find a wiring fault",
+      "learn": "A dark LED can result from an open rail, reversed LED, wrong resistor, or absent supply. Choose a measurement that separates likely causes.",
+      "prompt": "The battery reads normally, but the LED is dark. You suspect either a split rail or a reversed LED. Which check tests the rail hypothesis directly?",
+      "options": [
+        "With cells removed, check continuity across the suspected rail break",
+        "Measure battery voltage again at the holder",
+        "Swap the LED immediately without checking the rail"
+      ],
+      "correct": 0,
+      "why": "A direct unpowered continuity check can confirm or rule out the suspected rail break.",
+      "evidence": "Record a suspected fault, distinguishing test, observation, and correction.",
+      "sources": [
+        "B1",
+        "M1",
+        "C1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Fault isolation",
+            "Using a measurement that separates possible causes of a problem."
+          ],
+          [
+            "Split rail",
+            "A breadboard power rail whose two sections are not internally joined."
+          ]
+        ],
+        "workedExample": "A normal battery reading rules out one possible cause of a dark LED, but not a broken breadboard path. With cells removed, test continuity across the suspected rail split. A failed connection supports that hypothesis."
+      }
+    },
+    {
+      "id": "4.1",
+      "title": "Create a KiCad project",
+      "learn": "A KiCad project keeps the schematic and board together. Save it in a named folder and note the KiCad version used.",
+      "prompt": "You found two KiCad project folders with different schematic versions. Before editing the board, what should you establish?",
+      "options": [
+        "Which schematic and board belong to the intended project revision",
+        "Which file has the latest modification time, even if the other file is from another folder",
+        "Which folder has a matching project name, without opening its schematic and board"
+      ],
+      "correct": 0,
+      "why": "The schematic and PCB need to belong to the same intended project revision before changes or fabrication.",
+      "evidence": "Record your project folder and KiCad version, or mark installation pending.",
+      "sources": [
+        "K2"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "KiCad project",
+            "A named set of design files that keeps the schematic and PCB design together."
+          ],
+          [
+            "Revision",
+            "A specific version of the design. Keep its schematic, board, and outputs together."
+          ]
+        ],
+        "workedExample": "Create one project folder for the LED board. Save its schematic and PCB there, and write down the KiCad version. Before editing or exporting, confirm you opened the intended revision rather than a similarly named older folder."
+      }
+    },
+    {
+      "id": "4.2",
+      "title": "Choose symbols",
+      "learn": "Choose schematic symbols for the exact planned parts, then compare pin numbers and meaning with the manufacturer drawings.",
+      "prompt": "A library switch symbol has pins 1 and 2, while the selected part closes pins 1 and 3 in the intended position. What should you resolve?",
+      "options": [
+        "Map the symbol pins to the actual switch operation before using it",
+        "Choose a three-pin symbol and assume the middle pin is the common contact",
+        "Swap PCB pad labels later while leaving the schematic mapping unexplained"
+      ],
+      "correct": 0,
+      "why": "The symbol’s electrical pin mapping must reflect the exact part and intended switch position.",
+      "evidence": "List each part and the symbol used, noting any unresolved pin mapping.",
+      "sources": [
+        "K3"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Schematic symbol",
+            "A drawing of a component’s electrical pins and their roles."
+          ],
+          [
+            "Pin number",
+            "The identifier that must match the physical part and its board pad."
+          ]
+        ],
+        "workedExample": "For a switch, read which numbered terminals connect in the ON position in its datasheet. Compare that pair with the symbol’s numbered pins. A matching name in the library does not prove the mapping is right."
+      }
+    },
+    {
+      "id": "4.3",
+      "title": "Wire the nets",
+      "learn": "Join the intended pins and inspect junction dots and highlighted nets. Crossing lines without the intended junction can leave nets separate.",
+      "prompt": "Two wires cross where you intended a connection, but net highlighting selects only one wire. What should you do?",
+      "options": [
+        "Add a junction or redraw the connection, then highlight the net again",
+        "Accept the drawing because the two lines visibly cross, then continue to layout",
+        "Run ERC and treat a pass as proof that these two exact pins share one net"
+      ],
+      "correct": 0,
+      "why": "The editor’s net connectivity matters more than visual overlap. Correct the connection and verify the highlighted net.",
+      "evidence": "Trace supply to return and name the nets in your schematic.",
+      "sources": [
+        "K3"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Net",
+            "A group of pins meant to be electrically connected."
+          ],
+          [
+            "Junction",
+            "A point where wires join in the schematic editor. Crossing lines are not always joined."
+          ]
+        ],
+        "workedExample": "Draw the wire from the resistor to the LED. Use net highlighting to select it and inspect which pins light up. If the intended LED pin does not highlight, correct the wire or junction instead of trusting the drawing’s appearance."
+      }
+    },
+    {
+      "id": "4.4",
+      "title": "Assign footprints",
+      "learn": "A footprint maps schematic pins to real pads and holes. Compare pin numbering, pitch, hole size, and body outline with each exact component.",
+      "prompt": "A footprint hole pitch matches your switch, but pads 1 and 3 are reversed relative to the datasheet. What should happen?",
+      "options": [
+        "Correct the pad mapping or choose a matching footprint",
+        "Use it because the leads physically fit",
+        "Change only the 3D model orientation"
+      ],
+      "correct": 0,
+      "why": "Physical fit does not fix an electrical pin mismatch. Match the exact part drawing and symbol mapping.",
+      "evidence": "Record a footprint-to-part table and mark any part without an exact match.",
+      "sources": [
+        "K3",
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Footprint",
+            "The PCB pattern of metal pads, holes, and outlines for a physical component."
+          ],
+          [
+            "Pad",
+            "A metal landing where a component lead or terminal connects to the board. Each pad has a number."
+          ],
+          [
+            "Pitch",
+            "The distance between neighboring leads or pads."
+          ]
+        ],
+        "workedExample": "For a through-hole switch, compare the exact lead spacing and diameter with the footprint pitch and drill holes. Then compare every numbered pad with the schematic pin and part drawing. A good-looking 3D preview alone cannot confirm either check."
+      }
+    },
+    {
+      "id": "4.5",
+      "title": "Run ERC",
+      "learn": "Electrical Rules Check catches configured connection problems and unconnected pins. It cannot prove that a functioning circuit was designed.",
+      "prompt": "ERC passes, but your LED symbol points opposite to the intended current path. What should happen before layout?",
+      "options": [
+        "Correct the LED orientation and rerun ERC",
+        "Keep it because ERC passed",
+        "Rotate the footprint only and leave the schematic"
+      ],
+      "correct": 0,
+      "why": "ERC does not know your intended LED direction. Fix the circuit design and run the check again.",
+      "evidence": "Record ERC findings and how you resolved or documented each one.",
+      "sources": [
+        "K2",
+        "K3"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "ERC",
+            "Electrical Rules Check: KiCad’s check for configured schematic connection problems."
+          ],
+          [
+            "Design intent",
+            "What the circuit is supposed to do, which a rule checker cannot fully infer."
+          ]
+        ],
+        "workedExample": "Run ERC and resolve every reported issue. Then trace the battery-to-LED loop yourself and inspect polarity, values, and exact pin mapping. An LED wired backward may still be legal under the checker’s rules."
+      }
+    },
+    {
+      "id": "4.6",
+      "title": "Review the schematic",
+      "learn": "Follow the intended loop without relying on ERC: supply, switch, resistor, LED polarity, return, part values, and ratings.",
+      "prompt": "The schematic passes ERC, but tracing from battery positive reaches the LED cathode first. What should you review?",
+      "options": [
+        "LED orientation and the complete intended current path",
+        "Only whether the switch symbol closes the expected pins",
+        "Only whether the footprint has a cathode mark, leaving the schematic unchanged"
+      ],
+      "correct": 0,
+      "why": "Trace the actual circuit and compare LED polarity with the selected part; ERC may not know the intended direction.",
+      "evidence": "Write the net-by-net review result and any unresolved item.",
+      "sources": [
+        "K2",
+        "C1"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Logical review",
+            "A deliberate trace of what the schematic means, beyond passing automated checks."
+          ],
+          [
+            "Polarity review",
+            "A comparison of positive/negative and anode/cathode connections with the intended circuit and exact part."
+          ]
+        ],
+        "workedExample": "Start at battery positive and trace switch → resistor → LED anode → LED cathode → return. At each part, compare the symbol and value with the chosen component. Write down any mismatch before making the board."
+      }
+    },
+    {
+      "id": "5.1",
+      "title": "Read board layers",
+      "learn": "Copper carries connections, solder mask covers most copper, and silkscreen provides markings. Through-hole pads may connect on both copper sides.",
+      "prompt": "A line between LED and resistor pads appears only on the silkscreen layer. Will it carry current?",
+      "options": [
+        "Yes, because a visible line touching both pads is a connection on any layer",
+        "No; route the connection on copper",
+        "Yes, if a solder-mask opening exposes the printed line"
+      ],
+      "correct": 1,
+      "why": "Silkscreen is printed labeling. The electrical route must be copper connected to the correct pads.",
+      "evidence": "Label copper, mask, silkscreen, holes, and edge outline on a board view.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Copper layer",
+            "Metal paths and pads that can conduct current on the PCB."
+          ],
+          [
+            "Solder mask",
+            "A protective coating over much of the copper; openings expose pads for soldering."
+          ],
+          [
+            "Silkscreen",
+            "Printed text and marks that guide assembly, not electrical connections."
+          ]
+        ],
+        "workedExample": "If the LED and resistor must connect, route a copper track between their correct pads. Add a silkscreen label if it helps assembly, but a printed line cannot substitute for the copper connection."
+      }
+    },
+    {
+      "id": "5.2",
+      "title": "Check footprints",
+      "learn": "Use exact part drawings and, when possible, a printed 1:1 footprint check. Inspect pad numbering, drill, lead spacing, and polarity.",
+      "prompt": "The 3D view shows the switch fitting, but its lead diameter exceeds the footprint drill size. What should you do?",
+      "options": [
+        "Correct the hole size using the exact part drawing and fabrication rules",
+        "Increase only the surrounding pad diameter and leave the drill unchanged",
+        "Keep the hole because the 3D model appears to fit the switch"
+      ],
+      "correct": 0,
+      "why": "The real lead and drilled hole dimensions govern fit; a 3D image alone cannot validate them.",
+      "evidence": "Record the exact part and footprint dimensions you checked.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Drill size",
+            "The hole diameter specified for a through-hole component lead."
+          ],
+          [
+            "Pad mapping",
+            "Which numbered footprint pad corresponds to each electrical pin."
+          ]
+        ],
+        "workedExample": "Print a footprint at actual size or compare its dimensions directly with the exact part drawing. Check lead spacing, drill diameter, and every numbered pad. A 3D body that looks aligned can still hide a too-small hole."
+      }
+    },
+    {
+      "id": "5.3",
+      "title": "Set fabrication rules",
+      "learn": "Read the chosen fabricator’s current capabilities and enter appropriate project rules before routing. Capability minimums are not automatic design targets.",
+      "prompt": "A trace fits only if you use the fabricator’s absolute minimum width. What is the sound design decision?",
+      "options": [
+        "Check the current vendor rules and seek comfortable margin or change the layout",
+        "Use the published minimum as the default width for every track because the vendor lists it",
+        "Leave the project’s default clearance even though it is below the vendor’s rule"
+      ],
+      "correct": 0,
+      "why": "A stated manufacturing minimum is a limit, not a design target. Verify current capabilities and revise the layout where practical.",
+      "evidence": "Record vendor, date, rule source, and the conservative values selected.",
+      "sources": [
+        "K4",
+        "P1"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Fabrication rule",
+            "A limit from the chosen manufacturer, such as minimum track width, spacing, or drill size."
+          ],
+          [
+            "Design margin",
+            "Extra room beyond a manufacturing minimum, when the layout allows it."
+          ]
+        ],
+        "workedExample": "Read the current capabilities of the fabricator you plan to use. Enter appropriate rules in the PCB project before routing. If a track only fits at an absolute minimum, consider moving parts to leave more margin."
+      }
+    },
+    {
+      "id": "5.4",
+      "title": "Place parts",
+      "learn": "Place parts so the switch can be reached, LED can be seen, battery polarity is legible, and parts can be hand assembled.",
+      "prompt": "The switch fits electrically but sits under the battery holder. What should you change?",
+      "options": [
+        "Move it where a finger can reach it while keeping clearances",
+        "Rotate the switch under the holder so its actuator faces the edge",
+        "Keep the placement because DRC reports no electrical error"
+      ],
+      "correct": 0,
+      "why": "Placement must allow the finished board to be used and assembled. DRC does not test finger access.",
+      "evidence": "Describe one placement decision and its use or assembly reason.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Placement",
+            "The location and orientation of each part on the PCB."
+          ],
+          [
+            "Assembly clearance",
+            "Room to insert, solder, and use parts without interference."
+          ]
+        ],
+        "workedExample": "Put the LED where it can be seen and the switch where a finger can reach it. Check the battery holder’s real outline so it does not cover the switch or polarity marks. Then confirm routing still has room."
+      }
+    },
+    {
+      "id": "5.5",
+      "title": "Route copper",
+      "learn": "Route each schematic net to the matching pads. A remaining ratsnest line signals an unrouted connection, even if copper appears close.",
+      "prompt": "Copper appears to touch a pad, yet KiCad still shows one unrouted connection. What should you inspect?",
+      "options": [
+        "The net assignment and actual pad-to-track connection",
+        "Whether changing the nearby silkscreen line makes the connection appear continuous",
+        "Whether the copper is close enough in the 3D view, regardless of the unrouted count"
+      ],
+      "correct": 0,
+      "why": "A visible overlap may not be a valid connection. Use net highlighting and the unrouted count to find the missing link.",
+      "evidence": "Record the unrouted count and trace at least one full net.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Track",
+            "A routed copper path connecting pads on the PCB."
+          ],
+          [
+            "Ratsnest line",
+            "An editor guide showing a connection that still needs to be routed."
+          ]
+        ],
+        "workedExample": "Highlight the resistor-to-LED net and route copper between its intended pads. Check that the ratsnest line disappears and the unrouted count drops. If copper merely appears to touch a pad, inspect the actual net assignment."
+      }
+    },
+    {
+      "id": "5.6",
+      "title": "Outline and markings",
+      "learn": "A closed board outline defines the manufactured edge. Add readable polarity and switch-state markings, then inspect the design at actual scale.",
+      "prompt": "The board outline looks closed at normal zoom, but an edge check reports a tiny gap. What should you do?",
+      "options": [
+        "Close the gap on the edge layer and rerun the check",
+        "Add a silkscreen line over the visible gap but leave the edge geometry",
+        "Enlarge the nearby copper fill so it overlaps both edge segments"
+      ],
+      "correct": 0,
+      "why": "Fabrication uses the actual edge geometry. A tiny gap can make the manufacturing outline invalid.",
+      "evidence": "Record board dimensions and inspect the outline and markings.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Board outline",
+            "The closed shape on the edge layer that tells the fabricator where to cut the PCB."
+          ],
+          [
+            "Polarity mark",
+            "A readable board marking that helps place a polarized part correctly."
+          ]
+        ],
+        "workedExample": "Draw a closed outline on the correct edge layer, then inspect it closely for gaps. Add LED and battery polarity labels on silkscreen where the assembled parts will not hide them. Review at actual board size."
+      }
+    },
+    {
+      "id": "5.7",
+      "title": "Run DRC",
+      "learn": "Design Rules Check tests the configured board rules and connectivity. Run schematic parity as part of the review; inspect every violation.",
+      "prompt": "DRC passes, but you later discover the project clearance rule is smaller than your chosen fabricator allows. What follows?",
+      "options": [
+        "Update the rule, rerun DRC, and repair any new violations",
+        "Keep the old DRC pass and rely on a visual inspection of the gap",
+        "Increase trace width but leave the project clearance rule unchanged"
+      ],
+      "correct": 0,
+      "why": "DRC only checks the rules entered. Correct the rule set and rerun the board check.",
+      "evidence": "Record rules/version, DRC result, parity result, and any documented exceptions.",
+      "sources": [
+        "K4"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "DRC",
+            "Design Rules Check: KiCad’s test of configured board geometry and connectivity rules."
+          ],
+          [
+            "Schematic parity",
+            "Whether the PCB’s connections still match the schematic."
+          ]
+        ],
+        "workedExample": "Choose rules for your fabricator, then run DRC and check the board against the schematic. If you change a rule or move a footprint, rerun the checks. A clean report says the configured checks passed, not that every part will fit."
+      }
+    },
+    {
+      "id": "5.8",
+      "title": "Review the board",
+      "learn": "Independently compare every net and footprint with the schematic and exact parts. Check polarity, edges, access, labels, and assembly.",
+      "prompt": "The board passes DRC, but its LED cathode mark points to the anode pad. What should the release review do?",
+      "options": [
+        "Correct the marking or footprint and regenerate outputs",
+        "Trust the schematic symbol because DRC passed, even if the board mark misleads assembly",
+        "Change only the bill of materials while leaving the board mark and pad mapping"
+      ],
+      "correct": 0,
+      "why": "A board can pass DRC and still mislead assembly. Resolve the polarity mismatch before release.",
+      "evidence": "Record the board review checklist and unresolved issues.",
+      "sources": [
+        "K4",
+        "C1"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Board review",
+            "A separate check of the PCB against its circuit, exact parts, and intended use."
+          ],
+          [
+            "Assembly mark",
+            "Printed guidance such as LED polarity or switch state used during the build."
+          ]
+        ],
+        "workedExample": "Compare each pad number and net with the schematic and datasheets. Then imagine assembling and using the board: can you see the LED, reach the switch, and read the battery polarity? Fix mismatches before generating fabrication files."
+      }
+    },
+    {
+      "id": "6.1",
+      "title": "Generate files",
+      "learn": "Export copper, mask, silkscreen, outline, and Excellon drill data from the same approved board revision. Keep outputs together.",
+      "prompt": "The Gerbers were regenerated after moving the switch, but the drill file is from yesterday. What should you do?",
+      "options": [
+        "Export only the copper again because moving a switch cannot affect holes",
+        "Regenerate drills from the approved revision and inspect the full set",
+        "Keep the old drill file if its name contains the new revision number"
+      ],
+      "correct": 1,
+      "why": "Copper and drill data must come from the same approved board revision; inspect the exported package together.",
+      "evidence": "Record board revision and the files generated.",
+      "sources": [
+        "K2",
+        "K4"
+      ],
+      "visual": "files",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Gerber",
+            "A manufacturing file describing a board layer such as copper, mask, or silkscreen."
+          ],
+          [
+            "Drill file",
+            "A separate output describing hole positions and sizes, commonly in Excellon format."
+          ]
+        ],
+        "workedExample": "From one approved board revision, export the copper, mask, silkscreen, and outline layers plus the drill file into one release folder. Record that revision so a later change cannot silently mix new copper with old holes."
+      }
+    },
+    {
+      "id": "6.2",
+      "title": "Inspect Gerbers",
+      "learn": "Open exported files in GerbView. Inspect copper, mask, outline, markings, and drill alignment independently from the PCB editor.",
+      "prompt": "GerbView shows the copper and outline, but the LED polarity mark is missing. What should you check?",
+      "options": [
+        "Whether the silkscreen layer was exported and the mark is on it",
+        "Whether the mark is visible in the PCB editor without checking the exported layer",
+        "Whether regenerating copper files alone restores the missing printed mark"
+      ],
+      "correct": 0,
+      "why": "Inspect the exported silkscreen and its alignment with the other layers; fix and regenerate missing output.",
+      "evidence": "Record a layer-by-layer and drill review, including any missing file.",
+      "sources": [
+        "K5"
+      ],
+      "visual": "files",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "GerbView",
+            "KiCad’s viewer for exported manufacturing layers."
+          ],
+          [
+            "Layer alignment",
+            "Whether copper, holes, outline, mask openings, and marks line up in the exported package."
+          ]
+        ],
+        "workedExample": "Open the exported package in GerbView, not just the PCB editor. Switch layers on and off: confirm the outline, pad openings, drill centers, and LED polarity mark are all present and aligned."
+      }
+    },
+    {
+      "id": "6.3",
+      "title": "Prepare the order",
+      "learn": "Compare the fabricator preview with your board and recheck current options, price, shipping, and exact part availability. Do not order until the release review passes.",
+      "prompt": "GerbView shows a rectangular outline, but the fabricator’s preview shows a smaller, cropped board. What should you check before paying?",
+      "options": [
+        "The uploaded outline layer, its mapping, and the intended board dimensions",
+        "The local Gerber view only, because it guarantees the vendor received the same file",
+        "The quoted shipping cost, because preview dimensions are cosmetic"
+      ],
+      "correct": 0,
+      "why": "The vendor preview represents the files and layer mapping it received. Resolve the outline and dimension mismatch before ordering.",
+      "evidence": "Record the vendor preview check and bill of materials status; keep payment outside the app.",
+      "sources": [
+        "P1",
+        "K5"
+      ],
+      "visual": "files",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Vendor preview",
+            "The fabricator’s rendering of the files you actually uploaded."
+          ],
+          [
+            "Bill of materials",
+            "A list of exact components needed to assemble the board."
+          ]
+        ],
+        "workedExample": "Compare the vendor preview with your inspected Gerbers and drill data. If a hole or layer is missing, stop and check the upload and revision. Also confirm the exact parts in the bill of materials are available before paying."
+      }
+    },
+    {
+      "id": "6.4",
+      "title": "Release the design",
+      "learn": "Freeze a matching revision of schematic, board, checks, Gerbers, drills, and bill of materials before spending money.",
+      "prompt": "The board and Gerbers match, but the bill of materials lists an older LED footprint. Is this revision ready to order?",
+      "options": [
+        "Yes, because matching Gerbers and board are enough even if the listed part does not fit",
+        "No; reconcile the exact part and footprint, then freeze a matching package",
+        "Yes, if you plan to buy a different LED after the boards arrive"
+      ],
+      "correct": 1,
+      "why": "Part choice and footprint must agree with the approved files. Resolve the mismatch before release.",
+      "evidence": "Record the release revision and each signed-off check, or mark release blocked.",
+      "sources": [
+        "K4",
+        "K5",
+        "P1"
+      ],
+      "visual": "files",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Release package",
+            "The reviewed, matching set of design files and manufacturing outputs sent to a fabricator."
+          ],
+          [
+            "Freeze a revision",
+            "Stop mixing files from different versions and record exactly what was approved."
+          ]
+        ],
+        "workedExample": "Name an approved revision and keep its schematic, PCB, ERC/DRC results, Gerbers, drills, and bill of materials together. If the LED footprint changes afterward, create a new revision and regenerate the affected outputs."
+      }
+    },
+    {
+      "id": "7.1",
+      "title": "Inspect the bare board",
+      "learn": "Compare the received board with the approved output: outline, holes, pads, mask, silkscreen, and visible defects. Keep cells away.",
+      "prompt": "The switch lead will not enter a hole on the received board. Which comparison will tell you where the mismatch arose?",
+      "options": [
+        "Compare the actual lead and hole with the approved footprint and drill output",
+        "Compare the lead and physical hole only, without checking what the design specified",
+        "Compare the 3D preview with the board, without the part drawing or drill output"
+      ],
+      "correct": 0,
+      "why": "Check the part dimensions against the footprint and exported drill data before deciding whether the board or design is wrong.",
+      "evidence": "Record what you inspected on the received board, or mark it not yet received.",
+      "sources": [
+        "K5"
+      ],
+      "visual": "bare",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Bare board",
+            "The fabricated PCB before any components are soldered onto it."
+          ],
+          [
+            "Receiving inspection",
+            "Comparing the physical board with approved files and looking for visible defects."
+          ]
+        ],
+        "workedExample": "When the boards arrive, leave the cells out. Compare the outline, holes, pads, mask openings, and printed marks with the approved output. If a required hole is absent, stop before forcing a part or applying power."
+      }
+    },
+    {
+      "id": "7.2",
+      "title": "Prepare to solder",
+      "learn": "Set up a stable iron stand, ventilation, eye protection, and a clear workspace. Practice a joint on scrap before the real board.",
+      "prompt": "The iron is hot, but its stand is missing and the workspace has loose wires across it. What is the right next step?",
+      "options": [
+        "Hold the iron while clearing the wires",
+        "Stop and set up a stable stand and clear workspace first",
+        "Begin with the easiest joint and arrange the bench later"
+      ],
+      "correct": 1,
+      "why": "A hot iron needs a stable stand and a clear work area before soldering begins.",
+      "evidence": "Record the setup and practice-joint observation, or mark equipment pending.",
+      "sources": [
+        "A1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Soldering iron",
+            "A heated tool used to make solder joints between component leads and PCB pads."
+          ],
+          [
+            "Iron stand",
+            "A stable place for the hot iron whenever it is not touching the work."
+          ]
+        ],
+        "workedExample": "Before heating the iron, clear loose wires and flammable clutter, set up the stand, eye protection, and appropriate ventilation, then practice a joint on scrap material. Follow the instructions for your iron and solder."
+      }
+    },
+    {
+      "id": "7.3",
+      "title": "Install the parts",
+      "learn": "Install and verify each exact part’s orientation before soldering. Keep cells out and follow component soldering limits.",
+      "prompt": "The LED’s short lead points toward a pad marked +, but the exact part drawing identifies that lead as the cathode. What should you do?",
+      "options": [
+        "Stop and resolve the part-to-pad polarity mismatch before soldering",
+        "Trust the printed + mark without checking whether the footprint pads are mapped correctly",
+        "Use a generic short-lead rule without checking the exact part drawing"
+      ],
+      "correct": 0,
+      "why": "A polarity conflict between the real part and board needs resolution before permanent assembly.",
+      "evidence": "Record part orientation and assembly sequence, or mark assembly pending.",
+      "sources": [
+        "A2",
+        "C1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Polarized part",
+            "A component whose orientation matters electrically, such as this LED."
+          ],
+          [
+            "Pad mark",
+            "A printed or copper label indicating how a numbered part connection should be installed."
+          ]
+        ],
+        "workedExample": "With cells out, compare the LED’s actual lead markings with its datasheet, schematic symbol, and board pads. Place the part only when anode and cathode agree across all three; then solder within the part’s limits."
+      }
+    },
+    {
+      "id": "7.4",
+      "title": "Inspect joints",
+      "learn": "A good-looking photo is a clue, not proof. Inspect for bridges, dull or disturbed joints, incomplete wetting, and damaged pads; follow with electrical checks.",
+      "prompt": "Two adjacent pads on different nets appear joined by solder. What evidence should you collect before first power?",
+      "options": [
+        "Inspect and remove the bridge, then verify the nets are separate with cells absent",
+        "Remove the bridge and power the board immediately without an unpowered recheck",
+        "Rely on the repaired joint’s appearance without checking whether the pads remain connected"
+      ],
+      "correct": 0,
+      "why": "An unintended solder bridge can short separate nets. Repair it and verify the separation unpowered.",
+      "evidence": "Record any joint concern, repair, and electrical recheck.",
+      "sources": [
+        "A2",
+        "A3"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Solder bridge",
+            "Unintended solder joining conductors that should remain separate."
+          ],
+          [
+            "Joint inspection",
+            "Looking for poor wetting, disturbed joints, bridges, or damaged pads, followed by electrical checks."
+          ]
+        ],
+        "workedExample": "If solder joins two pads on different nets, keep the board unpowered. Remove the bridge, inspect the pads again, and use an unpowered meter check to verify the unwanted connection is gone."
+      }
+    },
+    {
+      "id": "7.5",
+      "title": "Check continuity",
+      "learn": "With cells absent, verify expected connections and investigate possible supply shorts. A continuity beep means the meter found a low-resistance path, which may run through an installed part; it does not identify a solder bridge by itself. Confirm meter mode on a known connection.",
+      "prompt": "With cells removed, two pads intended to be separate give a continuity beep. What should you check before calling it a solder bridge?",
+      "options": [
+        "Trace any legitimate low-resistance path through installed parts, then inspect the pads and wiring",
+        "Treat every beep between differently named nets as proof of a solder bridge",
+        "Ignore the beep if the PCB passed DRC before assembly"
+      ],
+      "correct": 0,
+      "why": "A continuity beep reports a low-resistance path, not its cause. A component or another route may connect the probe points; inspect the circuit and the actual board before diagnosing a bridge.",
+      "evidence": "Record expected and observed connections, including supply-short check.",
+      "sources": [
+        "M1",
+        "M2",
+        "B2"
+      ],
+      "visual": "bare",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Continuity test",
+            "A meter check for a low-resistance path, performed with the board unpowered. A beep does not identify which path caused it."
+          ],
+          [
+            "Supply short",
+            "An unintended low-resistance path between the positive and negative supply contacts."
+          ]
+        ],
+        "workedExample": "Remove both cells and verify the meter’s continuity mode on a known connection. A beep between two pads means some low-resistance path exists, but an installed part or another route may be responsible. Trace the actual circuit before deciding a solder bridge is present."
+      }
+    },
+    {
+      "id": "7.6",
+      "title": "Apply first power",
+      "learn": "Only after unpowered inspection, insert cells and observe. Stop for heat, smell, smoke, or unexpected behavior. Record supply and resistor voltages rather than relying on light alone.",
+      "prompt": "The LED lights, but the resistor is warmer than expected. What should you do?",
+      "options": [
+        "Remove power and compare measured values with the resistor rating and circuit design",
+        "Leave it powered because the LED is lit",
+        "Increase the battery voltage to confirm brightness"
+      ],
+      "correct": 0,
+      "why": "Unexpected heat is a stop condition. Remove power, then investigate current, dissipation, and the actual part rating.",
+      "evidence": "Record first-power observations and readings, or mark power-up pending.",
+      "sources": [
+        "M1",
+        "B2",
+        "C1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "First-power observation",
+            "What happens immediately when power is first applied after unpowered checks."
+          ],
+          [
+            "Stop condition",
+            "A sign such as unexpected heat, smoke, or odor that means remove power and investigate."
+          ]
+        ],
+        "workedExample": "After passing unpowered checks, insert cells and observe briefly. If anything heats or smells unusual, remove them. If the LED lights normally, record supply and resistor voltages so you can compare actual current with the design."
+      }
+    },
+    {
+      "id": "8.1",
+      "title": "Start with the symptom",
+      "learn": "“LED dark” is an observation with several possible causes. List hypotheses, then choose the safest measurement that separates them.",
+      "prompt": "The LED is dark. One hypothesis is a drained battery; another is an open switch. Which observation should you collect first?",
+      "options": [
+        "Measure the holder voltage and inspect the switch state",
+        "Inspect LED polarity first, without checking either proposed supply or switch cause",
+        "Replace the battery based on the dark LED alone"
+      ],
+      "correct": 0,
+      "why": "The supply reading and switch state can narrow the cause without altering the circuit.",
+      "evidence": "Record a symptom, two hypotheses, and your next safe test.",
+      "sources": [
+        "M1",
+        "C1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Symptom",
+            "A direct observation such as “LED dark,” without assuming a cause."
+          ],
+          [
+            "Diagnostic test",
+            "A safe check chosen because possible causes predict different results."
+          ]
+        ],
+        "workedExample": "For a dark LED, list a weak supply and an open switch as two hypotheses. A supply voltage reading can test the first. If it is normal, remove cells and check whether the switch closes as intended."
+      }
+    },
+    {
+      "id": "8.2",
+      "title": "Localize the fault",
+      "learn": "Use unpowered continuity for connection questions and DC voltage for powered node questions. Decide what result each hypothesis predicts before probing.",
+      "prompt": "A trace may be broken between the switch and resistor. With cells removed, which result would support that hypothesis?",
+      "options": [
+        "No continuity between the trace’s intended endpoints",
+        "No continuity across the switch contacts, even though the suspected trace is elsewhere",
+        "Continuity between the trace endpoints but no voltage at the empty holder"
+      ],
+      "correct": 0,
+      "why": "An open trace should fail a direct unpowered continuity check across its intended endpoints.",
+      "evidence": "Record one hypothesis, predicted reading, actual or simulated reading, and conclusion.",
+      "sources": [
+        "M1",
+        "F1"
+      ],
+      "visual": "layout",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Open trace",
+            "A broken copper path that should have connected two points."
+          ],
+          [
+            "Predicted reading",
+            "The result you expect from a test if a particular hypothesis is true."
+          ]
+        ],
+        "workedExample": "If you suspect a broken trace, predict no continuity between its intended ends. Remove the cells, probe those ends, and compare the result with your prediction. For powered node questions, plan a DC voltage test instead."
+      }
+    },
+    {
+      "id": "8.3",
+      "title": "Explain unusual current",
+      "learn": "Measure voltage across the series resistor and use its actual resistance to infer current. Then compare with the design assumptions.",
+      "prompt": "A 100 Ω resistor measures 0.5 V across it. What current in milliamperes does that imply?",
+      "options": [
+        "5 mA",
+        "50 mA",
+        "0.5 mA"
+      ],
+      "correct": 0,
+      "why": "0.5 V / 100 Ω = 0.005 A = 5 mA.",
+      "evidence": "Calculate current from a reading and state one possible cause if it differs from prediction.",
+      "sources": [
+        "F1",
+        "M1"
+      ],
+      "visual": "schematic",
+      "work": "bench",
+      "numeric": {
+        "answer": 5,
+        "unit": "mA",
+        "tolerance": 0.01
+      },
+      "article": {
+        "terms": [
+          [
+            "Inferred current",
+            "Current calculated from voltage across a known resistor using I = V/R."
+          ],
+          [
+            "Actual resistance",
+            "The resistance of the installed part, which may differ from its label within tolerance."
+          ]
+        ],
+        "workedExample": "If the installed resistor is 220 Ω and its measured voltage is 1.1 V, current is about 1.1 ÷ 220 = 0.005 A, or 5 mA. Compare that with the target and the measured supply before deciding what caused a difference."
+      }
+    },
+    {
+      "id": "8.4",
+      "title": "Repair and retest",
+      "learn": "Record the fault evidence before changing hardware. Remove cells, repair safely, then repeat the same discriminating test to see whether the hypothesis was correct.",
+      "prompt": "You repaired a suspected open joint. Which result would support that diagnosis?",
+      "options": [
+        "The same unpowered continuity test now shows the intended connection",
+        "A different test shows the battery voltage is unchanged after repair",
+        "The repaired joint looks smoother, but its connection is not retested"
+      ],
+      "correct": 0,
+      "why": "Repeat the original discriminating test. A predicted change after repair supports the diagnosis.",
+      "evidence": "Record before/after readings and whether they support your diagnosis.",
+      "sources": [
+        "A3",
+        "M1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Repair evidence",
+            "Measurements made before and after a change to see whether the suspected fault was corrected."
+          ],
+          [
+            "Retest",
+            "Repeating the same relevant check after the repair."
+          ]
+        ],
+        "workedExample": "Record that a joint had no continuity between its intended endpoints. Remove cells, repair it, and repeat that same check. If it now connects, the result supports the diagnosis; a different test would be harder to compare."
+      }
+    },
+    {
+      "id": "8.5",
+      "title": "Diagnose a new fault",
+      "learn": "For an unfamiliar failure, use observations to rule hypotheses in or out. A reasoned diagnosis is useful even before a physical repair succeeds.",
+      "prompt": "A dark LED could be caused by a broken trace between the resistor and LED or by a reversed LED. With cells removed, which test isolates the trace hypothesis?",
+      "options": [
+        "Check continuity between the two intended ends of that trace",
+        "Check only continuity across the switch contacts",
+        "Measure the empty battery holder’s voltage"
+      ],
+      "correct": 0,
+      "why": "A direct unpowered continuity check across the suspected trace tests whether its intended endpoints connect. A good trace would shift attention to LED orientation or another cause.",
+      "evidence": "Describe an unfamiliar fault, your test choice, evidence, and remaining uncertainty.",
+      "sources": [
+        "M1",
+        "F1"
+      ],
+      "visual": "tested",
+      "work": "bench",
+      "article": {
+        "terms": [
+          [
+            "Discriminating test",
+            "A measurement for which competing fault hypotheses predict different outcomes."
+          ],
+          [
+            "Remaining uncertainty",
+            "What your current evidence has not yet established."
+          ]
+        ],
+        "workedExample": "If either an open switch or a reversed LED could explain a dark board, remove the cells and test the switch contacts in the ON position. An open reading supports the switch hypothesis. A closed reading directs your next inspection elsewhere."
+      }
+    },
+    {
+      "id": "9.1",
+      "title": "Choose another LED",
+      "learn": "Pick a compatible exact LED and read its electrical conditions, polarity, dimensions, and package. A different color or part may change the resistor calculation and footprint.",
+      "prompt": "A replacement LED has the same diameter but a different forward-voltage range. What must you revisit?",
+      "options": [
+        "The resistor calculation and exact package/polarity match",
+        "Only the resistor calculation if the new LED has the same body diameter",
+        "Only the footprint if the new LED has a similar advertised brightness"
+      ],
+      "correct": 0,
+      "why": "A different LED can change the electrical range even when its visible size looks similar. Verify the exact package too.",
+      "evidence": "Record the new part number, datasheet, relevant conditions, and footprint implications.",
+      "sources": [
+        "C1",
+        "K4"
+      ],
+      "visual": "files",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Part substitution",
+            "Replacing an exact component with a different model, which may change electrical and physical design."
+          ],
+          [
+            "Package",
+            "The component’s physical body and lead arrangement."
+          ]
+        ],
+        "workedExample": "Choose a specific replacement LED and read its voltage/current conditions, polarity marks, size, and lead spacing. Compare each with the original part before reusing its resistor calculation or footprint."
+      }
+    },
+    {
+      "id": "9.2",
+      "title": "Recalculate",
+      "learn": "Recalculate the series resistor and power for the new LED using supply and LED ranges. State what is predicted and what still needs a real test.",
+      "prompt": "Hypothetical revision: the supply is 3 V, the new LED is assumed to drop 1.8 V, and the target is 4 mA. What resistor value in ohms does this model suggest?",
+      "options": [
+        "300 Ω",
+        "75 Ω",
+        "1200 Ω"
+      ],
+      "correct": 0,
+      "why": "(3 V − 1.8 V) / 0.004 A = 300 Ω. The real revision still needs range and power checks using the exact parts.",
+      "evidence": "Record new calculations with units, assumptions, and a comparison to the old design.",
+      "sources": [
+        "F1",
+        "F3",
+        "C2"
+      ],
+      "visual": "schematic",
+      "work": "design",
+      "numeric": {
+        "answer": 300,
+        "unit": "Ω",
+        "tolerance": 0.5
+      },
+      "article": {
+        "terms": [
+          [
+            "Recalculation",
+            "Repeating design math with the new part’s stated conditions and a range of supply values."
+          ],
+          [
+            "Assumption",
+            "A value used for a model that still needs verification against the exact part or hardware."
+          ]
+        ],
+        "workedExample": "For a hypothetical 3 V supply, 2 V LED drop, and 5 mA target, the resistor estimate is (3 − 2) ÷ 0.005 = 200 Ω. A new LED with a different assumed drop needs a fresh estimate and a range check, not a copied value."
+      }
+    },
+    {
+      "id": "9.3",
+      "title": "Update and recheck",
+      "learn": "Update the schematic, footprint if needed, board, ERC, DRC, and fabrication outputs as one versioned revision. Keep old and new packages separate.",
+      "prompt": "The revised LED needs a new footprint. The schematic and board are updated, but the Gerbers are from the old revision. What remains?",
+      "options": [
+        "Regenerate and inspect outputs after rerunning the design checks",
+        "Rerun ERC and DRC but keep Gerbers from before the footprint change",
+        "Regenerate Gerbers but keep the drill file from before the footprint change"
+      ],
+      "correct": 0,
+      "why": "A footprint change must be carried through checks and exported manufacturing files in one matching revision.",
+      "evidence": "Record the revised file set and each rerun check, or mark CAD work pending.",
+      "sources": [
+        "K2",
+        "K4",
+        "K5"
+      ],
+      "visual": "layout",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Versioned revision",
+            "One consistent set of schematic, board, checks, and manufacturing outputs after a design change."
+          ],
+          [
+            "Regenerate outputs",
+            "Export fresh manufacturing files from the updated approved board."
+          ]
+        ],
+        "workedExample": "After changing the LED footprint, update the schematic-to-pad mapping and PCB, rerun ERC and DRC, then regenerate Gerbers and drills. Keep the previous output package separate so it cannot be uploaded by mistake."
+      }
+    },
+    {
+      "id": "9.4",
+      "title": "Defend the design",
+      "learn": "Explain what the evidence supports: exact parts, assumptions, checks, measured behavior, failure risks, and remaining uncertainty. A design review should not claim a physical board works without a test.",
+      "prompt": "A revised LED design has a source-backed resistor calculation, but its updated board files have not been checked or exported. Which claim fits the evidence?",
+      "options": [
+        "The electrical estimate is documented; the board and fabrication package remain unreviewed",
+        "The design is ready to order because the resistor calculation is complete",
+        "The revised board will have the calculated current because the datasheet was used"
+      ],
+      "correct": 0,
+      "why": "The calculation supports a predicted electrical range under stated assumptions. It does not establish that the updated layout, outputs, or physical board are correct.",
+      "evidence": "Write a short design review with evidence and unresolved questions.",
+      "sources": [
+        "K2",
+        "K4",
+        "M1"
+      ],
+      "visual": "tested",
+      "work": "design",
+      "article": {
+        "terms": [
+          [
+            "Design claim",
+            "A statement about what the design is expected or known to do."
+          ],
+          [
+            "Verified evidence",
+            "A check or measurement that directly supports a particular claim."
+          ]
+        ],
+        "workedExample": "A revised board that passes ERC and DRC has documented file checks. If it has not been built, say current and brightness remain unmeasured. A later physical measurement can support a stronger claim about the real board."
+      }
+    }
+  ],
+  "unitAssessments": [
+    [
+      {
+        "prompt": "A newly wired LED board has its switch OFF, but no short check has been done. What is the next safe step?",
+        "options": [
+          "Remove the cells and inspect polarity and unintended supply paths",
+          "Turn the switch ON briefly to see whether the LED lights",
+          "Measure continuity with the cells installed"
+        ],
+        "correct": 0,
+        "why": "A switch position alone does not replace an unpowered pre-power inspection."
+      },
+      {
+        "prompt": "You need to check whether two solder pads are accidentally connected. Which setup is appropriate?",
+        "options": [
+          "Use continuity mode with the AA cells removed",
+          "Use continuity mode with the switch OFF but cells installed",
+          "Use DC voltage mode with the cells removed"
+        ],
+        "correct": 0,
+        "why": "Continuity testing requires an unpowered circuit and the correct meter mode."
+      },
+      {
+        "prompt": "On first power the LED lights, but you notice an unusual smell. What is the next step?",
+        "options": [
+          "Keep power on to see whether the smell fades",
+          "Measure current while the board remains powered",
+          "Remove power and inspect the board before another trial"
+        ],
+        "correct": 2,
+        "why": "Unusual odor is a stop condition even when the LED lights."
+      }
+    ],
+    [
+      {
+        "prompt": "The LED is off with the only series switch open, yet the holder still reads 3 V. Which explanation fits?",
+        "options": [
+          "The open switch interrupts loop current without removing battery voltage",
+          "The LED must be reversed because the holder has voltage",
+          "The resistor must draw current through the open switch"
+        ],
+        "correct": 0,
+        "why": "An open switch interrupts current while the battery can retain terminal voltage."
+      },
+      {
+        "prompt": "A resistor has 1 V across it and carries 0.01 A. What is its resistance?",
+        "options": [
+          "0.01 Ω",
+          "10 Ω",
+          "100 Ω"
+        ],
+        "correct": 2,
+        "why": "R = V/I = 1 V / 0.01 A = 100 Ω."
+      },
+      {
+        "prompt": "A jumper accidentally connects the battery holder terminals without the resistor or LED in the path. What should you predict?",
+        "options": [
+          "A possible short with excessive current; remove cells",
+          "The same current as the intended series circuit",
+          "An open circuit because the LED is outside the path"
+        ],
+        "correct": 0,
+        "why": "A low-resistance bypass across a battery can draw excessive current."
+      }
+    ],
+    [
+      {
+        "prompt": "A substitute LED lists a typical voltage at 10 mA, while your target is 4 mA. How should you use that number?",
+        "options": [
+          "Record its test condition and check the relevant voltage range before choosing a resistor",
+          "Use the typical number as an exact drop at 4 mA",
+          "Ignore the datasheet and keep the original resistor"
+        ],
+        "correct": 0,
+        "why": "A datasheet value is tied to test conditions; a substitution calls for a new range-based check."
+      },
+      {
+        "prompt": "A two-AA pack reads 2.7 V while the LED is on. How should this affect your calculation?",
+        "options": [
+          "Use the measured loaded voltage and record the conditions",
+          "Replace it with 3.0 V because two cells are rated 1.5 V each",
+          "Assume the meter is wrong because the LED lights"
+        ],
+        "correct": 0,
+        "why": "Nominal voltage is a rating, not a guaranteed measured value under load."
+      },
+      {
+        "prompt": "An example circuit has 8 mA through a 150 Ω resistor. About how much power does that resistor dissipate?",
+        "options": [
+          "0.0096 W",
+          "0.000053 W",
+          "1.2 W"
+        ],
+        "correct": 0,
+        "why": "Convert 8 mA to 0.008 A, then calculate I²R = 0.008² × 150 = 0.0096 W. This is a model value; an exact part choice still needs a rating and range check."
+      }
+    ],
+    [
+      {
+        "prompt": "The prototype lights, but inferred current is half your estimate. What should you compare first?",
+        "options": [
+          "Measured supply and resistor voltages with the assumed values",
+          "Only the LED brightness against another color",
+          "Only the nominal battery label against the design note"
+        ],
+        "correct": 0,
+        "why": "Actual voltage readings help locate which model assumption differs from the build."
+      },
+      {
+        "prompt": "You need the LED branch current without moving the meter lead into a current jack. What can you measure?",
+        "options": [
+          "Voltage across the known series resistor, then calculate I = V/R",
+          "Voltage across the battery, then assume all of it is across the resistor",
+          "Continuity across the powered resistor"
+        ],
+        "correct": 0,
+        "why": "The measured resistor voltage and known resistance give branch current through Ohm’s law."
+      },
+      {
+        "prompt": "The LED goes dark when moved past the midpoint of a breadboard rail. Which test checks your split-rail hypothesis?",
+        "options": [
+          "Measure voltage at the battery holder again",
+          "Replace the LED before checking the rail",
+          "Remove cells and check continuity across the midpoint"
+        ],
+        "correct": 2,
+        "why": "An unpowered check across the suspected split tests the connection directly."
+      }
+    ],
+    [
+      {
+        "prompt": "ERC passes, but the selected switch closes a different pair of pins than the schematic expects. What should happen?",
+        "options": [
+          "Correct the symbol-to-part mapping and rerun checks",
+          "Accept the ERC pass as proof of switch operation",
+          "Swap the silkscreen ON and OFF labels only"
+        ],
+        "correct": 0,
+        "why": "ERC cannot verify an exact switch’s internal contact behavior against the intended use."
+      },
+      {
+        "prompt": "The LED symbol’s cathode is pin 2, but the chosen footprint connects pad 2 to the anode lead. What should happen?",
+        "options": [
+          "Keep it because ERC passed",
+          "Reverse the silkscreen text only",
+          "Correct the mapping and verify against the exact part drawing"
+        ],
+        "correct": 2,
+        "why": "Electrical symbol pins, footprint pads, and the physical part must agree."
+      },
+      {
+        "prompt": "ERC passes, but the LED cathode is wired to the positive supply in your intended loop. What should you do?",
+        "options": [
+          "Review the LED orientation against the exact part and correct the schematic",
+          "Accept the ERC pass as proof of correct LED direction",
+          "Change only the board silkscreen mark"
+        ],
+        "correct": 0,
+        "why": "ERC cannot infer intended LED polarity in every circuit."
+      }
+    ],
+    [
+      {
+        "prompt": "DRC passes, but a through-hole part blocks access to the switch. What should the board review do?",
+        "options": [
+          "Move parts to preserve access, then rerun DRC",
+          "Keep placement because DRC passed",
+          "Shorten the switch label to make room"
+        ],
+        "correct": 0,
+        "why": "DRC checks configured electrical and geometry rules, not whether a person can use the assembled switch."
+      },
+      {
+        "prompt": "A part drawing calls for a larger mounting hole than the footprint provides, though the 3D preview looks fine. What should you do?",
+        "options": [
+          "Correct the footprint hole and recheck fabrication rules",
+          "Trust the 3D preview and order the board",
+          "Rotate the part until the lead appears centered"
+        ],
+        "correct": 0,
+        "why": "A 3D preview does not establish the actual drilled hole size or fit."
+      },
+      {
+        "prompt": "One ratsnest line remains between resistor and LED pads, even though copper appears close. What should you check?",
+        "options": [
+          "Whether the silkscreen label bridges the gap",
+          "The actual copper connection and net assignment",
+          "Whether the 3D model hides the line"
+        ],
+        "correct": 1,
+        "why": "A ratsnest line indicates the editor still sees an unrouted connection."
+      }
+    ],
+    [
+      {
+        "prompt": "Your vendor upload contains current Gerbers and an older drill file. What should you do before paying?",
+        "options": [
+          "Regenerate drills from the approved board revision and inspect the package",
+          "Order because copper layers are current",
+          "Rename the old drill file to match the Gerbers"
+        ],
+        "correct": 0,
+        "why": "The manufacturing outputs must belong to the same approved revision."
+      },
+      {
+        "prompt": "The PCB editor shows an LED polarity mark, but that mark is absent from the exported silkscreen. What should you check before sharing the files?",
+        "options": [
+          "Whether the LED datasheet uses the same polarity symbol",
+          "Whether the silkscreen layer and mark were exported, then regenerate and inspect the output",
+          "Whether the copper layer still contains the LED pads"
+        ],
+        "correct": 1,
+        "why": "The recipient sees the exported layers, not the editor view. Fix the silkscreen output and inspect the regenerated package."
+      },
+      {
+        "prompt": "GerbView has copper and drills but no board outline. What should you inspect before release?",
+        "options": [
+          "Only whether the PCB editor currently shows an outline",
+          "The part datasheet instead of the output layers",
+          "The edge layer export settings, then regenerate and inspect the files"
+        ],
+        "correct": 2,
+        "why": "The fabricator receives exported files; a missing outline there must be fixed."
+      }
+    ],
+    [
+      {
+        "prompt": "The assembled LED lights, but you have not measured resistor voltage. What can you conclude?",
+        "options": [
+          "It conducts, but its current and resistor power still need checking",
+          "The current must match the design estimate",
+          "The board needs no further test because the LED lights"
+        ],
+        "correct": 0,
+        "why": "Light alone does not establish current or power; measurements are needed."
+      },
+      {
+        "prompt": "The soldered board looks good, but no supply-short check has been recorded. What should happen before inserting cells?",
+        "options": [
+          "Insert cells with the switch OFF to see whether anything heats",
+          "Rely on the earlier PCB DRC result",
+          "Check polarity and unintended supply connections unpowered"
+        ],
+        "correct": 2,
+        "why": "A physical assembly can have faults that CAD checks cannot detect."
+      },
+      {
+        "prompt": "After assembly, two pads intended to be separate beep in continuity mode with cells removed. What is the best next step?",
+        "options": [
+          "Apply power briefly to see if the LED still lights",
+          "Assume a solder bridge from the beep alone and scrape between the pads",
+          "Check for a legitimate path through installed parts, then inspect for an unwanted bridge"
+        ],
+        "correct": 2,
+        "why": "A beep indicates a low-resistance path. Trace the circuit and inspect the board to determine whether that path is expected before making a repair."
+      }
+    ],
+    [
+      {
+        "prompt": "A dark LED may result from an open switch or a reversed LED. Which next test best narrows those causes?",
+        "options": [
+          "With cells removed and switch ON, check continuity across its contacts",
+          "Measure the holder voltage again after it already read normally",
+          "Replace the LED without testing the switch"
+        ],
+        "correct": 0,
+        "why": "A direct switch check tests one hypothesis without changing the circuit."
+      },
+      {
+        "prompt": "After repairing a suspected open trace, which result supports your explanation?",
+        "options": [
+          "The same continuity test changes from open to connected",
+          "The LED looks brighter but no reading is repeated",
+          "The battery label still says 1.5 V"
+        ],
+        "correct": 0,
+        "why": "Repeating the discriminating test shows whether the predicted connection changed."
+      },
+      {
+        "prompt": "The LED is dim. A 200 Ω series resistor has 0.4 V across it. What current does that imply?",
+        "options": [
+          "0.2 mA",
+          "2 mA",
+          "20 mA"
+        ],
+        "correct": 1,
+        "why": "I = V/R = 0.4 V / 200 Ω = 0.002 A = 2 mA. Compare that reading with the design target before changing parts."
+      }
+    ],
+    [
+      {
+        "prompt": "The revised LED board passes CAD checks but has not been assembled. Which claim belongs in the review?",
+        "options": [
+          "File checks passed; physical current and brightness remain unverified",
+          "The revised board is proven to work as predicted",
+          "The LED’s typical voltage fixes its actual current"
+        ],
+        "correct": 0,
+        "why": "CAD results support a file review; physical behavior needs a built and measured board."
+      },
+      {
+        "prompt": "For a hypothetical revised LED, assume 3.2 V supply, 2.0 V across the LED, and a 6 mA target. What resistance does this model suggest?",
+        "options": [
+          "20 Ω",
+          "120 Ω",
+          "200 Ω"
+        ],
+        "correct": 2,
+        "why": "The resistor has 1.2 V across it. Divide 1.2 V by 0.006 A to get 200 Ω; real parts need a range and rating check."
+      },
+      {
+        "prompt": "The replacement LED has wider lead spacing. Your board still uses the old footprint. What is required?",
+        "options": [
+          "Keep the footprint because ERC passes",
+          "Bend the leads without checking package limits",
+          "Update the footprint and board, then rerun checks and outputs"
+        ],
+        "correct": 2,
+        "why": "A changed package affects the footprint, board layout, and manufacturing outputs."
+      }
+    ]
+  ],
+  "finalReviewItems": [
+    "Explain which component data and assumptions the design needs",
+    "Explain how to review schematic connections and ERC findings",
+    "Explain how footprints, layout, DRC, and schematic parity are checked",
+    "Explain how Gerbers and drill files are inspected before ordering",
+    "Explain assembly checks and how measurements or faults are recorded",
+    "Explain what changes when substituting a different LED",
+    "Identify remaining uncertainty and any hands-on work you attempted"
+  ],
+  "sources": {
+    "F1": {
+      "title": "OpenStax: Ohm’s law and simple circuits",
+      "url": "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits"
+    },
+    "F2": {
+      "title": "OpenStax: Series and parallel resistors",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+    },
+    "F3": {
+      "title": "OpenStax: Electric power",
+      "url": "https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy"
+    },
+    "C1": {
+      "title": "Kingbright WP7113ID datasheet",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/WP7113ID.pdf"
+    },
+    "C2": {
+      "title": "Energizer E91 AA datasheet",
+      "url": "https://data.energizer.com/pdfs/e91.pdf"
+    },
+    "B1": {
+      "title": "Adafruit: Breadboards for beginners",
+      "url": "https://learn.adafruit.com/breadboards-for-beginners/breadboards"
+    },
+    "B2": {
+      "title": "Energizer battery care",
+      "url": "https://energizer.com/about-batteries/battery-care/"
+    },
+    "K2": {
+      "title": "KiCad: Getting started",
+      "url": "https://docs.kicad.org/10.0/en/getting_started_in_kicad/getting_started_in_kicad.html"
+    },
+    "K3": {
+      "title": "KiCad: Schematic editor",
+      "url": "https://docs.kicad.org/10.0/en/eeschema/eeschema.html"
+    },
+    "K4": {
+      "title": "KiCad: PCB editor",
+      "url": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html"
+    },
+    "K5": {
+      "title": "KiCad: GerbView",
+      "url": "https://docs.kicad.org/10.0/en/gerbview/gerbview.html"
+    },
+    "M1": {
+      "title": "Adafruit: Multimeters",
+      "url": "https://learn.adafruit.com/multimeters?view=all"
+    },
+    "M2": {
+      "title": "Fluke: Continuity testing",
+      "url": "https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-test-for-continuity"
+    },
+    "A1": {
+      "title": "Adafruit: Soldering tools and safety",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering"
+    },
+    "A2": {
+      "title": "Adafruit: Making a good solder joint",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/making-a-good-solder-joint"
+    },
+    "A3": {
+      "title": "Adafruit: Common soldering problems",
+      "url": "https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems"
+    },
+    "P1": {
+      "title": "JLCPCB: Fabrication capabilities",
+      "url": "https://jlcpcb.com/capabilities/Capab"
+    }
+  }
+}
