@@ -1,4 +1,8 @@
 // Presentation only: keep circuit IDs, saved answers and case identities intact.
+import type { ArtifactKind } from './taskTypes'
+
+export const artifactLabelText=(kind:ArtifactKind)=>['circuit','board','package'].includes(kind)?'BT1 S1 R1 D1 VCC SW LED_A GND net Revision A':kind==='footprint'?'D1 GND':kind==='junction'?'S1 R1 VCC GND SW':kind==='switch'?'S1':''
+
 const names: Record<string, string> = {
   BT1: 'battery holder', S1: 'switch', R1: 'resistor', D1: 'LED',
   VCC: 'supply positive', GND: 'battery return', SW: 'connection after the switch', LED_A: 'connection to the LED anode',
@@ -24,7 +28,7 @@ export function learningText(text: string): string {
     const suffix = rawSuffix.trim()
     const detail = suffix.startsWith('.') ? ` pin ${suffix.slice(1)}` : suffix === '+' ? ' positive contact' : ['−', '-'].includes(suffix) ? ' negative contact' : suffix ? ` ${suffix}` : ''
     return `${names[ref]}${detail} (${token})`
-  })).join('')
+  }).replace(/\b\d+\.\d{7,}\b/g, value => String(Number(Number(value).toPrecision(6))))).join('')
 }
 
 export const labelTerms: [string, string][] = [
@@ -32,7 +36,7 @@ export const labelTerms: [string, string][] = [
   ['S1', 'Switch. S1.2 means pin 2 of that switch; the number after the dot identifies a pin.'],
   ['R1', 'Resistor. R1.2 means pin 2 of that resistor.'],
   ['D1', 'LED. D1.1 means pin 1 of that LED. These are drawing labels, not part numbers.'],
-  ['VCC', 'The name of the connection from battery positive to the switch in this project.'],
+  ['VCC', 'Supply positive: the name of the connection from battery positive to the switch in this project.'],
   ['SW', 'The name of the connection from the switch output to the resistor.'],
   ['LED_A', 'The name of the connection from the resistor to the LED anode.'],
   ['GND', 'The battery-negative return connection in this project. It does not mean a connection to mains earth.'],
@@ -50,6 +54,8 @@ export const labelTerms: [string, string][] = [
   ['I / V / R / P', 'In the formulas here: I is current, V is voltage, R is resistance, and P is power.'],
   ['Units', 'A = amperes; mA = milliamperes; V = volts; mV = millivolts; Ω = ohms; kΩ = kilohms; W = watts; mW = milliwatts; mm = millimetres; °C = degrees Celsius.'],
   ['KiCad layers', 'F.Cu / B.Cu = front / back copper; F.Mask / B.Mask = front / back solder mask; F.Silkscreen = front assembly printing; Edge.Cuts = board outline.'],
+  ['PCB', 'Printed circuit board: a board with copper pads and tracks that hold and connect electronic components.'],
+  ['CAD', 'Computer-aided design: using software to create design drawings and files. This course uses KiCad for the schematic and PCB.'],
 ]
 
 export function relevantLabelTerms(text: string) {

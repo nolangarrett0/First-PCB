@@ -17,7 +17,8 @@
     "test:ui": "node --experimental-strip-types scripts/test-learning-ui.mjs",
     "test:desktop": "node --experimental-strip-types scripts/test-learning-desktop.mjs",
     "test:language": "node --experimental-strip-types scripts/test-learning-language.mjs",
-    "test:recovery": "node --experimental-strip-types scripts/test-learning-recovery.mjs"
+    "test:recovery": "node --experimental-strip-types scripts/test-learning-recovery.mjs",
+    "test:polish": "node --experimental-strip-types scripts/test-learning-polish.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

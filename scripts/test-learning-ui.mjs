@@ -19,7 +19,7 @@ async function fill(task,wrong=false){
   for(let i=0;i<count;i++){
     const part=task.parts[i],field=fields.nth(i),bad=wrong&&i===0
     if(part.kind==='choice'){const id=bad?part.options.find(o=>o.id!==part.expected).id:part.expected;await field.locator(`input[value="${id}"]`).check()}
-    else if(part.kind==='number'){const value=String(bad?Number(part.expected)+999:part.expected);if(await field.locator('input').inputValue()!==value)await field.locator('input').fill(value);if(await field.locator('select').inputValue()!==part.baseUnit)await field.locator('select').selectOption(part.baseUnit)}
+    else if(part.kind==='number'){const value=String(bad?Number(part.expected)+999:part.expected);if(await field.locator('input').inputValue()!==value)await field.locator('input').fill(value);if(await field.locator('select').count()&&await field.locator('select').inputValue()!==part.baseUnit)await field.locator('select').selectOption(part.baseUnit)}
     else if(part.kind==='nodes'){const expected=bad?[part.options.find(o=>!part.expected.includes(o.id)).id]:part.expected;for(const option of part.options){const input=field.getByLabel(learningText(option.label),{exact:true});if(await input.isChecked()!==expected.includes(option.id))await input.setChecked(expected.includes(option.id))}}
     else if(!bad){for(let j=0;j<part.expected.length;j++){const label=learningText(part.options.find(o=>o.id===part.expected[j]).label);let current=(await field.locator('.sort-copy strong').allTextContents()).indexOf(label);while(current>j){await field.getByRole('button',{name:`Move ${label} up`,exact:true}).click();current--}}}
   }

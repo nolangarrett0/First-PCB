@@ -54,6 +54,8 @@ In the tables, **evidence** describes the full hands-on version of an activity. 
 
 ### Opening chapter — Electronics from zero
 
+First establish the LED circuit, then its symbols and series connections. Capacitors, transistors and chips follow as recognition topics for other boards. Lesson IDs remain stable even when the teaching order changes.
+
 No prior electrical engineering or CAD study is assumed. Learn the parts and language before the project asks you to inspect pin mappings or make design calculations. All lessons run in the app and use diagrams, immediate corrections, and changed practice cases. Transistors, capacitors, and chips build recognition for later boards; this LED project still uses a manual switch.
 
 | ID | Learner outcome | Practice and feedback | Evidence | Sources |
@@ -62,11 +64,11 @@ No prior electrical engineering or CAD study is assumed. Learn the parts and lan
 | E.2 | Distinguish voltage across points from current through a path. | Identify quantities by units and convert mA to A. | Quantity and unit decisions | E2, F1, M1 |
 | E.3 | Explain a resistor and calculate simple current. | Use resistor voltage divided by resistance; predict doubling resistance. | Current and change prediction | E3, F1 |
 | E.4 | Recognize a diode, LED, anode, and cathode. | Identify reversed orientation or missing current limiting. | Polarity and cathode-symbol decisions | E4, C1 |
+| E.8 | Read the project’s symbols, labels, and terminal shorthand. | Interpret a dotted pin label and battery-return name. | Reference and connection decisions | E8, K3, K6 |
+| E.9 | Distinguish series and parallel paths. | Apply equal series current and identify an open or resistor bypass. | Changed current and connection decisions | F2, F3, B2 |
 | E.5 | Explain capacitor storage, capacitance, polarity, and voltage rating. | Compare hypothetical polarity and voltage specifications. | Specification decision and charge-retention recall | E5, F4 |
 | E.6 | Recognize transistor control and terminal names. | Distinguish NPN base from MOSFET gate and select an exact pinout source. | Device-family and pinout decisions | E6, T1 |
 | E.7 | Explain ICs and read a supplied pin/function table. | Find the input pin and check the hypothetical supply range. | Pin and voltage-range decisions | E7 |
-| E.8 | Read the project’s symbols, labels, and terminal shorthand. | Interpret a dotted pin label and battery-return name. | Reference and connection decisions | E8, K3, K6 |
-| E.9 | Distinguish series and parallel paths. | Apply equal series current and identify an open or resistor bypass. | Changed current and connection decisions | F2, F3, B2 |
 
 **Chapter check:** a changed resistor calculation, transistor-family recognition, and series-path decision. Existing project checks retain their saved IDs; this new check is `unit-basics`.
 

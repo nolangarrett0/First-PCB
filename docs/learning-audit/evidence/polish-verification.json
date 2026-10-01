@@ -1,0 +1,88 @@
+{
+  "reviewed": "2026-09-30",
+  "checks": {
+    "lint": "passed",
+    "course_contracts": "65 lessons, 11 unit checks, 6 final tasks passed",
+    "learning_data": "12 tests passed",
+    "production_build": "passed"
+  },
+  "course": {
+    "scenarios": [
+      "wrong submission and exact case survive reload; exit dialog preserves focus",
+      "unsafe/incorrect diagnostic setup cannot reveal observation",
+      "final requires six graded tasks; physical records may all remain pending",
+      "all notes readable without retaking; actual wrong and corrected decisions retained",
+      "backup round trip and duplicate imports preserve XP and history",
+      "retrieval review works and never duplicates participation awards",
+      "searchable reference, 33 sourced entries, keyboard trap and Escape",
+      "diagram, comparison, photograph, diagnosis and final screens fit 320/390/1280px",
+      "storage failure stays visible and current answers are exportable"
+    ],
+    "success": true,
+    "errors": [],
+    "finishedAt": "2026-10-01T03:19:47.179Z",
+    "activities": 77
+  },
+  "language": {
+    "scenarios": [
+      "65 lesson readings explain their labels",
+      "0.4 uses plain inspection instructions and table labels",
+      "Practice checkboxes name the parts and show an inline key",
+      "390px layout fits",
+      "Glossary includes circuit, meter, datasheet and layer shorthand"
+    ],
+    "success": true,
+    "finishedAt": "2026-10-01T03:21:49.596Z",
+    "lessons": 65
+  },
+  "recovery": {
+    "scenarios": [
+      "mid-check question, case, partially typed value/unit and prior events survive reload",
+      "enlarged diagram remains contained on a 390px screen",
+      "all seven untouched final statuses save and display as pending",
+      "photograph exposure ignores cosmetic order while the record preserves its actual Photo B label",
+      "unreadable original text is downloadable and archived before new-format saving",
+      "an old fresh success produces a visible due review and an actionable changed case",
+      "session-only work keeps an unload guard after returning to the path"
+    ],
+    "success": true,
+    "finishedAt": "2026-10-01T03:21:56.459Z"
+  },
+  "desktop": {
+    "scenarios": [
+      "33 source links handed to allowed external hosts; no embedded browser navigation",
+      "licensed photographs load under production app protocol and CSP",
+      "beginner wording, table labels and inline label key render in production Electron",
+      "native close Keep learning retains the actual renderer and wrong submission",
+      "production JSON download preserves legacy notes, 730 XP and current attempt",
+      "actual desktop reload resumes the saved wrong case and feedback",
+      "native close Leave app permits unload and exits Electron"
+    ],
+    "success": true,
+    "finishedAt": "2026-10-01T03:19:21.631Z"
+  },
+  "polish": {
+    "scenarios": [
+      "320px start/resume action opens the saved activity directly",
+      "requested terminals are visible and diagram clicks save the named endpoints",
+      "chip pin numbers have a number field without a misleading quantity unit",
+      "invalid numbers get guidance; failed checking focuses feedback and requires a changed answer",
+      "practice help opens a solved different case and records support",
+      "diagram points match checkbox choices; switch contacts support keyboard selection",
+      "repeated-test diagram selections fill the new answer without changing the submitted setup",
+      "glossary explains PCB and an empty search; dialog restores background scrolling",
+      "all diagram families, five variants and layer comparisons fit without clipped or overlapping labels at 320/1280px"
+    ],
+    "diagrams": 430,
+    "errors": [],
+    "success": true,
+    "finishedAt": "2026-10-01T03:18:40.565Z"
+  },
+  "lesson_diagram_scan": {
+    "lessons": 65,
+    "errors": [],
+    "clipped_labels": 0,
+    "overlapping_labels": 0
+  },
+  "recordedAt": "2026-10-01T03:23:20.892083+00:00"
+}
