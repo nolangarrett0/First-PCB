@@ -2,7 +2,7 @@
 
 An interactive course about how to design, fabricate, assemble, test, and debug a first PCB. Learners can complete it with the guided examples; making a physical board is optional.
 
-The opening chapter teaches circuits, voltage/current, resistors, LEDs, capacitors, transistors, chips, and drawing labels before the PCB project.
+The opening chapter teaches circuits, voltage/current, resistors, LEDs, drawing labels, and series/parallel connections before introducing capacitors, transistors, and chips.
 
 Symbols and the complete LED path now precede the introductions to other component families. The [polish review](docs/polish-review.md) records the navigation, teaching, diagram and interaction improvements and their checks.
 
@@ -39,7 +39,7 @@ For isolated browser tests, install Chromium once with `npx playwright install c
 - Record first attempts and corrections; revisit ideas in later unit checks.
 - Explain schematic and PCB review, fabrication files, assembly, and physical testing; support optional hands-on work.
 
-The current curriculum implements the [learning-audit improvements](docs/learning-audit/implementation.md). Version 0.3.0 is a public beta with the recorded software checks. A [beginner pilot](docs/learning-audit/beginner-pilot.md) is still needed before claiming proven learning outcomes, and the KiCad procedures need an observed beginner walkthrough. An exact purchasing/manufacturing recipe requires selected parts, real CAD/output checks, and a measured reference build; the present SVG models do not supply that validation. See the [curriculum plan](docs/curriculum-plan.md), [research](docs/research.md), [learning design](docs/learning-design.md), and [engagement policy](docs/engagement-and-visuals.md).
+The current curriculum implements the [learning-audit improvements](docs/learning-audit/implementation.md). Version 0.3.1 is a public beta with the recorded software checks. A [beginner pilot](docs/learning-audit/beginner-pilot.md) is still needed before claiming proven learning outcomes, and the KiCad procedures need an observed beginner walkthrough. An exact purchasing/manufacturing recipe requires selected parts, real CAD/output checks, and a measured reference build; the present SVG models do not supply that validation. See the [curriculum plan](docs/curriculum-plan.md), [research](docs/research.md), [learning design](docs/learning-design.md), and [engagement policy](docs/engagement-and-visuals.md).
 
 ## Project guidance
 
